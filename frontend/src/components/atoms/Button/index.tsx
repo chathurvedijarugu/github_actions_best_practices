@@ -16,9 +16,12 @@ const CustomizedButton = styled(MuiButton)(() => ({
 }));
 
 const Button: React.FC<ButtonProps> = (props) => {
+  const { children } = props;
   return (
     <>
-      <CustomizedButton disableRipple {...props}></CustomizedButton>
+      <CustomizedButton disableRipple {...props}>
+        {children}
+      </CustomizedButton>
     </>
   );
 };

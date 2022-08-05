@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "./index";
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from "@mui/material";
+import theme from "../../../theme";
 export default {
   title: "atoms/Button",
   component: Button,
@@ -14,8 +15,8 @@ const boxStyle = {
 };
 
 const buttonText = {
-  fontWeight: 600,
-  fontSize: "16px",
+  fontWeight: theme.typography.body1.fontWeight,
+  fontSize: theme.typography.body1.fontSize,
   lineHeight: "18px",
   borderRadius: "4px",
   width: "222px",
@@ -23,8 +24,8 @@ const buttonText = {
 };
 const previewButtonText = {
   color: "#FC5C5C",
-  fontWeight: 600,
-  fontSize: "16px",
+  fontWeight: theme.typography.body1.fontWeight,
+  fontSize: theme.typography.body1.fontSize,
   lineHeight: "18px",
   borderRadius: "4px",
   width: "222px",
@@ -37,8 +38,8 @@ const styles = {
   color: "#6B4DE0",
   width: "10.937rem",
   height: "2.5rem",
-  fontSize: "16px",
-  fontWeight: 400,
+  fontSize: theme.typography.body.fontSize,
+  fontWeight: theme.typography.body1.fontWeight,
   size: "1rem",
   lineHeight: "1.5rem",
   padding: "0.5rem",
