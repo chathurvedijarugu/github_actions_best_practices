@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "./index";
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from "@mui/material";
-import theme from "../../../theme";
 export default {
   title: "atoms/Button",
   component: Button,
