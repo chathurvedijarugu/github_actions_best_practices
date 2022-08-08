@@ -82,7 +82,7 @@ let theme = createTheme({
   spacing: 4,
   palette: {
     primary: {
-      "50": "#F2F5FF",
+      "50": "#9E62B2",
       "100": "#C6CEF7",
       "300": "#9191F2",
       "500": "#6B4DE0",
@@ -188,25 +188,18 @@ let theme = createTheme({
       fontWeight: "600",
       textTransform: "none",
     },
-    caption: {
-      fontFamily: "Inter",
-      fontSize: "12px",
-      lineHeight: "16px",
-      fontWeight: "400",
-      textTransform: "none",
-    },
     caption1: {
       fontFamily: "Inter",
       fontSize: "14px",
       lineHeight: "20px",
-      fontWeight: "500",
+      fontWeight: "700",
       textTransform: "none",
     },
     caption2: {
       fontFamily: "Inter",
       fontSize: "14px",
       lineHeight: "20px",
-      fontWeight: "400",
+      fontWeight: "500",
       textTransform: "none",
     },
     button: {
