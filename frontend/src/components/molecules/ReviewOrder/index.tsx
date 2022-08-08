@@ -5,6 +5,8 @@ import React from "react";
 import theme from "../../../theme";
 import Altos from "../../../assets/icons/altos.svg";
 import Calender from "../../../assets/icons/calendar.svg";
+import PatientInfo from "../PatientInfo/index";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import {
   LAB_NAME,
   PRICE,
@@ -13,6 +15,12 @@ import {
   FINAL_PRICE,
   DISCOUNT_PRICE,
   LABEL_DISCOUNT,
+  SLOT_SELECTED,
+  CHANGE,
+  DATE,
+  TIME,
+  HEADING_ADDRESS,
+  ADDRESS,
 } from "../../utils/Constant";
 const ReviewOrder: React.FC = () => {
   const useStyles = makeStyles({
@@ -93,6 +101,9 @@ const ReviewOrder: React.FC = () => {
       fontWeight: "500",
       color: theme.palette.gammaHigh.main,
     },
+    dateTime: {
+      paddingTop: "16px",
+    },
   });
   const classes = useStyles();
   return (
@@ -146,18 +157,27 @@ const ReviewOrder: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
-
+      <Grid item xs={12}>
+        <PatientInfo
+          age={30}
+          gender="M"
+          patientName="Patrick Smith"
+          relation="Self"
+          testCost={3000}
+          testName="COVID RT-PCR Test"
+        />
+      </Grid>
       <Grid item container className={classes.labDetailsContainer}>
         <Grid item container className={classes.mainHeading}>
           <Grid item xs={6} container className={classes.mainHeading}>
             <img src={Calender} alt="calender" />
             <Typography variant="overline" className={classes.heading}>
-              Time Slot Selected
+              {SLOT_SELECTED}
             </Typography>
           </Grid>
           <Grid item container xs={6} justifyContent="flex-end">
             <Typography variant="overline" className={classes.change}>
-              Change
+              {CHANGE}
             </Typography>
           </Grid>
           <Divider variant="fullWidth" style={{ width: "100%" }} />
@@ -165,18 +185,16 @@ const ReviewOrder: React.FC = () => {
         <Grid
           item
           container
-          style={{
-            paddingTop: "16px",
-            justifyContent: "space-between",
-          }}
+          justifyContent="space-between"
+          className={classes.dateTime}
           xs={6}
         >
-          <Grid item className={classes.slot}>
-            <Typography variant="overline">Tue, Feb 23, 2022</Typography>
+          <Grid item>
+            <Typography variant="overline">{DATE}</Typography>
           </Grid>
           <Divider variant="fullWidth" orientation="vertical" />
           <Grid item>
-            <Typography variant="overline">07.00 - 08.00 AM</Typography>
+            <Typography variant="overline">{TIME}</Typography>
           </Grid>
         </Grid>
       </Grid>
@@ -184,14 +202,14 @@ const ReviewOrder: React.FC = () => {
       <Grid item container className={classes.labDetailsContainer}>
         <Grid item container className={classes.mainHeading}>
           <Grid item xs={6} container className={classes.mainHeading}>
-            <img src={Calender} alt="calender" />
+            <HomeOutlinedIcon sx={{ color: theme.palette.grey[300] }} />
             <Typography variant="overline" className={classes.heading}>
-              Address Selected (Home)
+              {HEADING_ADDRESS}
             </Typography>
           </Grid>
           <Grid item container xs={6} justifyContent="flex-end">
             <Typography variant="overline" className={classes.change}>
-              Change
+              {CHANGE}
             </Typography>
           </Grid>
           <Divider variant="fullWidth" style={{ width: "100%" }} />
@@ -207,7 +225,7 @@ const ReviewOrder: React.FC = () => {
         >
           <Grid item className={classes.slot}>
             <Typography variant="overline" className={classes.slot}>
-              2235 California Street Mountain View California APT#021 - 11023
+              {ADDRESS}
             </Typography>
           </Grid>
         </Grid>
