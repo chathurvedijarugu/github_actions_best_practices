@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Avatar from ".";
 import React from "react";
-
 import UserImage from "../../../assets/icons/avatarImage.svg";
 export default {
   title: "Atoms/Avatar",
@@ -14,6 +13,3 @@ export const avatar = Template.bind({});
 avatar.args = {
   src: UserImage,
 };
-
-
-
