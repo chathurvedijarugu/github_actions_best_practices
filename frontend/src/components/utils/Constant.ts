@@ -171,6 +171,10 @@ export const weekDaysFunc = () => {
   }
   return weekDays
 }
+export const HOME_LABEL = 'Home'
+export const REPORTS_LABEL = 'Reports'
+export const MY_APPOINTMENT_LABEL = 'My Appointment'
+export const NAVBAR_ADDRESS = 'Mountain view, CA, USA'
 
 export const BANNER_HEADLINE = '60% off on your first order'
 export const BANNER_CAPTION = 'Your health is our priority'
