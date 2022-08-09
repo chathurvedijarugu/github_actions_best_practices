@@ -1,12 +1,12 @@
-import { Box, Grid, Typography } from "@mui/material";
-import Divider from "@mui/material/Divider";
-import { makeStyles } from "@mui/styles";
-import React from "react";
-import theme from "../../../theme";
-import Altos from "../../../assets/icons/altos.svg";
-import Calender from "../../../assets/icons/calendar.svg";
-import PatientInfo from "../PatientInfo/index";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { Box, Grid, Typography } from '@mui/material'
+import Divider from '@mui/material/Divider'
+import { makeStyles } from '@mui/styles'
+import React from 'react'
+import theme from '../../../theme'
+import Altos from '../../../assets/icons/altos.svg'
+import Calender from '../../../assets/icons/calendar.svg'
+import PatientInfo from '../PatientInfo/index'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import {
   LAB_NAME,
   PRICE,
@@ -21,53 +21,53 @@ import {
   TIME,
   HEADING_ADDRESS,
   ADDRESS,
-} from "../../utils/Constant";
+} from '../../utils/Constant'
 const ReviewOrder: React.FC = () => {
   const useStyles = makeStyles({
     root: {
-      height: "100%",
-      width: "100%",
+      height: '100%',
+      width: '100%',
     },
     labDetailsContainer: {
-      height: "100%",
-      width: "100%",
+      height: '100%',
+      width: '100%',
       border: `1px solid ${theme.palette.grey[100]}`,
-      borderRadius: "8px",
-      padding: "16px",
+      borderRadius: '8px',
+      padding: '16px',
     },
     labDetailsCon: {
-      height: "100%",
-      width: "100%",
+      height: '100%',
+      width: '100%',
       border: `1px solid ${theme.palette.grey[100]}`,
-      borderRadius: "8px",
-      paddingTop: "6px",
-      paddingBottom: "6px",
-      paddingLeft: "6px",
-      paddingRight: "19.33px",
+      borderRadius: '8px',
+      paddingTop: '6px',
+      paddingBottom: '6px',
+      paddingLeft: '6px',
+      paddingRight: '19.33px',
     },
     labLogo: {
-      borderRadius: "50%",
-      height: "45px",
-      width: "45px",
-      alignItems: "center",
-      justifyContent: "center",
-      display: "flex",
+      borderRadius: '50%',
+      height: '45px',
+      width: '45px',
+      alignItems: 'center',
+      justifyContent: 'center',
+      display: 'flex',
       border: `1px solid ${theme.palette.grey[100]}`,
     },
     labName: {
-      paddingLeft: "14.56px",
+      paddingLeft: '14.56px',
       color: theme.palette.gammaHigh.main,
     },
     labDetails: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
     },
     priceContainer: {
-      boxShadow: "0px 0px 12px rgba(233, 232, 237, 0.53)",
-      borderRadius: "12px",
-      paddingLeft: "19.33px",
-      paddingRight: "19.33px",
+      boxShadow: '0px 0px 12px rgba(233, 232, 237, 0.53)',
+      borderRadius: '12px',
+      paddingLeft: '19.33px',
+      paddingRight: '19.33px',
     },
     label: {
       color: theme.palette.gammaMedium.main,
@@ -76,36 +76,36 @@ const ReviewOrder: React.FC = () => {
       color: theme.palette.green.main,
     },
     finalPrice: {
-      fontWeight: "700",
-      fontSize: "14px",
-      lineHeight: "20px",
+      fontWeight: '700',
+      fontSize: '14px',
+      lineHeight: '20px',
       color: theme.palette.gammaHigh.main,
     },
     heading: {
-      paddingLeft: "14.56px",
-      fontWeight: "500",
+      paddingLeft: '14.56px',
+      fontWeight: '500',
       color: theme.palette.gammaLow.main,
     },
     mainHeading: {
-      alignItems: "center",
-      display: "flex",
-      paddingRight: "0.5%",
+      alignItems: 'center',
+      display: 'flex',
+      paddingRight: '0.5%',
     },
     change: {
-      fontWeight: "500",
-      fontSize: "12px",
-      lineHeight: "18px",
-      color: "#6B4DE0",
+      fontWeight: '500',
+      fontSize: '12px',
+      lineHeight: '18px',
+      color: '#6B4DE0',
     },
     slot: {
-      fontWeight: "500",
+      fontWeight: '500',
       color: theme.palette.gammaHigh.main,
     },
     dateTime: {
-      paddingTop: "16px",
+      paddingTop: '16px',
     },
-  });
-  const classes = useStyles();
+  })
+  const classes = useStyles()
   return (
     <Grid container rowGap={4} className={classes.root}>
       <Grid item className={classes.labDetailsCon}>
@@ -180,7 +180,7 @@ const ReviewOrder: React.FC = () => {
               {CHANGE}
             </Typography>
           </Grid>
-          <Divider variant="fullWidth" style={{ width: "100%" }} />
+          <Divider variant="fullWidth" style={{ width: '100%' }} />
         </Grid>
         <Grid
           item
@@ -212,14 +212,14 @@ const ReviewOrder: React.FC = () => {
               {CHANGE}
             </Typography>
           </Grid>
-          <Divider variant="fullWidth" style={{ width: "100%" }} />
+          <Divider variant="fullWidth" style={{ width: '100%' }} />
         </Grid>
         <Grid
           item
           container
           style={{
-            paddingTop: "16px",
-            justifyContent: "space-between",
+            paddingTop: '16px',
+            justifyContent: 'space-between',
           }}
           xs={6}
         >
@@ -231,7 +231,7 @@ const ReviewOrder: React.FC = () => {
         </Grid>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default ReviewOrder;
+export default ReviewOrder
