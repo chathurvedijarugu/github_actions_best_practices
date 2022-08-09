@@ -143,7 +143,7 @@ let theme = createTheme({
       fontFamily: "Inter",
       fontSize: "24px",
       lineHeight: "28px",
-      fontWeight: "700",
+      fontWeight: 700,
       textTransform: "none",
     },
     h2: {
@@ -171,7 +171,7 @@ let theme = createTheme({
       fontFamily: "Inter",
       fontSize: "16px",
       lineHeight: "20px",
-      fontWeight: "600",
+      fontWeight: 400,
       textTransform: "none",
     },
     body1: {
@@ -222,7 +222,7 @@ let theme = createTheme({
       lineHeight: "18px",
       fontWeight: "400",
       textTransform: "none",
-    },
+    }
   },
 });
 
