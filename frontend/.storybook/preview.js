@@ -1,9 +1,7 @@
-import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
-import { ThemeProvider } from "emotion-theming";
-import theme from "../src/theme/index";
 import "./storybook.css";
-
-
+import { ThemeProvider } from "@mui/material";
+import { StyledEngineProvider } from "@mui/styled-engine";
+import theme from "../src/theme/index";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -12,14 +10,14 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
 
 export const decorators = [
   (Story) => (
-    <MUIThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <Story />
-        </ThemeProvider>
-    </MUIThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <Story />
+      </ThemeProvider>
+    </StyledEngineProvider>
   ),
 ];
