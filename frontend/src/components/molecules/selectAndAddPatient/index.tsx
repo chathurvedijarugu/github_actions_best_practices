@@ -1,4 +1,4 @@
-import { Checkbox, Grid, Typography } from "@mui/material";
+import { Checkbox, Grid } from "@mui/material";
 import React from "react";
 import PatientCard, { PatientDetails } from "../PatientCard";
 
@@ -19,7 +19,7 @@ const SelectAndAddPatient = ({
         <Grid item xs key={index}>
           <Grid container direction="row">
             <Grid item>
-              <Checkbox
+              <Checkbox data-testid="Patient Checkbox"
                 onChange={() => {
                   onCheckBoxClick(index);
                 }}

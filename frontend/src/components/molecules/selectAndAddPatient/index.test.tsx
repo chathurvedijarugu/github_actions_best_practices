@@ -7,11 +7,11 @@ describe("Select & Add patient", () => {
     const element = render(
       <SelectAndAddPatient
         onEditClick={() => {}}
-        onCheckBoxClick={() => {}}
+        onCheckBoxClick={(x) => {console.log(x)}}
         patientDetails={patientDetails}
       />
     );
-    expect(element).toBeTruthy()
-    fireEvent.click(screen.getAllByText("Edit")[0],{button:0})
+    expect(element).toBeTruthy();
+    fireEvent.click(screen.getAllByText("Edit")[0], { button: 0 });
   });
 });
