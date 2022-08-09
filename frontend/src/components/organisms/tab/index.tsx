@@ -40,14 +40,7 @@ function a11yProps(index: number) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-function getTextWidth(text: string) {
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-  context.font = getComputedStyle(document.body).font;
- console.log(context.measureText(text).width)
-  return context.measureText(text).width;
-}
 export default function BasicTabs(props: TabProps) {
   const [value, setValue] = React.useState(0);
 
@@ -57,7 +50,7 @@ export default function BasicTabs(props: TabProps) {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Box >
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -67,7 +60,7 @@ export default function BasicTabs(props: TabProps) {
           TabIndicatorProps={{
             sx: {
               height: 2,
-              flex:"none",
+              flex: "none",
               order: 1,
               flexGrow: 0,
               alignSelf: "normal",
@@ -78,7 +71,6 @@ export default function BasicTabs(props: TabProps) {
           {props.tabNames.map((name: string, index: number) => (
             <Tab
               label={<Typography variant="caption1">{name}</Typography>}
-              style={ { minWidth: `${getTextWidth(name)}px`}}
               key={index}
               {...a11yProps(index)}
               data-testid="tab"
