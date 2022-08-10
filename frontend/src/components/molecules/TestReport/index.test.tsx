@@ -1,7 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
 import TestReport from '.'
-import { LAB_NAME, TEST_REPORT_DATE, TEST_REPORT_TEST_NAME, TEST_REPORT_TIME } from '../../utils/Constant'
+import {
+  LAB_NAME,
+  TEST_REPORT_DATE,
+  TEST_REPORT_TEST_NAME,
+  TEST_REPORT_TIME,
+} from '../../utils/Constant'
 describe('Test Report Test', () => {
   it('Truthy test', () => {
     const element = render(
