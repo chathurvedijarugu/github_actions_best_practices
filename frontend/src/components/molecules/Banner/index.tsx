@@ -1,21 +1,24 @@
 import { Grid, Typography } from '@mui/material'
 import React from 'react'
-import theme, { PrimaryColors } from '../../../theme'
+import theme from '../../../theme'
 import FamilySVG from '../../../assets/illustrations/family.svg'
 import Button from '../../atoms/Button'
 type BannerProps = {
   onClick?: () => void
+  headline: React.ReactNode
+  caption: React.ReactNode
+  buttonText: React.ReactNode
 }
-const Banner = ({ onClick }: BannerProps) => {
+const Banner = ({ onClick, buttonText, caption, headline }: BannerProps) => {
   return (
     <Grid
       container
-      padding={8}
       justifyContent={'space-between'}
-      bgcolor={PrimaryColors['800']}
+      bgcolor={theme.palette.primary['800']}
       borderRadius={4}
+      display="flex"
     >
-      <Grid item margin={1}>
+      <Grid item margin={1} padding={8}>
         <Grid
           container
           justifyContent="space-between"
@@ -24,14 +27,14 @@ const Banner = ({ onClick }: BannerProps) => {
         >
           <Grid item>
             <Typography color={theme.palette.gammaWhite.main} variant="h1">
-              60% off on your first order
+              {headline}
             </Typography>
             <Typography
               variant="caption2"
               color={theme.palette.gammaWhite.main}
               marginY={2}
             >
-              Your health is our priority
+              {caption}
             </Typography>
           </Grid>
           <Grid item>
@@ -39,16 +42,16 @@ const Banner = ({ onClick }: BannerProps) => {
               variant="contained"
               onClick={onClick ?? (() => {})}
               sx={{
-                color: theme.palette.primary.main,
+                color: theme.palette.primary['800'],
                 backgroundColor: 'white',
               }}
             >
-              <Typography>Book Now</Typography>
+              <Typography>{buttonText}</Typography>
             </Button>
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item marginRight={20} marginY={1.5} justifySelf="center">
         <img src={FamilySVG} />
       </Grid>
     </Grid>

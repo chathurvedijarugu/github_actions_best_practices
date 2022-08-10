@@ -15,3 +15,6 @@ export const TIME = "07.00 - 08.00 AM";
 export const HEADING_ADDRESS = "Address Selected (Home)";
 export const ADDRESS =
   "2235 California Street Mountain View California APT#021 - 11023";
+export const BANNER_HEADLINE="60% off on your first order"
+export const BANNER_CAPTION="Your health is our priority"
+export const BANNER_BUTTON_TEXT="Book Now"
