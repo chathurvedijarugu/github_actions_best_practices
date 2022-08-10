@@ -7,7 +7,7 @@ export type FaqCardProps = {
 };
 const stylings = {
   box: {
-    width: "74.125rem",
+    width: "90%",
     height: "4rem",
     display: "flex",
     justifyContent: "space-between",
