@@ -34,6 +34,3 @@ export const TIME = '07.00 - 08.00 AM'
 export const HEADING_ADDRESS = 'Address Selected (Home)'
 export const ADDRESS =
   '2235 California Street Mountain View California APT#021 - 11023'
-export const TEST_REPORT_DATE = '02 Feb 2022'
-export const TEST_REPORT_TIME = '08.30 AM'
-export const TEST_REPORT_TEST_NAME = 'COVID RT-PCR Test'

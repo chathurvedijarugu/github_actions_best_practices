@@ -28,10 +28,9 @@ const TestReport = ({
   return (
     <Grid
       padding={2}
-      sx={{ border: `1px solid ${theme.palette.grey['50']}` }}
+      border= {`1px solid ${theme.palette.grey['50']}`}
       container
       width="100%"
-      display="flex"
     >
       <Grid item margin={3}>
         <img src={!isCompleted ? PDF : PDFActive} />
@@ -42,7 +41,7 @@ const TestReport = ({
             <Typography variant="caption1">{labName}</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="caption2" fontWeight={'400'}>
+            <Typography variant="caption">
               {testName}
             </Typography>
           </Grid>
@@ -51,8 +50,7 @@ const TestReport = ({
               <Typography
                 display="flex"
                 alignItems="center"
-                fontWeight={400}
-                variant="caption2"
+                variant="caption"
                 color={theme.palette.red500.main}
               >
                 <AccessTime sx={{ fontSize: '14px', marginX: 1 }} />

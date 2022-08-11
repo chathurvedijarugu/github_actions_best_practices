@@ -82,7 +82,7 @@ let theme = createTheme({
   spacing: 4,
   palette: {
     primary: {
-      '50': '#9E62B2',
+      '50': '#F2F5FF',
       '100': '#C6CEF7',
       '300': '#9191F2',
       '500': '#6B4DE0',
