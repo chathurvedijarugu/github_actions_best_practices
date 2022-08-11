@@ -1,3 +1,8 @@
+import payPal from "../../assets/icons/PayPal.svg";
+import googlePay from "../../assets/icons/GooglePay.svg";
+import netBanking from "../../assets/icons/NetBanking.svg";
+
+
 export const PATIENT_DETAILS = 'Patient Details (1)'
 export const NUMBER_OF_TESTS = '1 Test'
 export const REPORTS_BY = 'E-Reports by 12hrs'
@@ -34,3 +39,26 @@ export const TIME = '07.00 - 08.00 AM'
 export const HEADING_ADDRESS = 'Address Selected (Home)'
 export const ADDRESS =
   '2235 California Street Mountain View California APT#021 - 11023'
+
+export const BANNER_HEADLINE = '60% off on your first order'
+export const BANNER_CAPTION = 'Your health is our priority'
+export const BANNER_BUTTON_TEXT = 'Book Now'
+export const paymentOptions = [
+  {
+    "icon": payPal,
+    "name": "PayPal",
+    "selected": false,
+  },
+
+  {
+    "icon": googlePay,
+    "name": "Google Pay",
+    "selected": true,
+  },
+
+  {
+    "icon": netBanking,
+    "name": "Net Banking",
+    "selected": false,
+  }
+]
