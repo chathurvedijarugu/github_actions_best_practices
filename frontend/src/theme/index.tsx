@@ -1,80 +1,80 @@
-import { createTheme, PaletteColorOptions, PaletteColor } from "@mui/material";
-declare module "@mui/material/styles" {
+import { createTheme, PaletteColorOptions, PaletteColor } from '@mui/material'
+declare module '@mui/material/styles' {
   interface PaletteOptions {
-    gammaHigh: PaletteColorOptions;
-    gammaMedium: PaletteColorOptions;
-    gammaLow: PaletteColorOptions;
-    gammaButtonText: PaletteColorOptions;
-    gammaWhite: PaletteColorOptions;
-    green: PaletteColorOptions;
-    red200: PaletteColorOptions;
-    red500: PaletteColorOptions;
+    gammaHigh: PaletteColorOptions
+    gammaMedium: PaletteColorOptions
+    gammaLow: PaletteColorOptions
+    gammaButtonText: PaletteColorOptions
+    gammaWhite: PaletteColorOptions
+    green: PaletteColorOptions
+    red200: PaletteColorOptions
+    red500: PaletteColorOptions
   }
 
   interface Palette {
-    gammaHigh: PaletteColor;
-    gammaMedium: PaletteColor;
-    gammaLow: PaletteColor;
-    gammaButtonText: PaletteColor;
-    gammaWhite: PaletteColor;
-    green: PaletteColor;
-    red200: PaletteColor;
-    red500: PaletteColor;
+    gammaHigh: PaletteColor
+    gammaMedium: PaletteColor
+    gammaLow: PaletteColor
+    gammaButtonText: PaletteColor
+    gammaWhite: PaletteColor
+    green: PaletteColor
+    red200: PaletteColor
+    red500: PaletteColor
   }
 
   interface TypographyVariants {
-    body: React.CSSProperties;
-    caption1: React.CSSProperties;
-    caption2: React.CSSProperties;
-    title: React.CSSProperties;
-    gammaRegular: React.CSSProperties;
+    body: React.CSSProperties
+    caption1: React.CSSProperties
+    caption2: React.CSSProperties
+    title: React.CSSProperties
+    gammaRegular: React.CSSProperties
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
-    body?: React.CSSProperties;
-    caption1?: React.CSSProperties;
-    caption2?: React.CSSProperties;
-    title?: React.CSSProperties;
-    gammaRegular?: React.CSSProperties;
+    body?: React.CSSProperties
+    caption1?: React.CSSProperties
+    caption2?: React.CSSProperties
+    title?: React.CSSProperties
+    gammaRegular?: React.CSSProperties
   }
 }
 
-declare module "@mui/material/Typography" {
+declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
-    body: true;
-    caption1: true;
-    caption2: true;
-    title: true;
-    gammaRegular: true;
+    body: true
+    caption1: true
+    caption2: true
+    title: true
+    gammaRegular: true
   }
 }
 
-declare module "@mui/material/Chip" {
+declare module '@mui/material/Chip' {
   interface ChipPropsSizeOverrides {
-    large: true;
-    extraLarge: true;
+    large: true
+    extraLarge: true
   }
 
   interface ChipClasses {
-    sizeLarge: true;
-    sizeExtraLarge: true;
+    sizeLarge: true
+    sizeExtraLarge: true
   }
 }
 
-declare module "@mui/material/Button" {
+declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
-    gammaHigh: true;
-    gammaMedium: true;
-    gammaLow: true;
-    gammaButtonText: true;
-    gammaWhite: true;
-    red500: true;
-    green: true;
-    red200: true;
+    gammaHigh: true
+    gammaMedium: true
+    gammaLow: true
+    gammaButtonText: true
+    gammaWhite: true
+    red500: true
+    green: true
+    red200: true
   }
   interface ButtonClasses {
-    textText1: string;
+    textText1: string
   }
 }
 
@@ -82,147 +82,154 @@ let theme = createTheme({
   spacing: 4,
   palette: {
     primary: {
-      "50": "#9E62B2",
-      "100": "#C6CEF7",
-      "300": "#9191F2",
-      "500": "#6B4DE0",
-      "800": "#4D1C8C",
-      main: "#6B4DE0",
+      '50': '#9E62B2',
+      '100': '#C6CEF7',
+      '300': '#9191F2',
+      '500': '#6B4DE0',
+      '800': '#4D1C8C',
+      main: '#6B4DE0',
     },
     secondary: {
-      A100: "#EBDAF2",
-      "500": "#C898D9",
-      "800": "#9E62B2",
-      "50": "#F9F5FA",
-      A400: "#9E62B2",
+      A100: '#EBDAF2',
+      '500': '#C898D9',
+      '800': '#9E62B2',
+      '50': '#F9F5FA',
+      A400: '#9E62B2',
     },
     grey: {
-      "50": "#F8F8FA",
-      "100": "#E9E8ED",
-      "200": "#D4D2D9",
-      "300": "#9F9DA6",
-      "500": "#6D6C73",
-      "700": "#3C3B40",
+      '50': '#F8F8FA',
+      '100': '#E9E8ED',
+      '200': '#D4D2D9',
+      '300': '#9F9DA6',
+      '500': '#6D6C73',
+      '700': '#3C3B40',
     },
     gammaHigh: {
-      main: "#2D2A38",
+      main: '#2D2A38',
     },
     gammaMedium: {
-      main: "#5A5766",
+      main: '#5A5766',
     },
     gammaLow: {
-      main: "#757380",
+      main: '#757380',
     },
     gammaButtonText: {
-      main: "#FAFAFC",
+      main: '#FAFAFC',
     },
     gammaWhite: {
-      main: "#FFFFFF",
+      main: '#FFFFFF',
     },
     red200: {
-      main: "#FC5C5C",
+      main: '#FC5C5C',
     },
     red500: {
-      main: "#DA4D4D",
+      main: '#DA4D4D',
     },
     green: {
-      main: "#4D8066",
+      main: '#4D8066',
     },
   },
 
   typography: {
-    fontFamily: ["Inter", "sans-serif"].join(","),
+    fontFamily: ['Inter', 'sans-serif'].join(','),
     title: {
-      fontFamily: "Inter",
-      fontSize: "48px",
-      lineHeight: "52px",
-      fontWeight: "500",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '48px',
+      lineHeight: '52px',
+      fontWeight: '500',
+      textTransform: 'none',
     },
     h1: {
-      fontFamily: "Inter",
-      fontSize: "24px",
-      lineHeight: "28px",
+      fontFamily: 'Inter',
+      fontSize: '24px',
+      lineHeight: '28px',
       fontWeight: 700,
-      textTransform: "none",
+      textTransform: 'none',
     },
     h2: {
-      fontFamily: "Inter",
-      fontSize: "24px",
-      lineHeight: "38px",
-      fontWeight: "400",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '24px',
+      lineHeight: '38px',
+      fontWeight: '400',
+      textTransform: 'none',
     },
     subtitle1: {
-      fontFamily: "Inter",
-      fontSize: "20px",
-      lineHeight: "24px",
-      fontWeight: "600",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '20px',
+      lineHeight: '24px',
+      fontWeight: '600',
+      textTransform: 'none',
     },
     subtitle2: {
-      fontFamily: "Inter",
-      fontSize: "20px",
-      lineHeight: "24px",
-      fontWeight: "800",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '20px',
+      lineHeight: '24px',
+      fontWeight: '800',
+      textTransform: 'none',
     },
     body: {
-      fontFamily: "Inter",
-      fontSize: "16px",
-      lineHeight: "20px",
+      fontFamily: 'Inter',
+      fontSize: '16px',
+      lineHeight: '20px',
       fontWeight: 400,
-      textTransform: "none",
+      textTransform: 'none',
     },
     body1: {
-      fontFamily: "Inter",
-      fontSize: "18px",
-      lineHeight: "24px",
-      fontWeight: "600",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '18px',
+      lineHeight: '24px',
+      fontWeight: '600',
+      textTransform: 'none',
     },
     body2: {
-      fontFamily: "Inter",
-      fontSize: "14px",
-      lineHeight: "18px",
-      fontWeight: "600",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '18px',
+      fontWeight: '600',
+      textTransform: 'none',
+    },
+    caption: {
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: '400',
+      textTransform: 'none',
     },
     caption1: {
-      fontFamily: "Inter",
-      fontSize: "14px",
-      lineHeight: "20px",
-      fontWeight: "700",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: '700',
+      textTransform: 'none',
     },
     caption2: {
-      fontFamily: "Inter",
-      fontSize: "14px",
-      lineHeight: "20px",
-      fontWeight: "500",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: '500',
+      textTransform: 'none',
     },
     button: {
-      fontFamily: "Inter",
-      fontSize: "18px",
-      lineHeight: "20px",
-      fontWeight: "700",
-      textTransform: "none",
+      fontFamily: 'Inter',
+      fontSize: '18px',
+      lineHeight: '20px',
+      fontWeight: '700',
+      textTransform: 'none',
     },
     overline: {
-      fontFamily: "Inter",
-      fontSize: "12px",
-      lineHeight: "18px",
-      fontWeight: "400",
-      textTransform: "none",
-    }
+      fontFamily: 'Inter',
+      fontSize: '12px',
+      lineHeight: '18px',
+      fontWeight: '400',
+      textTransform: 'none',
+    },
   },
-});
+})
 
-const shadows = theme.shadows;
-shadows[1] = "0px 0px 26px rgba(233, 232, 237, 0.5)";
-shadows[2] = "0px -4px 6px rgba(0, 0, 0, 0.06)";
-shadows[3] = "0px 0px 12px rgba(233, 232, 237, 0.53)";
+const shadows = theme.shadows
+shadows[1] = '0px 0px 26px rgba(233, 232, 237, 0.5)'
+shadows[2] = '0px -4px 6px rgba(0, 0, 0, 0.06)'
+shadows[3] = '0px 0px 12px rgba(233, 232, 237, 0.53)'
 
-theme = createTheme({ ...theme, shadows });
-export default theme;
+theme = createTheme({ ...theme, shadows })
+export default theme
