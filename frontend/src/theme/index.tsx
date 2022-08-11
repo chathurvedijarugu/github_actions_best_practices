@@ -1,14 +1,4 @@
-import {
-  createTheme,
-  PaletteColorOptions,
-  PaletteColor,
-  Color,
-} from '@mui/material'
-type ColorPartial = Partial<Color>
-declare module '@mui/material/styles/createPalette' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface PaletteColor extends ColorPartial {}
-}
+import { createTheme, PaletteColorOptions, PaletteColor } from '@mui/material'
 declare module '@mui/material/styles' {
   interface PaletteOptions {
     gammaHigh: PaletteColorOptions
@@ -92,11 +82,12 @@ let theme = createTheme({
   spacing: 4,
   palette: {
     primary: {
-      '50': '#F2F5FF',
+      '50': '#9E62B2',
       '100': '#C6CEF7',
       '300': '#9191F2',
       '500': '#6B4DE0',
       '800': '#4D1C8C',
+      main: '#6B4DE0',
     },
     secondary: {
       A100: '#EBDAF2',
@@ -195,6 +186,13 @@ let theme = createTheme({
       fontSize: '14px',
       lineHeight: '18px',
       fontWeight: '600',
+      textTransform: 'none',
+    },
+    caption: {
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: '400',
       textTransform: 'none',
     },
     caption1: {
