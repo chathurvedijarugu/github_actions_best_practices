@@ -12,7 +12,7 @@ const stylings = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor:theme.palette.gammaWhite.main,
     padding: '1.25rem',
   },
   color: `${theme.palette.gammaMedium.main}`,
@@ -22,7 +22,7 @@ const TestDetailMolecule = () => {
     <Grid container direction="column" rowGap="2rem">
       <Grid item sx={stylings.box}>
         <Typography variant="h1">Tests You Can Choose From</Typography>
-        <Typography variant="caption2" color="#6B4DE0">
+        <Typography variant="caption2" color={theme.palette.primary["500"]}>
           {'See more>>'}
         </Typography>
       </Grid>

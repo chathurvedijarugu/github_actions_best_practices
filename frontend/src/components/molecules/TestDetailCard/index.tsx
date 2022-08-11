@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
-import bodyTest from '../../../assets/illustrations/bodyTest.svg'
+import theme from '../../../theme';
 const stylings = {
   box: {
     width:"23.875rem",
@@ -15,23 +15,23 @@ const stylings = {
     alignItems: 'flex-start',
   },
   text1:{
-    fontWeight:600,
-    color:"#2D2A38"
+    fontWeight:theme.typography.subtitle1.fontWeight,
+    color:theme.palette.gammaHigh.main
   },
   text2:{
-    color:"#5A5766",
+    color:theme.palette.gammaMedium.main,
     paddingTop:"0.5rem"
   },
   text3:{
-    color:"#757380",
+    color:theme.palette.gammaLow.main,
     paddingTop:"0.5rem"
 
   },
   text5:{
     paddingTop:"3.063rem",
     textDecoration: 'underline',
-    fontWeight:600,
-    color:"#757380",
+    fontWeight:theme.typography.subtitle1.fontWeight,
+    color:theme.palette.gammaLow.main,
 
   }
 }
@@ -45,7 +45,7 @@ const TestDetailCard:React.FC<Props> = (props) => {
     <Box sx={stylings.box}>
       <Grid container columnGap="0.875rem" padding="0.75rem">
         <Grid item>
-          <img src={iconIllustation} alt="familyImage" />
+          <img src={iconIllustation} alt={text} />
         </Grid>
         <Grid item>
           <Box sx={stylings.innerBox}>
