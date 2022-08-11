@@ -62,3 +62,17 @@ export const paymentOptions = [
     "selected": false,
   }
 ]
+  export const FooterMenu = [
+    {
+      title: 'Home'
+    },
+    {
+      title: 'Contact us'
+    },
+    {
+      title: 'Privacy Policy'
+    },
+    {
+      title: 'Terms and Conditions'
+    }
+  ]
