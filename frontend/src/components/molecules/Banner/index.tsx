@@ -1,14 +1,18 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid, styled, Typography } from '@mui/material'
 import React from 'react'
 import theme from '../../../theme'
 import FamilySVG from '../../../assets/illustrations/family.svg'
-import Button from '../../atoms/Button'
+import CustomButton from '../../atoms/Button'
 type BannerProps = {
   onClick?: () => void
   headline: React.ReactNode
   caption: React.ReactNode
   buttonText: React.ReactNode
 }
+const Button = styled(CustomButton)({
+  color: theme.palette.primary['800'],
+  backgroundColor: 'white',
+})
 const Banner = ({ onClick, buttonText, caption, headline }: BannerProps) => {
   return (
     <Grid
@@ -16,7 +20,7 @@ const Banner = ({ onClick, buttonText, caption, headline }: BannerProps) => {
       justifyContent={'space-between'}
       bgcolor={theme.palette.primary['800']}
       borderRadius={4}
-      display="flex"
+      // display="flex"
     >
       <Grid item margin={1} padding={8}>
         <Grid
@@ -38,14 +42,7 @@ const Banner = ({ onClick, buttonText, caption, headline }: BannerProps) => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button
-              variant="contained"
-              onClick={onClick ?? (() => {})}
-              sx={{
-                color: theme.palette.primary['800'],
-                backgroundColor: 'white',
-              }}
-            >
+            <Button variant="contained" onClick={onClick ?? (() => {})}>
               <Typography>{buttonText}</Typography>
             </Button>
           </Grid>
