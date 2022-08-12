@@ -6,7 +6,8 @@ import {
   Typography,
 } from '@mui/material'
 import React from 'react'
-
+import PDF from '../../../assets/icons/PDF.svg'
+import PDFActive from '../../../assets/icons/PDFActive.svg'
 import theme from '../../../theme'
 import Download from '../../../assets/icons/download.svg'
 type TestReportProps = {
@@ -16,7 +17,6 @@ type TestReportProps = {
   date?: string
   time?: string
   onDownload?: () => void
-  icon: string
 }
 const Divider = styled(CustomDivider)({
   color: 'grey',
@@ -31,7 +31,6 @@ const TestReport = ({
   isCompleted,
   labName,
   testName,
-  icon,
   date,
   time,
   onDownload,
@@ -44,7 +43,7 @@ const TestReport = ({
       width="100%"
     >
       <Grid item margin={3}>
-        <img src={icon} />
+        <img src={isCompleted ? PDFActive : PDF} />
       </Grid>
       <Grid item xs marginX={5}>
         <Grid container spacing={1} direction="column">

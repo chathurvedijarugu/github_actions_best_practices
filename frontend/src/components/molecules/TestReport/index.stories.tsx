@@ -1,8 +1,6 @@
 import { Box } from '@mui/material'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
-import PDF from '../../../assets/icons/PDF.svg'
-import PDFActive from '../../../assets/icons/PDFActive.svg'
 import TestReport from '.'
 export default {
   title: 'molecules/TestReport',
@@ -19,7 +17,6 @@ Primary.args = {
   labName: 'Los Altos Center Lab',
   testName: 'COVID RT-PCR Test',
   isCompleted: false,
-  icon:PDF
 }
 export const Secondary = Template.bind({})
 Secondary.args = {
@@ -28,5 +25,4 @@ Secondary.args = {
   isCompleted: true,
   date: '02 Feb 2022',
   time: '08.30 AM',
-  icon:PDFActive
 }
