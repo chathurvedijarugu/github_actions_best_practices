@@ -1,6 +1,6 @@
-import payPal from "../../assets/icons/PayPal.svg";
-import googlePay from "../../assets/icons/GooglePay.svg";
-import netBanking from "../../assets/icons/NetBanking.svg";
+import payPal from '../../assets/icons/PayPal.svg'
+import googlePay from '../../assets/icons/GooglePay.svg'
+import netBanking from '../../assets/icons/NetBanking.svg'
 
 import labIcon1 from '../../assets/icons/labIcon.svg'
 import labIcon2 from '../../assets/icons/labIcon2.svg'
@@ -208,7 +208,11 @@ export const FooterMenu = [
     title: 'Terms and Conditions',
   },
 ]
-export const labList=["1600+ Tests","At Home Services","Certified Professionals"]
+export const labList = [
+  '1600+ Tests',
+  'At Home Services',
+  'Certified Professionals',
+]
 export const labList1 = [
   {
     icon: labIcon1,
@@ -224,7 +228,6 @@ export const labList1 = [
   },
 ]
 export const labList2 = [
-
   {
     icon: labIcon4,
     text: 'CLIA Certfied Labs',
@@ -238,3 +241,4 @@ export const labList2 = [
     text: 'Safe and Hygenic',
   },
 ]
+export const OTP = 'OTP'
