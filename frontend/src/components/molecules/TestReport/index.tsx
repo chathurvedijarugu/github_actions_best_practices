@@ -1,5 +1,10 @@
 import { AccessTime } from '@mui/icons-material'
-import { Divider, Grid, styled, Typography } from '@mui/material'
+import {
+  Divider as CustomDivider,
+  Grid,
+  styled,
+  Typography,
+} from '@mui/material'
 import React from 'react'
 
 import theme from '../../../theme'
@@ -10,9 +15,14 @@ type TestReportProps = {
   labName: string
   date?: string
   time?: string
-  onDownload?: () => void,
-  icon:string
+  onDownload?: () => void
+  icon: string
 }
+const Divider = styled(CustomDivider)({
+  color: 'grey',
+  marginLeft: '0.25rem',
+  marginRight: '0.25rem',
+})
 const CustomTypography = styled(Typography)({
   color: theme.palette.gammaLow.main,
   ...theme.typography.overline,
@@ -29,7 +39,7 @@ const TestReport = ({
   return (
     <Grid
       padding={2}
-      border= {`1px solid ${theme.palette.grey['50']}`}
+      border={`1px solid ${theme.palette.grey['50']}`}
       container
       width="100%"
     >
@@ -42,9 +52,7 @@ const TestReport = ({
             <Typography variant="caption1">{labName}</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="caption">
-              {testName}
-            </Typography>
+            <Typography variant="caption">{testName}</Typography>
           </Grid>
           <Grid item display="inline-flex">
             {!isCompleted ? (
@@ -60,12 +68,7 @@ const TestReport = ({
             ) : (
               <>
                 <CustomTypography>{date}</CustomTypography>
-                <Divider
-                  sx={{ color: 'grey', marginX: 1 }}
-                  orientation="vertical"
-                  variant="middle"
-                  flexItem
-                />
+                <Divider orientation="vertical" variant="middle" flexItem />
                 <CustomTypography>{time}</CustomTypography>
               </>
             )}
