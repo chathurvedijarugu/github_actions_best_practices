@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "chromatic": "npx chromatic --project-token=e9d0be4ea3e2"
+    "chromatic": "npx chromatic --project-token=e9d0be4ea3e2 --auto-accept-changes"
   },
   "author": "",
   "license": "ISC",
@@ -72,6 +72,7 @@
     "jest-transform-stub": "^2.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
     "react-otp-input": "^2.4.0",
     "styled-components": "^5.3.5",
     "ts-jest": "^27.1.4",
