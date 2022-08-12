@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "chromatic": "npx chromatic --project-token=e9d0be4ea3e2"
+    "chromatic": "npx chromatic --project-token=e9d0be4ea3e2 --auto-accept-changes"
   },
   "author": "",
   "license": "ISC",
