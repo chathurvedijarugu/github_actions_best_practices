@@ -212,6 +212,9 @@ export const FooterMenu = [
     title: 'Terms and Conditions',
   },
 ]
+export const TEST_REPORT_DATE = '02 Feb 2022'
+export const TEST_REPORT_TIME = '08.30 AM'
+export const TEST_REPORT_TEST_NAME = 'COVID RT-PCR Test'
 export const labList = [
   '1600+ Tests',
   'At Home Services',
