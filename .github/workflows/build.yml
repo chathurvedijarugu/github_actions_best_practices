@@ -18,11 +18,11 @@ jobs:
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: Install Packages
-        run: cd frontend && npm install
+        run: npm install
       - name: Build Story Book
-        run: cd frontend && npm run build-storybook
+        run: npm run build-storybook
       - name: Deploy  StoryBook
-        run: cd frontend && npm run chromatic
+        run: npm run chromatic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   sonarcloud:
