@@ -46,7 +46,7 @@ const TestDetailCard: React.FC<Props> = (props) => {
   return (
     <Box sx={stylings.box}>
       <Grid container sx={stylings.container}>
-        <Grid item>
+        <Grid item data-testid="illustrationImage">
           <img src={iconIllustation} alt={text} />
         </Grid>
         <Grid item>
