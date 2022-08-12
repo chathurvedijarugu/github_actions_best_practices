@@ -1,8 +1,7 @@
 import { AccessTime } from '@mui/icons-material'
 import { Divider, Grid, styled, Typography } from '@mui/material'
 import React from 'react'
-import PDF from '../../../assets/icons/PDF.svg'
-import PDFActive from '../../../assets/icons/PDFActive.svg'
+
 import theme from '../../../theme'
 import Download from '../../../assets/icons/download.svg'
 type TestReportProps = {
@@ -11,7 +10,8 @@ type TestReportProps = {
   labName: string
   date?: string
   time?: string
-  onDownload?: () => void
+  onDownload?: () => void,
+  icon:string
 }
 const CustomTypography = styled(Typography)({
   color: theme.palette.gammaLow.main,
@@ -21,6 +21,7 @@ const TestReport = ({
   isCompleted,
   labName,
   testName,
+  icon,
   date,
   time,
   onDownload,
@@ -33,7 +34,7 @@ const TestReport = ({
       width="100%"
     >
       <Grid item margin={3}>
-        <img src={!isCompleted ? PDF : PDFActive} />
+        <img src={icon} />
       </Grid>
       <Grid item xs marginX={5}>
         <Grid container spacing={1} direction="column">

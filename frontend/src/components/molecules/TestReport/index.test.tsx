@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import React from 'react'
 import TestReport from '.'
+import PDF from '../../../assets/icons/PDF.svg'
+import PDFActive from '../../../assets/icons/PDFActive.svg'
 import {
   LAB_NAME,
   TEST_REPORT_DATE,
@@ -11,6 +13,7 @@ describe('Test Report Test', () => {
   it('Truthy test', () => {
     const element = render(
       <TestReport
+        icon={PDF}
         labName={LAB_NAME}
         testName={TEST_REPORT_TEST_NAME}
         isCompleted={false}
@@ -21,6 +24,7 @@ describe('Test Report Test', () => {
   it('Test Report available to download', () => {
     const element = render(
       <TestReport
+        icon={PDFActive}
         labName={LAB_NAME}
         testName={TEST_REPORT_TEST_NAME}
         isCompleted={true}
