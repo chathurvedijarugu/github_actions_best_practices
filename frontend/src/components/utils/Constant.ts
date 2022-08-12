@@ -1,6 +1,13 @@
-import payPal from '../../assets/icons/PayPal.svg'
-import googlePay from '../../assets/icons/GooglePay.svg'
-import netBanking from '../../assets/icons/NetBanking.svg'
+import payPal from "../../assets/icons/PayPal.svg";
+import googlePay from "../../assets/icons/GooglePay.svg";
+import netBanking from "../../assets/icons/NetBanking.svg";
+
+import labIcon1 from '../../assets/icons/labIcon.svg'
+import labIcon2 from '../../assets/icons/labIcon2.svg'
+import labIcon3 from '../../assets/icons/labIcon3.png'
+import labIcon4 from '../../assets/icons/labIcon4.png'
+import labIcon5 from '../../assets/icons/labIcon5.png'
+import labIcon6 from '../../assets/icons/labIcon6.png'
 
 export const PATIENT_DETAILS = 'Patient Details (1)'
 export const NUMBER_OF_TESTS = '1 Test'
@@ -199,5 +206,35 @@ export const FooterMenu = [
   },
   {
     title: 'Terms and Conditions',
+  },
+]
+export const labList=["1600+ Tests","At Home Services","Certified Professionals"]
+export const labList1 = [
+  {
+    icon: labIcon1,
+    text: '1600+ Tests',
+  },
+  {
+    icon: labIcon2,
+    text: 'At Home Services',
+  },
+  {
+    icon: labIcon3,
+    text: 'Certified Professionals',
+  },
+]
+export const labList2 = [
+
+  {
+    icon: labIcon4,
+    text: 'CLIA Certfied Labs',
+  },
+  {
+    icon: labIcon5,
+    text: 'Reports in 24-48 Hours',
+  },
+  {
+    icon: labIcon6,
+    text: 'Safe and Hygenic',
   },
 ]
