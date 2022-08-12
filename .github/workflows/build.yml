@@ -22,7 +22,7 @@ jobs:
       - name: Build Story Book
         run: npm run build-storybook
       - name: Deploy  StoryBook
-        run: npm run chromatic --auto-accept-changes
+        run: npm run chromatic --auto-accept-changes master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   sonarcloud:
