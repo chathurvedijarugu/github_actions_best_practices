@@ -1,10 +1,12 @@
 import React from 'react'
 import Timeline from '@mui/lab/Timeline'
-import CustomTimelineItem from '@mui/lab/TimelineItem'
+import TimelineItem from '@mui/lab/TimelineItem'
 import TimelineSeparator from '@mui/lab/TimelineSeparator'
-import TimelineConnector from '@mui/lab/TimelineConnector'
+import CustomTimelineConnector, {
+  TimelineConnectorProps,
+} from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
-import TimelineDot from '@mui/lab/TimelineDot'
+import CustomTimelineDot, { TimelineDotProps } from '@mui/lab/TimelineDot'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 import Typography from '@mui/material/Typography'
 import { Box, styled } from '@mui/material'
@@ -13,11 +15,31 @@ type TrackingStepperProps = {
   data: { icon: string; heading: React.ReactNode; caption: React.ReactNode }[]
   currentIndex: number
 }
-const TimelineItem = styled(CustomTimelineItem)({
-  // "&. MuiTimelineItem::before":{
-  //   display:"none"
-  // }
-})
+interface TimeConnectorProps extends TimelineConnectorProps {
+  display: string
+  backgroundColor?: string
+}
+interface TimeDotProps extends TimelineDotProps {
+  backgroundColor?: string
+}
+const TimelineDot = styled(CustomTimelineDot)<TimeDotProps>(
+  ({ backgroundColor, theme }) => ({
+    display: 'flex',
+    backgroundColor,
+    justifyContent: 'center',
+    width: '2rem',
+    height: '2rem',
+    margin: 0,
+  })
+)
+const TimelineConnector = styled(CustomTimelineConnector)<TimeConnectorProps>(
+  ({ display, backgroundColor }) => ({
+    height: '3rem',
+    width: '1px',
+    display,
+    backgroundColor,
+  })
+)
 export default function TrackingStepper({
   data,
   currentIndex,
@@ -32,37 +54,29 @@ export default function TrackingStepper({
           return (
             <TimelineItem>
               <TimelineOppositeContent
-                sx={{ display: 'none', flex: 0 }}
+                display={'none'}
+                flex={0}
               ></TimelineOppositeContent>
 
               <TimelineSeparator>
                 <TimelineDot
+                  backgroundColor={
+                    index < currentIndex
+                      ? theme.palette.secondary['800']
+                      : 'transparent'
+                  }
                   variant={index < currentIndex ? 'filled' : 'outlined'}
                   color={index <= currentIndex ? 'primary' : 'grey'}
-                  sx={{
-                    display: 'flex',
-                    backgroundColor:
-                      index < currentIndex
-                        ? theme.palette.secondary['800']
-                        : 'transparent',
-                    justifyContent: 'center',
-                    width: '2rem',
-                    height: '2rem',
-                    m: 0,
-                  }}
                 >
                   <img src={value.icon} />
                 </TimelineDot>
                 <TimelineConnector
-                  sx={{
-                    backgroundColor:
-                      index < currentIndex
-                        ? theme.palette.primary.main
-                        : theme.palette.grey['300'],
-                    display: index == data.length - 1 ? 'none' : '',
-                    height: '3rem',
-                    width: '1px',
-                  }}
+                  backgroundColor={
+                    index < currentIndex
+                      ? theme.palette.primary.main
+                      : theme.palette.grey['300']
+                  }
+                  display={index == data.length - 1 ? 'none' : ''}
                 />
               </TimelineSeparator>
               <TimelineContent>
@@ -89,23 +103,6 @@ export default function TrackingStepper({
             </TimelineItem>
           )
         })}
-        {/* <TimelineItem>
-        <TimelineSeparator>
-          <TimelineConnector />
-          <TimelineDot color="primary">
-            <Check />
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography variant="h6" component="span">
-            Order placed
-          </Typography>
-          <Typography variant="body1">
-            Placed on Mon, 22 Feb, 11.00 AM
-          </Typography>
-        </TimelineContent>
-      </TimelineItem> */}
       </Timeline>
     </Box>
   )
