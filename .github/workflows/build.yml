@@ -10,6 +10,21 @@ on:
     branches: [master]
     types: [opened, synchronize, reopened]
 jobs:
+  storybook:
+    name: storybook deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Install Packages
+        run: cd frontend && npm install
+      - name: Build Story Book
+        run: cd frontend && npm run build-storybook
+      - name: Deploy  StoryBook
+        run: cd frontend && npm run chromatic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
