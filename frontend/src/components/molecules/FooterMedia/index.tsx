@@ -4,23 +4,24 @@ import AppStore from '../../../assets/socialmediaIcons/appstore.svg'
 import Facebook from '../../../assets/socialmediaIcons/facebook.svg'
 import Twitter from '../../../assets/socialmediaIcons/twitter.svg'
 import { Grid } from '@mui/material'
+import Image from '../../atoms/ImageAtom'
 
 let FooterMedia = () => {
   return (
     <Grid container direction="column" rowGap="1.288rem">
       <Grid item>
-        <img src={GooglePlay} alt="Google play"></img>
+        <Image imgSrc={GooglePlay} imgAlt="Google play" />
       </Grid>
       <Grid item>
-        <img src={AppStore} alt="App Store"></img>
+        <Image imgSrc={AppStore} imgAlt="App Store" />
       </Grid>
       <Grid item>
         <Grid container  columnGap="1.125rem" flexDirection="row-reverse">
           <Grid item>
-            <img src={Twitter} alt="Twitter"></img>
+            <Image imgSrc={Twitter} imgAlt="Twitter" />
           </Grid>
           <Grid item>
-            <img src={Facebook} alt="FaceBook"></img>
+            <Image imgSrc={Facebook} imgAlt="FaceBook" />
           </Grid>
         </Grid>
       </Grid>
