@@ -5,7 +5,7 @@ import TestDetailCard from "./index";
 import bodyTest from '../../../assets/illustrations/bodyTest.svg'
 
 describe("TestDetailCard Component", () => {
-  it("should match snapshot", () => {
+  it("should render Test Detail Card", () => {
     const wrapper = render(<TestDetailCard text="Full Body CheckUp" iconIllustation={bodyTest} />);
     expect(wrapper).toBeTruthy;
   });

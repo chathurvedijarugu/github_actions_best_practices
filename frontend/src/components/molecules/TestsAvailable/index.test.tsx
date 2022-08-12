@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import TestDetailMolecule from "./index";
 
 describe("TestDetailMolecule Component", () => {
-  it("should match snapshot", () => {
+  it("should render TestDetailMolecule", () => {
     const wrapper = render(<TestDetailMolecule />);
     expect(wrapper).toBeTruthy;
   });
