@@ -2,10 +2,10 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import theme from '../../../theme'
 type SignInProps = {
-  component: React.ReactNode
+  children: React.ReactNode
 }
-const SignIn = ({ component }: SignInProps) => {
-    console.log(component)
+const SignIn = ({ children }: SignInProps) => {
+  console.log(children)
   return (
     <Grid
       width="100vw"
@@ -13,12 +13,12 @@ const SignIn = ({ component }: SignInProps) => {
       container
       bgcolor={theme.palette.secondary['50']}
       justifyContent="center"
-      maxWidth={"100%"}
+      maxWidth={'100%'}
       overflow="hidden"
-      maxHeight={"100%"}
-      alignItems={"center"}
+      maxHeight={'100%'}
+      alignItems={'center'}
     >
-      <Grid item >{component}</Grid>
+      {children}
     </Grid>
   )
 }
