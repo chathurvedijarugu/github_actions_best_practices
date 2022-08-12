@@ -15,11 +15,18 @@ const stylings = {
     backgroundColor:theme.palette.gammaWhite.main,
     padding: '1.25rem',
   },
+  outerContainer:{
+    rowGap:"2rem"
+  },
+  innerContainer:{
+    columnGap:"1.25rem"
+  },
   color: `${theme.palette.gammaMedium.main}`,
+  
 }
 const TestDetailMolecule = () => {
   return (
-    <Grid container direction="column" rowGap="2rem">
+    <Grid container direction="column" sx={stylings.outerContainer}>
       <Grid item sx={stylings.box}>
         <Typography variant="h1">Tests You Can Choose From</Typography>
         <Typography variant="caption2" color={theme.palette.primary["500"]}>
@@ -27,7 +34,7 @@ const TestDetailMolecule = () => {
         </Typography>
       </Grid>
       <Grid item>
-        <Grid container columnGap="1.25rem">
+        <Grid container sx={stylings.innerContainer}>
           <Grid item>
             <TestDetailCard
               text="Full Body CheckUp"
