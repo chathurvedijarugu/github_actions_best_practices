@@ -1,100 +1,47 @@
-import React from 'react'
-import { Box as MuiBox, TextField, Typography } from '@mui/material'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import { Box, Typography } from '@mui/material'
 import theme from '../../../theme'
+import OtpInput from 'react-otp-input'
+import { OTP } from '../../utils/Constant'
+const OTPStyles: Object = {
+  border: '1px solid transparent',
+  borderBottom: `1px solid ${theme.palette.grey[100]} `,
+  width: '40px',
+  height: '40px',
+  backgroundColor: 'inherit',
+  color: theme.palette.gammaLow.main,
+}
+const FocusStyles: Object = {
+  borderBottom: `1px solid ${theme.palette.grey[300]}`,
+  outline: 'none',
+}
+const OTPField: React.FC = () => {
+  const [disabledVerify, setDisabledVerify] = useState<boolean>(true)
 
-const Box = styled(MuiBox)`
-  .label {
-    color: ${theme.palette.gammaLow.main};
+  const [otp, setOTP] = useState<string>()
+  const handleChange = (otp: string) => {
+    if (otp.length === 4) {
+      setDisabledVerify(false)
+    } else {
+      setDisabledVerify(true)
+    }
+    setOTP(otp)
   }
-  .otpInputs {
-    display: flex;
-    gap: 0.75rem;
-
-    .otpField {
-      width: 2.5rem;
-
-      .MuiInput-root {
-        color: '#E9E8ED';
-      }
-
-      .Mui-focused {
-        color: black;
-      }
-
-      .MuiInput-underline::before {
-        border-bottom: 1px solid #e9e8ed;
-      }
-
-      .MuiInput-underline::after {
-        border-bottom: 2px solid black;
-      }
-    }
-  }
-`
-
-const OTPField = () => {
-  const [otp, setOtp] = React.useState<number[]>([NaN, NaN, NaN, NaN])
-  const [pointer, setPointer] = React.useState<number>(0)
-  const refs = React.useRef<Array<HTMLDivElement | null>>([])
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    index: number
-  ) => {
-    const getValue = parseInt(event.target.value) % 10
-    const otps = [...otp]
-
-    if (!isNaN(getValue)) {
-      otps[index] = getValue
-      setOtp(otps)
-      if (index < 3) {
-        setPointer(index + 1)
-      }
-    }
-
-    if (event.target.value === '') {
-      otps[index] = NaN
-      setOtp(otps)
-      if (index > 0) {
-        setPointer(index - 1)
-      }
-    }
-  }
-
-  React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      refs.current[pointer]?.focus()
-    }, 10)
-
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [pointer, refs])
-
   return (
-    <Box data-testid="otp-field">
-      <Typography variant="caption2" className="label">
-        {'OTP'}
+    <Box sx={{ color: 'red' }}>
+      <Typography color={theme.palette.gammaLow.main} variant="caption1">
+        {OTP}
       </Typography>
-      <MuiBox className="otpInputs">
-        {otp.map((field: number, index) => {
-          return (
-            <TextField
-              variant="standard"
-              sx={{ input: { textAlign: 'center' } }}
-              value={isNaN(field) ? '' : field}
-              key={index}
-              inputRef={(element) => (refs.current[index] = element)}
-              disabled={pointer !== index ? true : false}
-              autoComplete="off"
-              className="otpField"
-              data-testid={`field-${index}`}
-              onChange={(event) => handleChange(event, index)}
-            />
-          )
-        })}
-      </MuiBox>
+      <OtpInput
+        value={otp}
+        onChange={handleChange}
+        numInputs={4}
+        separator={<span style={{ width: '8px' }}></span>}
+        isInputNum={true}
+        shouldAutoFocus={true}
+        inputStyle={OTPStyles}
+        focusStyle={FocusStyles}
+      />
     </Box>
   )
 }

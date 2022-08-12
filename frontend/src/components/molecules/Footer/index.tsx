@@ -4,6 +4,7 @@ import ZemosoLogo from '../../../assets/icons/logo.svg'
 import theme from '../../../theme'
 import { FooterMenu } from '../../utils/Constant'
 import FooterMedia from '../FooterMedia/index'
+import Image from '../../atoms/ImageAtom'
 
 let stylings = {
   box: {
@@ -36,7 +37,7 @@ const Footer = () => {
           <Grid container direction="column" rowGap="24px">
             <Grid item>
               <Box sx={stylings.imageText}>
-                <img src={ZemosoLogo} style={stylings.logo} alt="logo" />
+                <Image imgSrc={ZemosoLogo} imgStyle={stylings.logo} imgAlt="logo" />
                 <Typography variant="body2" color={theme.palette.gammaWhite.main}>
                   Zemoso Diagnostics
                 </Typography>
