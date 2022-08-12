@@ -1,15 +1,10 @@
 import { KeyboardArrowDown } from '@mui/icons-material'
-import {
-  Box,
-  Divider,
-  Grid,
-  Typography,
-} from '@mui/material'
+import { Box, Divider, Grid, Typography } from '@mui/material'
 import React from 'react'
-import User from '../../../assets/icons/User.svg'
+import User from '../../../assets/icons/userActive.svg'
 import Info from '../../../assets/icons/Info.svg'
 import theme from '../../../theme'
-import { ADDRESS } from '../../utils/Constant'
+
 type OrderInfoProps = {
   patientDetails: { name: React.ReactNode; test: React.ReactNode }[]
   labAddress: React.ReactNode
@@ -20,13 +15,6 @@ const OrderInfo = ({
   patientDetails,
   totalAmountPaid,
 }: OrderInfoProps) => {
-  const tempArray = [
-    'Order placed',
-    'Lab technician assigned',
-    'Sample collection',
-    'Sample being examined',
-    'Report ready',
-  ]
   return (
     <Grid
       container
@@ -45,33 +33,31 @@ const OrderInfo = ({
         width="fit-content"
       >
         <Grid item>
-          <Grid container>
-            {patientDetails.map((value) => {
-              return (
-                <>
-                  <Grid item paddingY={3} paddingX={3}>
-                    <img src={User} />
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      display="block"
-                      variant="caption2"
-                      color={theme.palette.gammaHigh.main}
-                    >
-                      {value.name}
-                    </Typography>
-                    <Typography
-                      display="block"
-                      variant="caption2"
-                      color={theme.palette.gammaLow.main}
-                    >
-                      {value.test}
-                    </Typography>
-                  </Grid>
-                </>
-              )
-            })}
-          </Grid>
+          {patientDetails.map((value) => {
+            return (
+              <Grid container>
+                <Grid item paddingY={3} paddingX={3}>
+                  <img src={User} />
+                </Grid>
+                <Grid item>
+                  <Typography
+                    display="block"
+                    variant="caption2"
+                    color={theme.palette.gammaHigh.main}
+                  >
+                    {value.name}
+                  </Typography>
+                  <Typography
+                    display="block"
+                    variant="caption2"
+                    color={theme.palette.gammaLow.main}
+                  >
+                    {value.test}
+                  </Typography>
+                </Grid>
+              </Grid>
+            )
+          })}
         </Grid>
         <Grid item xs={12}>
           <Divider />
