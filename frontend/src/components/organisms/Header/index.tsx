@@ -1,5 +1,5 @@
-import { Grid, Typography } from '@mui/material'
-import React from 'react'
+import { Dialog, Grid, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import { makeStyles } from '@mui/styles'
 import CompanyLogo from '../../../assets/icons/companyLogo.svg'
 import theme from '../../../theme'
@@ -16,6 +16,7 @@ import {
 } from '../../utils/Constant'
 
 import { NavLink } from 'react-router-dom'
+import UserProfileMolecule from '../UserProfileMolecule'
 
 const Header: React.FC = (props) => {
   const tabNames = ['Home', 'Reports', 'My Appointements']
@@ -63,91 +64,111 @@ const Header: React.FC = (props) => {
     },
   })
   const classes = useStyles()
+  const [popUp, setPopUp] = useState(false)
+  const handleUserIcon = () => {
+    setPopUp((val) => !val)
+  }
+  const onLogOut = () => {
+    console.log('To be handled after developing Autho and Login Page')
+  }
   return (
-    <Grid container className={classes.innerGrid}>
-      <Grid item xs={3} md={4} className={classes.center}>
-        <img src={CompanyLogo} alt="companyLogo" />
-      </Grid>
-      <Grid
-        item
-        container
-        xs={3}
-        md={4}
-        className={classes.center}
-        columnGap={6}
+    <>
+      <Dialog
+        scroll="body"
+        PaperProps={{ sx: { position: 'fixed', top: 10, right: 10, m: 0 } }}
+        maxWidth={false}
+        open={popUp}
       >
-        <Grid item>
-          <NavLink
-            to="/home"
-            className={({ isActive }) =>
-              isActive ? classes.Activelink : classes.link
-            }
-          >
-            <Typography variant="caption1">{HOME_LABEL}</Typography>
-          </NavLink>
+        <UserProfileMolecule
+          handleClose={handleUserIcon}
+          handleLogOut={onLogOut}
+        />
+      </Dialog>
+      <Grid container className={classes.innerGrid}>
+        <Grid item xs={3} md={4} className={classes.center}>
+          <img src={CompanyLogo} alt="companyLogo" />
         </Grid>
-        <Grid item>
-          <NavLink
-            to="/reports"
-            className={({ isActive }) =>
-              isActive ? classes.Activelink : classes.link
-            }
-          >
-            <Typography variant="caption1">{REPORTS_LABEL}</Typography>
-          </NavLink>
-        </Grid>
-        <Grid item>
-          <NavLink
-            to="/myAppointments"
-            className={({ isActive }) =>
-              isActive ? classes.Activelink : classes.link
-            }
-          >
-            <Typography variant="caption1">{MY_APPOINTMENT_LABEL}</Typography>
-          </NavLink>
-        </Grid>
-      </Grid>
-      <Grid
-        item
-        container
-        xs={3}
-        md={4}
-        className={classes.center}
-        columnSpacing={6}
-        justifyContent="flex-end"
-      >
         <Grid
           item
           container
-          justifyContent="space-between"
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
+          xs={3}
+          md={4}
+          className={classes.center}
+          columnGap={6}
         >
           <Grid item>
-            <SearchField
-              border="none"
-              borderBottom={`1px solid ${theme.palette.grey[200]}`}
-              startIcon={MapPin}
-              endIcon={ChevronDown}
-              borderRadius="none"
-              padding="2px 0px 4px"
-              defaultValue={NAVBAR_ADDRESS}
-            />
+            <NavLink
+              to="/home"
+              className={({ isActive }) =>
+                isActive ? classes.Activelink : classes.link
+              }
+            >
+              <Typography variant="caption1">{HOME_LABEL}</Typography>
+            </NavLink>
           </Grid>
           <Grid item>
-            <img src={User} alt="user" />
+            <NavLink
+              to="/reports"
+              className={({ isActive }) =>
+                isActive ? classes.Activelink : classes.link
+              }
+            >
+              <Typography variant="caption1">{REPORTS_LABEL}</Typography>
+            </NavLink>
           </Grid>
           <Grid item>
-            <ShoppingCartOutlinedIcon
-              className={classes.cartIcon}
-              fontSize="small"
-            />
+            <NavLink
+              to="/myAppointments"
+              className={({ isActive }) =>
+                isActive ? classes.Activelink : classes.link
+              }
+            >
+              <Typography variant="caption1">{MY_APPOINTMENT_LABEL}</Typography>
+            </NavLink>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          xs={3}
+          md={4}
+          className={classes.center}
+          columnSpacing={6}
+          justifyContent="flex-end"
+        >
+          <Grid
+            item
+            container
+            justifyContent="space-between"
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <Grid item>
+              <SearchField
+                border="none"
+                borderBottom={`1px solid ${theme.palette.grey[200]}`}
+                startIcon={MapPin}
+                endIcon={ChevronDown}
+                borderRadius="none"
+                padding="2px 0px 4px"
+                defaultValue={NAVBAR_ADDRESS}
+              />
+            </Grid>
+            <Grid item onClick={handleUserIcon} sx={{cursor:"pointer"}}>
+              <img src={User} alt="user" />
+            </Grid>
+            <Grid item>
+              <ShoppingCartOutlinedIcon
+                className={classes.cartIcon}
+                fontSize="small"
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   )
 }
 

@@ -1,26 +1,26 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import UserProfileMolecule from '.'
+import UserProfile from '.'
 import { Dialog } from '@mui/material'
 
 export default {
-  title: 'Molecules/UserProfileMolecule',
-  component: UserProfileMolecule,
-} as ComponentMeta<typeof UserProfileMolecule>
+  title: 'Organisms/UserProfile',
+  component: UserProfile,
+} as ComponentMeta<typeof UserProfile>
 
-const Template: ComponentStory<typeof UserProfileMolecule> = (args) => (
+const Template: ComponentStory<typeof UserProfile> = (args) => (
   <Dialog
     scroll="body"
     PaperProps={{ sx: { position: 'fixed', top: 10, right: 10, m: 0 } }}
     maxWidth={false}
     open={true}
   >
-    <UserProfileMolecule {...args} />
+    <UserProfile {...args} />
   </Dialog>
 )
 
-export const UserProfile = Template.bind({})
-UserProfile.args = {
+export const UserProfileOrganism = Template.bind({})
+UserProfileOrganism.args = {
   handleClose: () => console.log('Icon Closed Clicked'),
   handleLogOut: () => console.log('Logout Clicked'),
 }

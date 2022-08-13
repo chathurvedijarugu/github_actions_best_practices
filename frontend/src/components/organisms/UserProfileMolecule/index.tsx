@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
 import theme from '../../../theme'
 import { profileMenu } from '../../../utils/constant'
-import UserProfileCard from '../UserProfileCard'
+import UserProfileCard from '../../molecules/UserProfileCard'
 import profilePic from '../../../assets/userprofileIcons/Avatar.svg'
 import closeIcon from '../../../assets/userprofileIcons/closeIcon.svg'
 
@@ -10,7 +10,7 @@ const stylings = {
   box: {
     width: '15.438rem',
     height: '5.125rem',
-      paddingLeft: '7.688rem',
+    paddingLeft: '7.688rem',
   },
   innerBox: {
     display: 'flex',
@@ -44,7 +44,7 @@ export type Props = {
   handleClose: () => void
   handleLogOut: () => void
 }
-const index = (props: Props) => {
+const UserProfile = (props: Props) => {
   return (
     <Box
       sx={{
@@ -55,12 +55,14 @@ const index = (props: Props) => {
       }}
     >
       <Box
+        
         sx={{
           display: 'flex',
           flexDirection: 'row-reverse',
           justifyContent: 'space-between',
           alignItems: 'center',
           width: '590px',
+          cursor: 'pointer' 
         }}
       >
         <img onClick={props.handleClose} src={closeIcon} alt="closeicon"></img>
@@ -103,7 +105,9 @@ const index = (props: Props) => {
           return (
             <Grid
               item
-              onClick={item.heading === 'Logout' ? props.handleLogOut : ()=>null}
+              onClick={
+                item.heading === 'Logout' ? props.handleLogOut : () => null
+              }
             >
               <UserProfileCard
                 icon={item.icon}
@@ -118,4 +122,4 @@ const index = (props: Props) => {
   )
 }
 
-export default index
+export default UserProfile
