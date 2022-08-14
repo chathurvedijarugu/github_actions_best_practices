@@ -16,7 +16,7 @@ import {
 } from '../../utils/Constant'
 
 import { NavLink } from 'react-router-dom'
-import UserProfileMolecule from '../UserProfileMolecule'
+import UserProfile from '../UserProfile'
 
 const Header: React.FC = (props) => {
   const tabNames = ['Home', 'Reports', 'My Appointements']
@@ -79,7 +79,7 @@ const Header: React.FC = (props) => {
         maxWidth={false}
         open={popUp}
       >
-        <UserProfileMolecule
+        <UserProfile
           handleClose={handleUserIcon}
           handleLogOut={onLogOut}
         />
@@ -96,7 +96,7 @@ const Header: React.FC = (props) => {
           className={classes.center}
           columnGap={6}
         >
-          <Grid item>
+          <Grid item data-testid="NavBarTabs">
             <NavLink
               to="/home"
               className={({ isActive }) =>
@@ -156,7 +156,7 @@ const Header: React.FC = (props) => {
                 defaultValue={NAVBAR_ADDRESS}
               />
             </Grid>
-            <Grid item onClick={handleUserIcon} sx={{cursor:"pointer"}}>
+            <Grid item data-testid="userIcon" onClick={handleUserIcon} sx={{cursor:"pointer"}}>
               <img src={User} alt="user" />
             </Grid>
             <Grid item>

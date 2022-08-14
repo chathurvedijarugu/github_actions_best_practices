@@ -7,6 +7,27 @@ import profilePic from '../../../assets/userprofileIcons/Avatar.svg'
 import closeIcon from '../../../assets/userprofileIcons/closeIcon.svg'
 
 const stylings = {
+  constainerBox: {
+    paddingLeft: '3.75rem',
+    paddingRight: '3.75rem',
+    paddingTop: '2.5rem',
+    paddingBottom: '7rem',
+  },
+  closeIcon: {
+    display: 'flex',
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '590px',
+    cursor: 'pointer',
+  },
+  profileBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '428px',
+  },
   box: {
     width: '15.438rem',
     height: '5.125rem',
@@ -21,23 +42,17 @@ const stylings = {
     columnGap: '0.875rem',
     padding: '0.5rem',
   },
+  optionsContainer: {
+    rowGap: '2rem',
+    paddingTop: '3rem',
+  },
   text1: {
     fontWeight: theme.typography.subtitle1.fontWeight,
     color: theme.palette.gammaHigh.main,
   },
-  text2: {
-    color: theme.palette.gammaMedium.main,
-    paddingTop: '0.5rem',
-  },
   text3: {
     color: theme.palette.gammaLow.main,
     paddingTop: '0.25rem',
-  },
-  text5: {
-    paddingTop: '3.063rem',
-    textDecoration: 'underline',
-    fontWeight: theme.typography.subtitle1.fontWeight,
-    color: theme.palette.gammaLow.main,
   },
 }
 export type Props = {
@@ -46,36 +61,11 @@ export type Props = {
 }
 const UserProfile = (props: Props) => {
   return (
-    <Box
-      sx={{
-        paddingLeft: '3.75rem',
-        paddingRight: '3.75rem',
-        paddingTop: '2.5rem',
-        paddingBottom: '7rem',
-      }}
-    >
-      <Box
-        
-        sx={{
-          display: 'flex',
-          flexDirection: 'row-reverse',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: '590px',
-          cursor: 'pointer' 
-        }}
-      >
+    <Box sx={stylings.constainerBox}>
+      <Box data-testid="closeModal" sx={stylings.closeIcon}>
         <img onClick={props.handleClose} src={closeIcon} alt="closeicon"></img>
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: '428px',
-        }}
-      >
+      <Box sx={stylings.profileBox}>
         <Box sx={stylings.box}>
           <Grid container sx={stylings.container}>
             <Grid item data-testid="illustrationImage">
@@ -96,14 +86,15 @@ const UserProfile = (props: Props) => {
             </Grid>
           </Grid>
         </Box>
-        <Typography variant="body2" color="#6B4DE0">
+        <Typography variant="body2" color={theme.palette.primary.main}>
           Edit
         </Typography>
       </Box>
-      <Grid container direction="column" rowGap="2rem" paddingTop="3rem">
+      <Grid container direction="column" sx={stylings.optionsContainer}>
         {profileMenu.map((item: any, index: number) => {
           return (
             <Grid
+             data-testid={`profileMenuItem-${index}`}
               item
               onClick={
                 item.heading === 'Logout' ? props.handleLogOut : () => null

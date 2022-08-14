@@ -37,7 +37,7 @@ const UserProfileCard = (props: UserProfileCardProps) => {
         columnGap="0.25rem"
       >
         <Grid item>
-          <Typography variant="body" sx={stylings.heading1}>
+          <Typography variant="body" data-testid="profileHeading" sx={stylings.heading1}>
             {heading}
           </Typography>
         </Grid>

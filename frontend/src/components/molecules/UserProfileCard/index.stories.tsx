@@ -14,5 +14,5 @@ export const UserProfilecard = Template.bind({});
 UserProfilecard.args={
   icon:homeImg,
   heading:"Manage Address",
-  subtext:""
+  subtext:"2235 calfornia"
 }
