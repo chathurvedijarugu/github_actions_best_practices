@@ -10,9 +10,6 @@ const CustomizedButton = styled(MuiButton)(() => ({
     boxShadow: "none",
   },
   textTransform: "none",
-  "&:hover": {
-    background: "white",
-  },
 }));
 
 const Button: React.FC<ButtonProps> = (props) => {

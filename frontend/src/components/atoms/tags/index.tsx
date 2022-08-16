@@ -25,7 +25,7 @@ const Tags = ({ focused, text, onClick }: TagProps) => {
             ? theme.palette.gammaMedium.main
             : theme.palette.gammaWhite.main
         }
-        label={text}
+        label={<Typography variant='caption2' color={focused?"":"#757380"}>{text}</Typography>}
         color={focused ? 'secondary' : 'default'}
         onClick={handleClick}
       ></Chip>
