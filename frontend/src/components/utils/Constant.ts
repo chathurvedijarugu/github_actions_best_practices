@@ -171,6 +171,10 @@ export const weekDaysFunc = () => {
   }
   return weekDays
 }
+export const HOME_LABEL = 'Home'
+export const REPORTS_LABEL = 'Reports'
+export const MY_APPOINTMENT_LABEL = 'My Appointment'
+export const NAVBAR_ADDRESS = 'Mountain view, CA, USA'
 
 export const BANNER_HEADLINE = '60% off on your first order'
 export const BANNER_CAPTION = 'Your health is our priority'
@@ -208,6 +212,9 @@ export const FooterMenu = [
     title: 'Terms and Conditions',
   },
 ]
+export const TEST_REPORT_DATE = '02 Feb 2022'
+export const TEST_REPORT_TIME = '08.30 AM'
+export const TEST_REPORT_TEST_NAME = 'COVID RT-PCR Test'
 export const labList = [
   '1600+ Tests',
   'At Home Services',
