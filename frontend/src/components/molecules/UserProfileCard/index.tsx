@@ -20,6 +20,9 @@ const stylings = {
     fontWeight: theme.typography.body1.fontWeight,
     color: theme.palette.gammaMedium.main,
   },
+  arrow:{
+    paddingTop: '1.2rem'
+  }
 }
 const UserProfileCard = (props: UserProfileCardProps) => {
   const { icon, heading, subtext } = props
@@ -47,7 +50,7 @@ const UserProfileCard = (props: UserProfileCardProps) => {
           </Typography>
         </Grid>
       </Grid>
-      <img src={rightArrow} alt="home" style={{ paddingTop: '1.2rem' }} />
+      <img src={rightArrow} alt="home" style={stylings.arrow} />
     </Box>
   )
 }

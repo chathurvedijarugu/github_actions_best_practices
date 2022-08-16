@@ -2,6 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import UserProfile from '.'
 import { Dialog } from '@mui/material'
+import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'Organisms/UserProfile',
@@ -21,6 +22,6 @@ const Template: ComponentStory<typeof UserProfile> = (args) => (
 
 export const UserProfileOrganism = Template.bind({})
 UserProfileOrganism.args = {
-  handleClose: () => console.log('Icon Closed Clicked'),
-  handleLogOut: () => console.log('Logout Clicked'),
+  handleClose: action("Close Icon Clicked"),
+  handleLogOut: action("Clicked On LogOut"),
 }

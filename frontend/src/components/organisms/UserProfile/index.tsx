@@ -44,7 +44,7 @@ const stylings = {
   },
   optionsContainer: {
     rowGap: '2rem',
-    paddingTop: '3rem',
+    paddingTop: '2rem',
   },
   text1: {
     fontWeight: theme.typography.subtitle1.fontWeight,

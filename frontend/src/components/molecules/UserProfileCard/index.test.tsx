@@ -6,7 +6,7 @@ import homeImg from '../../../assets/userprofileIcons/home.svg'
 
 describe("UserProfileCard Component", () => {
   it("rendering component", () => {
-    const wrapper = render(<UserProfileCard icon={homeImg} heading="Manage Address" subtext="" />);
+    const wrapper = render(<UserProfileCard icon={homeImg} heading="Logout" subtext="" />);
     const element=wrapper.getByTestId("profileHeading")
     expect(element).toBeInTheDocument
     expect(wrapper).toBeTruthy;

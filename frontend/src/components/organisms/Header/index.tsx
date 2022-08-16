@@ -63,19 +63,22 @@ const Header: React.FC = (props) => {
       borderBottom: `2px solid ${theme.palette.primary.main}`,
     },
   })
+  const dialogPaperProps={
+    position: 'fixed', top: 10, right: 10, m: 0 
+  }
   const classes = useStyles()
   const [popUp, setPopUp] = useState(false)
   const handleUserIcon = () => {
     setPopUp((val) => !val)
   }
   const onLogOut = () => {
-    console.log('To be handled after developing Autho and Login Page')
+    //To Be handled after developing Login Page
   }
   return (
     <>
       <Dialog
         scroll="body"
-        PaperProps={{ sx: { position: 'fixed', top: 10, right: 10, m: 0 } }}
+        PaperProps={{ sx:dialogPaperProps}}
         maxWidth={false}
         open={popUp}
       >
