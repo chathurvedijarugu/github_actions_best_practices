@@ -12,3 +12,29 @@ export const patientDetails = [
     relation: "Self",
   },
 ];
+export const tagLabels=[
+  {
+    label:"MySelf",
+    focused:false
+  },
+  {
+    label:"Mother",
+    focused:false
+  },
+  {
+    label:"Father",
+    focused:false
+  },
+  {
+    label:"Son",
+    focused:false
+  },
+  {
+    label:"Daughter",
+    focused:false
+  },
+  {
+    label:"Others",
+    focused:false
+  }
+]

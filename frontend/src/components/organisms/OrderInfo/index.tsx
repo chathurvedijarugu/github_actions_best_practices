@@ -4,6 +4,7 @@ import React from 'react'
 import User from '../../../assets/icons/userActive.svg'
 import Info from '../../../assets/icons/Info.svg'
 import theme from '../../../theme'
+import Image from '../../atoms/ImageAtom'
 
 type OrderInfoProps = {
   patientDetails: { name: React.ReactNode; test: React.ReactNode }[]
@@ -37,7 +38,7 @@ const OrderInfo = ({
             return (
               <Grid container>
                 <Grid item paddingY={3} paddingX={3}>
-                  <img src={User} />
+                  <Image imgSrc={User} imgAlt={"user_avatar"}/>
                 </Grid>
                 <Grid item>
                   <Typography
@@ -87,7 +88,7 @@ const OrderInfo = ({
         bgcolor={theme.palette.grey['100']}
         width="100%"
       >
-        <img src={Info} />
+        <Image imgSrc={Info} imgAlt="info"/>
         <Box
           width="100%"
           marginLeft={2}
