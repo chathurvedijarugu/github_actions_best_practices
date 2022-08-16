@@ -1,20 +1,35 @@
-import { Chip } from '@mui/material'
+import { Chip as CustomChip, ChipProps, Typography } from '@mui/material'
+import { styled } from '@mui/material'
 import React from 'react'
+import theme from '../../../theme'
 type TagProps = {
   focused: boolean
   text: string
   onClick?: (value: string) => void
 }
+interface CustomChipProps extends ChipProps {
+  fontColor: string
+}
+const Chip = styled(CustomChip)<CustomChipProps>(({ fontColor }) => ({
+  color: fontColor,
+}))
 const Tags = ({ focused, text, onClick }: TagProps) => {
   const handleClick = () => {
     return onClick?.(text)
   }
   return (
-    <Chip
-      label={text}
-      color={focused ? 'secondary' : 'default'}
-      onClick={handleClick}
-    ></Chip>
+    <Typography variant="caption2">
+      <Chip
+        fontColor={
+          !focused
+            ? theme.palette.gammaMedium.main
+            : theme.palette.gammaWhite.main
+        }
+        label={text}
+        color={focused ? 'secondary' : 'default'}
+        onClick={handleClick}
+      ></Chip>
+    </Typography>
   )
 }
 
