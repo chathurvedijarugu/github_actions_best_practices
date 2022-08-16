@@ -268,3 +268,5 @@ export const MOBILE_LABEL="Mobile Number"
 export const OTP_TEXT="Enter the OTP to verify your details"
 export const UPCOMING_REPORTS = 'Upcoming Reports'
 export const RECENT_REPORTS = 'Recent Reports'
+export const SELECT_LAB = 'Select Lab'
+export const SORT = 'Sort'
