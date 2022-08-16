@@ -5,7 +5,6 @@ type SignInProps = {
   children: React.ReactNode
 }
 const SignIn = ({ children }: SignInProps) => {
-  console.log(children)
   return (
     <Grid
       width="100vw"
