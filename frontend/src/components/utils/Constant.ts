@@ -176,6 +176,17 @@ export const REPORTS_LABEL = 'Reports'
 export const MY_APPOINTMENT_LABEL = 'My Appointment'
 export const NAVBAR_ADDRESS = 'Mountain view, CA, USA'
 
+export const PATIENT_DETAILS_ARRAY = [
+  {
+    name: 'Patrick Smith',
+    test: 'COVID RT-PCR TEST',
+  },
+  {
+    name: 'Peter Smith',
+    test: 'FULL BODY CHECKUP',
+  },
+]
+
 export const BANNER_HEADLINE = '60% off on your first order'
 export const BANNER_CAPTION = 'Your health is our priority'
 export const BANNER_BUTTON_TEXT = 'Book Now'
