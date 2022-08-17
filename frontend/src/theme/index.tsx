@@ -38,6 +38,7 @@ declare module '@mui/material/styles' {
     caption2: React.CSSProperties
     title: React.CSSProperties
     gammaRegular: React.CSSProperties
+    captionRegular:React.CSSProperties
   }
 
   // allow configuration using `createTheme`
@@ -47,6 +48,7 @@ declare module '@mui/material/styles' {
     caption2?: React.CSSProperties
     title?: React.CSSProperties
     gammaRegular?: React.CSSProperties
+    captionRegular?:React.CSSProperties
   }
 }
 
@@ -57,6 +59,7 @@ declare module '@mui/material/Typography' {
     caption2: true
     title: true
     gammaRegular: true
+    captionRegular:true
   }
 }
 
@@ -209,6 +212,13 @@ let theme = createTheme({
       fontSize: '14px',
       lineHeight: '20px',
       fontWeight: '500',
+      textTransform: 'none',
+    },
+    captionRegular:{
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: '400',
       textTransform: 'none',
     },
     button: {
