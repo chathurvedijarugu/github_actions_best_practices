@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "chromatic": "npx chromatic --project-token=e9d0be4ea3e2 --auto-accept-changes"
+    "chromatic": "npx chromatic --project-token=e9d0be4ea3e2 --auto-accept-changes",
+    "json-server": "json-server --port 3003 --watch mock_server/db.json"
   },
   "author": "",
   "license": "ISC",
@@ -66,13 +67,16 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
+    "axios": "^0.27.2",
     "babel-jest": "^27.5.1",
     "date-fns": "^2.29.1",
     "jest-canvas-mock": "^2.3.1",
     "jest-transform-stub": "^2.0.0",
+    "json-server": "^0.17.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-otp-input": "^2.4.0",
+    "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0"
