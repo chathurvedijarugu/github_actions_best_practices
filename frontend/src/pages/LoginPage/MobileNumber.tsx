@@ -1,11 +1,24 @@
-import { Grid, Typography } from '@mui/material'
+import {
+  Grid,
+  InputAdornment,
+  Typography,
+} from '@mui/material'
 import React from 'react'
-import { Button,TextField } from '.'
+import { Button, TextField } from '.'
 import Image from '../../components/atoms/ImageAtom'
 import theme from '../../theme'
+
 const MobileNumber = () => {
   return (
-    <Grid container direction="column" bgcolor={"red"} p={5} spacing={5} height="80%" width="25%">
+    <Grid
+      container
+      direction="column"
+      //   bgcolor={'red'}
+      p={5}
+      spacing={5}
+      height="80%"
+      width="25%"
+    >
       <Grid item xs={12} display="flex" justifyContent="center">
         <Image imgSrc={'https://svgshare.com/i/k5T.svg'} imgAlt="zemoso_logo" />
       </Grid>
@@ -35,10 +48,24 @@ const MobileNumber = () => {
             >
               Mobile Number
             </Typography>
-            <TextField variant="standard" fullWidth></TextField>
+            <TextField
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start"><Typography variant="captionRegular" color={theme.palette.gammaHigh.main}>+91</Typography></InputAdornment>
+                ),
+              }}
+              variant="standard"
+              placeholder='1234332487'
+              fullWidth
+            ></TextField>
           </Grid>
           <Grid item xs={12} marginY={4}>
-            <Button fullWidth sx={{ backgroundColor: '#C6CEF7', color: 'white' }}>Get OTP</Button>
+            <Button
+              fullWidth
+              sx={{ backgroundColor: '#C6CEF7', color: 'white' }}
+            >
+              Get OTP
+            </Button>
           </Grid>
         </Grid>
       </Grid>
