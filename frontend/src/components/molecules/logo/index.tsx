@@ -6,7 +6,7 @@ import theme from "../../../theme";
 interface LogoProps {
     img: string;
     text: string;
-};
+}
 
 const Logo: React.FC<LogoProps> = (props: LogoProps) => {
     const useStyles: any = makeStyles({

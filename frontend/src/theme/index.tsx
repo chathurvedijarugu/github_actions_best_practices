@@ -39,6 +39,7 @@ declare module '@mui/material/styles' {
     title: React.CSSProperties
     gammaRegular: React.CSSProperties
     captionRegular:React.CSSProperties
+    overline2: React.CSSProperties
   }
 
   // allow configuration using `createTheme`
@@ -49,6 +50,7 @@ declare module '@mui/material/styles' {
     title?: React.CSSProperties
     gammaRegular?: React.CSSProperties
     captionRegular?:React.CSSProperties
+    overline2?: React.CSSProperties
   }
 }
 
@@ -60,6 +62,7 @@ declare module '@mui/material/Typography' {
     title: true
     gammaRegular: true
     captionRegular:true
+    overline2:true
   }
 }
 
@@ -100,6 +103,7 @@ let theme = createTheme({
       '300': '#9191F2',
       '500': '#6B4DE0',
       '800': '#4D1C8C',
+      main: '#6B4DE0',
     },
     secondary: {
       A100: '#EBDAF2',
@@ -167,8 +171,8 @@ let theme = createTheme({
     },
     subtitle1: {
       fontFamily: 'Inter',
-      fontSize: '20px',
-      lineHeight: '24px',
+      fontSize: '16px',
+      lineHeight: '18px',
       fontWeight: '600',
       textTransform: 'none',
     },
@@ -183,21 +187,21 @@ let theme = createTheme({
       fontFamily: 'Inter',
       fontSize: '16px',
       lineHeight: '20px',
-      fontWeight: 400,
+      fontWeight: 600,
       textTransform: 'none',
     },
     body1: {
       fontFamily: 'Inter',
       fontSize: '18px',
       lineHeight: '24px',
-      fontWeight: '600',
+      fontWeight: '500',
       textTransform: 'none',
     },
     body2: {
       fontFamily: 'Inter',
-      fontSize: '14px',
-      lineHeight: '18px',
-      fontWeight: '600',
+      fontSize: '18px',
+      lineHeight: '24px',
+      fontWeight: '400',
       textTransform: 'none',
     },
     caption1: {
@@ -233,6 +237,14 @@ let theme = createTheme({
       fontSize: '12px',
       lineHeight: '18px',
       fontWeight: '400',
+      textTransform: 'none',
+    },
+
+    overline2: {
+      fontFamily: 'Inter',
+      fontSize: '12px',
+      lineHeight: '18px',
+      fontWeight: '500',
       textTransform: 'none',
     },
   },
