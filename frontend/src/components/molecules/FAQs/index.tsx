@@ -3,7 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import FaqCard from "../FaqCard";
 const stylings = {
   container: {
-    width: "90%",
+    width: "100%",
     height: "19.75rem",
     backgroundColor: "#FFFFFF",
     display: "flex",

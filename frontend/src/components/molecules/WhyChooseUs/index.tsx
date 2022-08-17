@@ -5,7 +5,6 @@ import { labList1, labList2 } from '../../utils/Constant'
 import IconwithText from '../IconwithText'
 const box = {
   width: '100%',
-  height: '22.25rem',
   backgroundColor: theme.palette.primary["800"],
 }
 const WhyChooseUs = () => {
