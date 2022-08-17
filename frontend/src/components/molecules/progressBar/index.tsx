@@ -15,8 +15,8 @@ const ProgressBar = ({ currentIndex, values }: ProgressBarProps) => {
               variant={index == currentIndex ? 'caption1' : 'captionRegular'}
               color={
                 index == currentIndex
-                  ? theme.palette.gammaLow.main
-                  : theme.palette.gammaHigh.main
+                  ? theme.palette.gammaHigh.main
+                  : theme.palette.gammaLow.main
               }
             >
               {value}
