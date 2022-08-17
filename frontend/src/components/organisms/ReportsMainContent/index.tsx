@@ -49,9 +49,17 @@ const ReportsMainContent: React.FC = () => {
       },
     ],
   }
-
+  const style = {
+    root: {
+      paddingTop: '40px',
+    },
+    label: {
+      fontSize: '20px',
+      lineHeight: '24px',
+    },
+  }
   return (
-    <Grid container rowGap={2} xs={6}>
+    <Grid container rowGap={2} sx={style.root}>
       <Grid item container rowGap={8}>
         <Grid item>
           <Typography
@@ -67,6 +75,7 @@ const ReportsMainContent: React.FC = () => {
           <Grid item>
             <Typography
               variant="subtitle1"
+              sx={style.label}
               color={theme.palette.gammaMedium.main}
               data-testid="upcoming"
             >
@@ -94,6 +103,7 @@ const ReportsMainContent: React.FC = () => {
               variant="subtitle1"
               color={theme.palette.gammaMedium.main}
               data-testid="recent"
+              sx={style.label}
             >
               {RECENT_REPORTS}
             </Typography>

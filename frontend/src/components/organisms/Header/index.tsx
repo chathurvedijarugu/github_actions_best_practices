@@ -19,7 +19,6 @@ import { NavLink } from 'react-router-dom'
 import UserProfile from '../UserProfile'
 
 const Header: React.FC = (props) => {
-
   const useStyles = makeStyles({
     innerGrid: {
       height: '100%',
@@ -58,8 +57,11 @@ const Header: React.FC = (props) => {
       borderBottom: `2px solid ${theme.palette.primary.main}`,
     },
   })
-  const dialogPaperProps={
-    position: 'fixed', top: 10, right: 10, m: 0 
+  const dialogPaperProps = {
+    position: 'fixed',
+    top: 10,
+    right: 10,
+    m: 0,
   }
   const classes = useStyles()
   const [popUp, setPopUp] = useState(false)
@@ -73,14 +75,11 @@ const Header: React.FC = (props) => {
     <>
       <Dialog
         scroll="body"
-        PaperProps={{ sx:dialogPaperProps}}
+        PaperProps={{ sx: dialogPaperProps }}
         maxWidth={false}
         open={popUp}
       >
-        <UserProfile
-          handleClose={handleUserIcon}
-          handleLogOut={onLogOut}
-        />
+        <UserProfile handleClose={handleUserIcon} handleLogOut={onLogOut} />
       </Dialog>
       <Grid container className={classes.innerGrid}>
         <Grid item xs={3} md={4} className={classes.center}>
@@ -96,7 +95,7 @@ const Header: React.FC = (props) => {
         >
           <Grid item data-testid="NavBarTabs">
             <NavLink
-              to="/home"
+              to="/"
               className={({ isActive }) =>
                 isActive ? classes.Activelink : classes.link
               }
@@ -154,7 +153,12 @@ const Header: React.FC = (props) => {
                 defaultValue={NAVBAR_ADDRESS}
               />
             </Grid>
-            <Grid item data-testid="userIcon" onClick={handleUserIcon} sx={{cursor:"pointer"}}>
+            <Grid
+              item
+              data-testid="userIcon"
+              onClick={handleUserIcon}
+              sx={{ cursor: 'pointer' }}
+            >
               <img src={User} alt="user" />
             </Grid>
             <Grid item>
