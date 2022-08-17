@@ -27,6 +27,7 @@
     "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
+    "@types/auth0": "^2.35.3",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.28",
     "@types/react": "^18.0.6",
@@ -53,6 +54,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.10.2",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
@@ -66,14 +68,15 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
+    "auth0": "^2.42.0",
     "babel-jest": "^27.5.1",
     "date-fns": "^2.29.1",
     "jest-canvas-mock": "^2.3.1",
     "jest-transform-stub": "^2.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
     "react-otp-input": "^2.4.0",
+    "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0"
