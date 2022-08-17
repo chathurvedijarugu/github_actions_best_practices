@@ -18,12 +18,7 @@ import {
 import { NavLink } from 'react-router-dom'
 
 const Header: React.FC = (props) => {
-  const tabNames = ['Home', 'Reports', 'My Appointements']
-  const tabValues = [
-    <Typography>Home</Typography>,
-    <Typography>Reports</Typography>,
-    <Typography>My Appointements</Typography>,
-  ]
+
   const useStyles = makeStyles({
     innerGrid: {
       height: '100%',

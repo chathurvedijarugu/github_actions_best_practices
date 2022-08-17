@@ -1,4 +1,4 @@
-import { Box, Grid, PaletteColor, Typography } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
 import ZemosoLogo from '../../../assets/icons/logo.svg'
 import theme from '../../../theme'

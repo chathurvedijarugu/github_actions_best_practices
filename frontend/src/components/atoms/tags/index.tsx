@@ -1,5 +1,4 @@
-import { Chip as CustomChip, ChipProps, Typography } from '@mui/material'
-import { styled } from '@mui/material'
+import { Chip as CustomChip, ChipProps, Typography,styled } from '@mui/material'
 import React from 'react'
 import theme from '../../../theme'
 type TagProps = {
