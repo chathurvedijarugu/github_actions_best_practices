@@ -22,7 +22,7 @@ const FaqCard: React.FC<FaqCardProps> = (props) => {
   const { text } = props;
   return (
     <Grid sx={stylings.box}>
-      <Typography variant="body" color={stylings.color}>
+      <Typography variant="body" fontWeight="400" color={stylings.color}>
         {text}
       </Typography>
       <img src={downArrow} alt="DownArrow" />

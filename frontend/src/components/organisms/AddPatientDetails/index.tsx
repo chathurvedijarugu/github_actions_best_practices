@@ -165,11 +165,12 @@ const AddPatient = () => {
           <Typography variant="overline" sx={stylings.heading3}>
             Date of Birth
           </Typography>
+          <Box width="535px">
           <BasicDatePicker
             label=""
             intialValue={null}
             onChange={(dateValue: any) => handleDateChange(dateValue)}
-          />
+          /></Box>
         </Box>
         <Typography variant="caption1" sx={stylings.heading2}>
           Gender

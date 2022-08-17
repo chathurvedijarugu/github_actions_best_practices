@@ -21,6 +21,7 @@ let stylings = {
   imageText: {
     display: 'flex',
     flexDirection: 'row',
+    alignItems:"center",
     gap: 2,
   },
   logo: {
@@ -38,7 +39,7 @@ const Footer = () => {
             <Grid item>
               <Box sx={stylings.imageText}>
                 <Image imgSrc={ZemosoLogo} imgStyle={stylings.logo} imgAlt="logo" />
-                <Typography variant="body2" color={theme.palette.gammaWhite.main}>
+                <Typography variant="overline" fontWeight="600" color={theme.palette.gammaWhite.main}>
                   Zemoso Diagnostics
                 </Typography>
               </Box>
@@ -48,7 +49,7 @@ const Footer = () => {
                 {FooterMenu.map((item, index) => {
                   return (
                     <Grid item>
-                      <Typography color={theme.palette.primary["100"]} variant="body2">
+                      <Typography color={theme.palette.primary["100"]} fontWeight="500" variant="overline">
                         {item.title}
                       </Typography>
                     </Grid>
