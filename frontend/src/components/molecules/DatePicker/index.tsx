@@ -26,7 +26,7 @@ const stylings = {
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: '400',
-    width: '500px',
+    // width: '500px',
   },
 }
 
