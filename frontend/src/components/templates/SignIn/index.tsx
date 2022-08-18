@@ -8,7 +8,7 @@ const SignIn = ({ children }: SignInProps) => {
   return (
     <Grid
       width="100vw"
-      height="96vh"
+      height="96.6vh"
       container
       bgcolor={theme.palette.secondary['50']}
       justifyContent="center"
@@ -17,7 +17,9 @@ const SignIn = ({ children }: SignInProps) => {
       maxHeight={'100%'}
       alignItems={'center'}
     >
-      {children}
+      <Grid item xs={4} display="flex" justifyContent={'center'}>
+        {children}
+      </Grid>
     </Grid>
   )
 }
