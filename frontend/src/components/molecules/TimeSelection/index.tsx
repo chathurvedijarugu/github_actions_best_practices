@@ -8,8 +8,8 @@ import {
   time4To6,
   timeRange4To6,
   timeWithAmPm,
+  timeCoversion
 } from '../../utils/Constant'
-import { timeCoversion } from '../../utils/Constant'
 import ButtonComponent from '../../atoms/Button'
 import { FlexDiv, MT40Div } from '../../organisms/SelectAppointment'
 import theme from '../../../theme/index'

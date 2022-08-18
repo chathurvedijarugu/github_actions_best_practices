@@ -1,19 +1,22 @@
-import {
-  Grid,
-  InputAdornment,
-  Typography,
-} from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import React from 'react'
-import { Button, TextField } from '.'
-import Image from '../../components/atoms/ImageAtom'
-import theme from '../../theme'
-
-const MobileNumber = () => {
+import theme from '../../../theme'
+import Image from '../../atoms/ImageAtom'
+import { Button } from '../Login'
+import OTPField from '../../molecules/OTPField'
+import { useOTP } from './hook'
+import { useAuth0 } from '@auth0/auth0-react'
+import { OTP_TEXT } from '../../utils/Constant'
+interface OTPProps {
+  buttonClick: () => void
+}
+const OTP = ({ buttonClick }: OTPProps) => {
+  let {enable,otp,setOtp}=useOTP()
+  let {user}=useAuth0()
   return (
     <Grid
       container
       direction="column"
-      //   bgcolor={'red'}
       p={5}
       spacing={5}
       height="80%"
@@ -30,41 +33,31 @@ const MobileNumber = () => {
               variant="body"
               color={theme.palette.gammaHigh.main}
             >
-              Hey Patrick
+             {` Hey ${user?.name??"Guest"}`}
             </Typography>
             <Typography
               display="block"
               variant="captionRegular"
               color={theme.palette.gammaLow.main}
             >
-              Enter your Mobile number
+              {OTP_TEXT}
             </Typography>
           </Grid>
           <Grid item xs={12} marginTop={12}>
-            <Typography
-              display="block"
-              variant="overline2"
-              color={theme.palette.gammaLow.main}
-            >
-              Mobile Number
-            </Typography>
-            <TextField
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start"><Typography variant="captionRegular" color={theme.palette.gammaHigh.main}>+91</Typography></InputAdornment>
-                ),
-              }}
-              variant="standard"
-              placeholder='1234332487'
-              fullWidth
-            ></TextField>
+            <OTPField />
           </Grid>
           <Grid item xs={12} marginY={4}>
             <Button
               fullWidth
-              sx={{ backgroundColor: '#C6CEF7', color: 'white' }}
+              onClick={enable ? buttonClick : () => {}}
+              bgcolor={
+                enable
+                  ? theme.palette.primary.main
+                  : theme.palette.primary['100']
+              }
+              fontColor="white"
             >
-              Get OTP
+              Verify
             </Button>
           </Grid>
         </Grid>
@@ -72,5 +65,4 @@ const MobileNumber = () => {
     </Grid>
   )
 }
-
-export default MobileNumber
+export default OTP

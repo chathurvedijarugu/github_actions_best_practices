@@ -38,8 +38,8 @@ declare module '@mui/material/styles' {
     caption2: React.CSSProperties
     title: React.CSSProperties
     gammaRegular: React.CSSProperties
-    overline2: React.CSSProperties
     captionRegular:React.CSSProperties
+    overline2: React.CSSProperties
   }
 
   // allow configuration using `createTheme`
@@ -49,8 +49,8 @@ declare module '@mui/material/styles' {
     caption2?: React.CSSProperties
     title?: React.CSSProperties
     gammaRegular?: React.CSSProperties
-    overline2?: React.CSSProperties
     captionRegular?:React.CSSProperties
+    overline2?: React.CSSProperties
   }
 }
 
@@ -61,8 +61,8 @@ declare module '@mui/material/Typography' {
     caption2: true
     title: true
     gammaRegular: true
-    overline2: true
     captionRegular:true
+    overline2:true
   }
 }
 
