@@ -260,3 +260,5 @@ export const labList2 = [
   },
 ]
 export const OTP = 'OTP'
+export const UPCOMING_REPORTS = 'Upcoming Reports'
+export const RECENT_REPORTS = 'Recent Reports'
