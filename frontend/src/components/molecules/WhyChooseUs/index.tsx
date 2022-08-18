@@ -10,7 +10,7 @@ const box = {
 const WhyChooseUs = () => {
   return (
     <Box sx={box}>
-      <Grid container direction="column" rowGap="1.5rem" padding="4rem">
+      <Grid container direction="column" rowGap="1.5rem" px="5.625rem" py="5rem">
         <Grid item>
           <Typography color={theme.palette.gammaWhite.main} variant="h1">Why Choose Us</Typography>
         </Grid>
