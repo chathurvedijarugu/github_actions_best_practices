@@ -10,9 +10,9 @@ import {
   noOfDays,
   SELECT_APPOINTMENT,
   timeWithAmPm,
+  daysOfDateFunc, weekDaysFunc
 } from '../../utils/Constant'
 import TimeSelection from '../../molecules/TimeSelection'
-import { daysOfDateFunc, weekDaysFunc } from '../../utils/Constant'
 
 const StyledPaper = styled(Paper)({
   width: '36.4375em',

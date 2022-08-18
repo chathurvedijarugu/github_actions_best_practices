@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import { makeStyles } from '@mui/styles'
 import React from 'react'

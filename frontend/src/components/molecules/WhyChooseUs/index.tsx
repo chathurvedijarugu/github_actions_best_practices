@@ -1,6 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
-import labIcon from '../../../assets/icons/labIcon.svg'
 import theme from '../../../theme'
 import { labList1, labList2 } from '../../utils/Constant'
 import IconwithText from '../IconwithText'

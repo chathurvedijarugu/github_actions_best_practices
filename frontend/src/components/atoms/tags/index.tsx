@@ -1,5 +1,4 @@
-import { Chip as CustomChip, ChipProps, Typography } from '@mui/material'
-import { styled } from '@mui/material'
+import { Chip as CustomChip, ChipProps, Typography,styled } from '@mui/material'
 import React from 'react'
 import theme from '../../../theme'
 type TagProps = {
@@ -25,7 +24,7 @@ const Tags = ({ focused, text, onClick }: TagProps) => {
             ? theme.palette.gammaMedium.main
             : theme.palette.gammaWhite.main
         }
-        label={text}
+        label={<Typography variant='caption2' color={focused?"":"#757380"}>{text}</Typography>}
         color={focused ? 'secondary' : 'default'}
         onClick={handleClick}
       ></Chip>
