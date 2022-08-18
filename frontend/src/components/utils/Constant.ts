@@ -362,7 +362,7 @@ export const testList2 = [
     logo: kidneyTest,
     testName: "Kidney Function Test",
     onClick: () => {},
-    clickable: true,
+    clickable: false,
   },
   {
     logo: thyroidTest,

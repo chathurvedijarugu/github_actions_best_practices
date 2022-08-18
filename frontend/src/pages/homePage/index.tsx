@@ -18,6 +18,8 @@ import FAQs from "../../components/molecules/FAQs";
 import Footer from "../../components/molecules/Footer";
 import Testimonial from "../../components/molecules/testimonial";
 import LabTextIcon from "../../components/molecules/LabTestIcon";
+import Header from "../../components/organisms/Header";
+import { useNavigate } from "react-router-dom";
 
 const style = {
     root: {
@@ -90,8 +92,16 @@ const style = {
 }
 
 const HomePage = () => {
+    const navigate = useNavigate();
+    const onClickCovidTest = () => {
+        navigate("/covid-test");
+    };
+
     return (
         <Grid sx={style.root}>
+            <Grid item sx={style.searchGrid}>
+                <Header></Header>
+            </Grid>
             <Grid item sx={style.searchGrid}>
                 <SearchField 
                     border={`1px solid ${theme.palette.grey[100]}`}
@@ -119,7 +129,7 @@ const HomePage = () => {
                         {testList1.map((item: any, index: any) => {
                             return (
                                 <Grid item sx={style.testFrame}>
-                                    <LabTextIcon logo={item.logo} testName={item.testName} clickable={item.clickable} onClick={item.onClick}></LabTextIcon>
+                                    <LabTextIcon data-testid="test-icon" logo={item.logo} testName={item.testName} clickable={item.clickable} onClick={item.clickable ? onClickCovidTest : item.onClick}></LabTextIcon>
                                 </Grid>
                             )
                         })}

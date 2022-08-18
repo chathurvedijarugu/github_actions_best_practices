@@ -7,10 +7,10 @@ const style = {
     header: {
         backgroundColor: theme.palette.gammaWhite.main,
         width: "100%",
+        px: "5.625rem",
     },
 
     root: {
-        padding: 0,
         width: "100%",
     },
 };
