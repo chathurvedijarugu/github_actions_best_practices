@@ -56,8 +56,8 @@ const Login = ({ buttonClick }: LoginPageProps) => {
       container
       direction="column"
       spacing={5}
+      bgcolor="white"
       p={5}
-      width="25%"
       height="40%"
       justifyContent="center"
     >

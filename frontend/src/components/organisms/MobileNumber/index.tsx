@@ -1,25 +1,28 @@
-import { Grid, InputAdornment, Typography } from '@mui/material'
+import { Grid, InputAdornment, Typography,styled } from '@mui/material'
 import React from 'react'
 import { Button, TextField } from '../Login'
-import Image from '../../atoms/ImageAtom'
+import  CustomImage from '../../atoms/ImageAtom'
 import theme from '../../../theme'
 import { useMobileNumber } from './hook'
 import { useAuth0 } from '@auth0/auth0-react'
 import { ENTER_MOBILE, MOBILE_LABEL } from '../../utils/Constant'
+
 interface MobileNumberProps {
   buttonClick: () => void
 }
+const Image = styled(CustomImage)({
+  width:"4px",
+  height:"2rem"
+})
 const MobileNumber = ({ buttonClick }: MobileNumberProps) => {
   let { enable, phNumber, setPhNumber } = useMobileNumber()
   let {user}=useAuth0();
   return (
     <Grid
       container
-      direction="column"
+      bgcolor="white"
       p={5}
       spacing={5}
-      height="80%"
-      width="25%"
     >
       <Grid item xs={12} display="flex" justifyContent="center">
         <Image imgSrc={'https://svgshare.com/i/k5T.svg'} imgAlt="zemoso_logo" />
@@ -72,7 +75,7 @@ const MobileNumber = ({ buttonClick }: MobileNumberProps) => {
               fullWidth
             ></TextField>
           </Grid>
-          <Grid item xs={12} marginY={4}>
+          <Grid item xs={12} marginY={4} paddingBottom={"30vh"}>
             <Button
               fullWidth
               onClick={enable ? buttonClick : () => {}}

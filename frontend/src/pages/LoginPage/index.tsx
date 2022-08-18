@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Login from '../../components/organisms/Login'
 import MobileNumber from '../../components/organisms/MobileNumber'
 import OTP from '../../components/organisms/OTP'
+import SignIn from '../../components/templates/SignIn'
 const LoginPage = () => {
   let [counter, setCounter] = useState(0)
   const renderSwitch = () => {
@@ -32,11 +33,11 @@ const LoginPage = () => {
         )
     }
   }
-  return <>
+  return <SignIn>
   {
     renderSwitch()
   }
-  </>
+  </SignIn>
 }
 
 export default LoginPage

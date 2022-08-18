@@ -16,16 +16,15 @@ const OTP = ({ buttonClick }: OTPProps) => {
   return (
     <Grid
       container
-      direction="column"
       p={5}
+      bgcolor="white"
       spacing={5}
-      height="80%"
-      width="25%"
+      minHeight="80%"
     >
       <Grid item xs={12} display="flex" justifyContent="center">
         <Image imgSrc={'https://svgshare.com/i/k5T.svg'} imgAlt="zemoso_logo" />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} height="100%">
         <Grid container flexDirection="column" justifyContent={'space-between'}>
           <Grid item xs={12}>
             <Typography
@@ -46,7 +45,7 @@ const OTP = ({ buttonClick }: OTPProps) => {
           <Grid item xs={12} marginTop={12}>
             <OTPField />
           </Grid>
-          <Grid item xs={12} marginY={4}>
+          <Grid item xs={12} marginY={4} paddingBottom={"30vh"}>
             <Button
               fullWidth
               onClick={enable ? buttonClick : () => {}}
