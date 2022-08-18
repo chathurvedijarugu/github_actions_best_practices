@@ -168,7 +168,7 @@ const Login = ({ buttonClick }: LoginPageProps) => {
       </Grid>
       <Grid item>
         <Stack display="flex" justifyContent={'space-around'} direction={'row'}>
-          <IconButton>
+          <IconButton onClick={()=>{loginWithRedirect()}}>
             <Box
               bgcolor={theme.palette.grey['50']}
               display="flex"
