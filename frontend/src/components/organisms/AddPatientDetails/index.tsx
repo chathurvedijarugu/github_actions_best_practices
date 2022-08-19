@@ -1,17 +1,20 @@
 import {
   Box,
+  Button,
   Grid,
   RadioGroup,
   TextField,
   Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
+import { updatePatientDetails } from '../../../services/services'
 import theme from '../../../theme'
-import { tagLabels } from '../../../utils/constant'
+import { patientDetailsType, tagLabels } from '../../../utils/constant'
 import CheckBox from '../../atoms/checkbox'
 import RadioButton from '../../atoms/radioButton'
 import Tags from '../../atoms/tags'
 import BasicDatePicker from '../../molecules/DatePicker'
+import { getAge } from '../../../services/helperFunctions'
 const stylings = {
   box: {
     width: '36.438rem',
@@ -82,8 +85,40 @@ const stylings = {
     fontWeight: theme.typography.caption2.fontWeight,
     color: theme.palette.gammaLow.main,
   },
+  footer: {
+    position: 'absolute',
+    boxShadow: '0px -4px 6px 0px #0000000F',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '70px',
+    bottom: 0,
+    width: '100%',
+  },
+  cancelButton: {
+    color: '#FC5C5C',
+    fontWeight: theme.typography.body1.fontWeight,
+    fontSize: theme.typography.body1.fontSize,
+    lineHeight: '18px',
+    borderRadius: '4px',
+    height: '42px',
+    '&:hover': {
+      background: 'none',
+    },
+  },
+  containedButton: {
+    fontWeight: theme.typography.body1.fontWeight,
+    fontSize: theme.typography.body1.fontSize,
+    lineHeight: '18px',
+    borderRadius: '8px',
+    width: '222px',
+    height: '42px',
+  },
 }
-const AddPatient = () => {
+type AddPatientDetailsProps = {
+  onNextClick?: (details: patientDetailsType, userId: number) => void
+}
+const AddPatient = (props: AddPatientDetailsProps) => {
   const [name, setName] = useState('')
   const [dob, setDob] = useState<any>('')
   const [gender, setGender] = useState<any>('')
@@ -102,7 +137,7 @@ const AddPatient = () => {
     setGender(event.currentTarget.value)
     console.log(event.currentTarget.value)
   }
-  const handleCheckBox = (event: any) => {
+  const handleCheckBox = () => {
     if (checked) {
       setChecked(false)
       console.log(false)
@@ -123,92 +158,122 @@ const AddPatient = () => {
     setTagsValue(newArr)
     setPerson(newArr[key].label)
   }
+  let userId = 10
   return (
-    <Box sx={stylings.box}>
-      <Box sx={stylings.innerBox}>
-        <Typography variant="subtitle1" sx={stylings.heading1}>
-          Add Patient Details
-        </Typography>
-        <Typography variant="overline" sx={stylings.heading2}>
-          Booking for Whom
-        </Typography>
-        <Grid container sx={stylings.tagsContainer}>
-          {tagsValue.map((item: any, index: number) => {
-            return (
-              <Grid item>
-                <Tags
-                  data-testid={`tags-${index}`}
-                  text={item.label}
-                  focused={item.focused}
-                  onClick={() => handleTag(index)}
-                />
-              </Grid>
-            )
-          })}
-        </Grid>
-        <Box sx={stylings.nameField}>
-          <Typography variant="overline" sx={stylings.heading3}>
-            Name
+    <>
+      <Box sx={stylings.box}>
+        <Box sx={stylings.innerBox}>
+          <Typography variant="subtitle1" sx={stylings.heading1}>
+            Add Patient Details
           </Typography>
-          <TextField
-            placeholder="Enter Your Name"
-            margin="normal"
-            variant="standard"
-            fullWidth
-            sx={stylings.textField}
-            InputProps={{ style: stylings.inputTextField }}
-            InputLabelProps={{ style: stylings.inputTextField }}
-            onChange={onNameChange}
-          />
-        </Box>
-        <Box sx={stylings.nameField}>
-          <Typography variant="overline" sx={stylings.heading3}>
-            Date of Birth
+          <Typography variant="overline" sx={stylings.heading2}>
+            Booking for Whom
           </Typography>
-          <Box width="535px">
-          <BasicDatePicker
-            label=""
-            intialValue={null}
-            onChange={(dateValue: any) => handleDateChange(dateValue)}
-          /></Box>
+          <Grid container sx={stylings.tagsContainer}>
+            {tagsValue.map((item: any, index: number) => {
+              return (
+                <Grid item>
+                  <Tags
+                    data-testid={`tags-${index}`}
+                    text={item.label}
+                    focused={item.focused}
+                    onClick={() => handleTag(index)}
+                  />
+                </Grid>
+              )
+            })}
+          </Grid>
+          <Box sx={stylings.nameField}>
+            <Typography variant="overline" sx={stylings.heading3}>
+              Name
+            </Typography>
+            <TextField
+              placeholder="Enter Your Name"
+              margin="normal"
+              variant="standard"
+              fullWidth
+              sx={stylings.textField}
+              InputProps={{ style: stylings.inputTextField }}
+              InputLabelProps={{ style: stylings.inputTextField }}
+              onChange={onNameChange}
+            />
+          </Box>
+          <Box sx={stylings.nameField}>
+            <Typography variant="overline" sx={stylings.heading3}>
+              Date of Birth
+            </Typography>
+            <Box width="535px">
+              <BasicDatePicker
+                label=""
+                intialValue={null}
+                onChange={(dateValue: any) => handleDateChange(dateValue)}
+              />
+            </Box>
+          </Box>
+          <Typography variant="caption1" sx={stylings.heading2}>
+            Gender
+          </Typography>
         </Box>
-        <Typography variant="caption1" sx={stylings.heading2}>
-          Gender
-        </Typography>
-      </Box>
-      <Box sx={stylings.radioGroupBox}>
-        {' '}
-        <RadioGroup onChange={handleRadioGroupChange} row>
-          <Box>
-            {' '}
-            <RadioButton name="gender" value="Male" />
-            <Typography variant="caption2" sx={stylings.genderText}>
-              Male
+        <Box sx={stylings.radioGroupBox}>
+          <RadioGroup onChange={handleRadioGroupChange} row>
+            <Box>
+              <RadioButton name="gender" value="Male" />
+              <Typography variant="caption2" sx={stylings.genderText}>
+                Male
+              </Typography>
+            </Box>
+            <Box>
+              <RadioButton name="gender" value="Female" />
+              <Typography variant="caption2" sx={stylings.genderText}>
+                Female
+              </Typography>
+            </Box>
+            <Box>
+              <RadioButton name="gender" value="Others" />
+              <Typography variant="caption2" sx={stylings.genderText}>
+                Others
+              </Typography>
+            </Box>
+          </RadioGroup>
+          <Box sx={stylings.checkBox}>
+            <CheckBox value={true} onChange={handleCheckBox} />
+            <Typography variant="caption2" sx={stylings.checkBoxText}>
+              Save Details for Future
             </Typography>
           </Box>
-          <Box>
-            {' '}
-            <RadioButton name="gender" value="Female" />
-            <Typography variant="caption2" sx={stylings.genderText}>
-              Female
-            </Typography>
-          </Box>{' '}
-          <Box>
-            {' '}
-            <RadioButton name="gender" value="Others" />
-            <Typography variant="caption2" sx={stylings.genderText}>
-              Others
-            </Typography>
-          </Box>{' '}
-        </RadioGroup>
-        <Box sx={stylings.checkBox}>
-          <CheckBox value={true} onChange={handleCheckBox} />
-          <Typography variant="caption2" sx={stylings.checkBoxText}>
-            Save Details for Future
-          </Typography>
         </Box>
       </Box>
-    </Box>
+      <Box sx={stylings.footer}>
+        <Grid container justifyContent="space-between" padding="6rem">
+          <Grid item>
+            <Button
+              variant="text"
+              children="Cancel"
+              sx={stylings.cancelButton}
+            ></Button>
+          </Grid>
+          <Grid item>
+            <Button
+              data-testid="nextButton"
+              variant="contained"
+              onClick={() => {
+                let age = getAge(dob)
+                const patientDetails = {
+                  relation: person,
+                  name: name,
+                  age: age,
+                  gender: gender,
+                  selected: false,
+                }
+                return props.onNextClick?.(patientDetails, userId)
+              }}
+              children="Next"
+              sx={stylings.containedButton}
+            ></Button>
+          </Grid>
+        </Grid>
+      </Box>
+    </>
   )
 }
 

@@ -21,11 +21,11 @@ const PatientCard = ({
     <Grid container width="100%" paddingY={2} justifyContent="space-between">
       <Grid item xs>
         <Grid container direction="column">
-          <Grid item xs>
+          <Grid item xs data-testid="patientName">
             <Typography
               width="inherit"
               textOverflow={"ellipsis"}
-              variant="caption2"
+              variant="captionRegular"
               color={theme.palette.gammaHigh.main}
             >
               {name}
@@ -35,7 +35,7 @@ const PatientCard = ({
             <Typography
               variant="overline"
               color={theme.palette.gammaLow.main}
-            >{`${relation}, ${gender}, ${age}`}</Typography>
+            >{`${relation=="Myself"?"Self":relation}, ${gender}, ${age} years`}</Typography>
           </Grid>
         </Grid>
       </Grid>

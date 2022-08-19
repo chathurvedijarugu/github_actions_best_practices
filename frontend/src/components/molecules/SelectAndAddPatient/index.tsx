@@ -1,49 +1,166 @@
-import { Checkbox, Grid } from "@mui/material";
-import React from "react";
-import PatientCard, { PatientDetails } from "../PatientCard";
+import { Box, Button, Checkbox, Divider, Grid, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import theme from '../../../theme'
+import PatientCard, { PatientDetails } from '../PatientCard'
+import AddIcon from '@mui/icons-material/Add'
 
 type SelectAndAddPatientProps = {
-  patientDetails: PatientDetails[];
-  onEditClick: (arg0: number) => void;
-  onCheckBoxClick: (arg0: number) => void;
-};
-
+  patientDetails: PatientDetails[]
+  onNewPatientClick?:()=>void
+  onSelectLabClick?:(selected:number[],userId:number)=>void
+}
+const stylings = {
+  footer: {
+    position: 'absolute',
+    boxShadow: '0px -4px 6px 0px #0000000F',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '70px',
+    bottom: 0,
+    width: '100%',
+  },
+  cancelButton: {
+    color: '#FC5C5C',
+    fontWeight: theme.typography.body1.fontWeight,
+    fontSize: theme.typography.body1.fontSize,
+    lineHeight: '18px',
+    borderRadius: '4px',
+    width: '222px',
+    height: '42px',
+    '&:hover': {
+      background: 'none',
+    },
+  },
+  containedButton: {
+    fontWeight: theme.typography.body1.fontWeight,
+    fontSize: theme.typography.body1.fontSize,
+    lineHeight: '18px',
+    borderRadius: '8px',
+    width: '222px',
+    height: '42px',
+  },
+  newPatientButton: {
+    color: '#6B4DE0',
+    width: '10.937rem',
+    height: '2.5rem',
+    fontSize: theme.typography.body.fontSize,
+    fontWeight: theme.typography.body1.fontWeight,
+    size: '1rem',
+    lineHeight: '1.5rem',
+    padding: '0.5rem',
+  },
+  selectPatient: {
+    width: '583px',
+    height: '560px',
+    borderRadius: '8px',
+    boxShadow: '0px 0px 26px 0px #E9E8ED80',
+  },
+}
 const SelectAndAddPatient = ({
-  onCheckBoxClick,
-  onEditClick,
+  onNewPatientClick,
+  onSelectLabClick,
   patientDetails,
 }: SelectAndAddPatientProps) => {
+  const [selected, setSelected] = useState<any>([])
+  const handleCheckBoxClick = (key: any) => {
+    if (selected.includes(key)) {
+      var newArr = [...selected]
+
+      newArr.splice(key, 1)
+      setSelected(newArr)
+    } else {
+      var newArr = [...selected]
+
+      newArr.push(key)
+      setSelected(newArr)
+    }
+  }
+let userId=10;
   return (
-    <Grid container direction="column">
-      {patientDetails.map((value, index) => (
-        <Grid item xs key={index}>
-          <Grid container direction="row">
+    <>
+      <Box sx={stylings.selectPatient}>
+        <Box padding="1.5rem">
+          <Grid
+            container
+            justifyContent="space-between"
+            alignItems="center"
+            height="54px"
+          >
             <Grid item>
-              <Checkbox data-testid="Patient Checkbox"
-                onChange={() => {
-                  onCheckBoxClick(index);
-                }}
-              />
+              <Typography
+                variant="subtitle1"
+                color={theme.palette.gammaMedium.main}
+              >
+                Add Patient
+              </Typography>
             </Grid>
-            <Grid item xs>
-              <PatientCard
-                age={value.age}
-                name={value.name}
-                relation={value.relation}
-                gender={value.gender}
-                onEdit={
-                  value.onEdit ??
-                  (() => {
-                    onEditClick(index);
-                  })
-                }
-              />
+            <Grid item>
+              <Button
+                variant="text"
+                data-testid="newPatientButton"
+                sx={stylings.newPatientButton}
+                onClick={onNewPatientClick}
+                startIcon={<AddIcon />}
+                children="New Patient"
+              ></Button>
             </Grid>
           </Grid>
+          <Divider />
+          <Box paddingTop="36px">
+            <Grid container direction="column">
+              {patientDetails.map((value, index) => (
+                <Grid item xs key={index}>
+                  <Grid container direction="row">
+                    <Grid item>
+                      <Checkbox
+                        data-testid={`checkbox-${index}`}
+                        color="secondary"
+                        onChange={() => {
+                          handleCheckBoxClick(index)
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs>
+                      <PatientCard
+                        age={value.age}
+                        name={value.name}
+                        relation={value.relation}
+                        gender={value.gender}
+                      />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={stylings.footer}>
+        <Grid container justifyContent="space-between" padding="6rem">
+          <Grid item>
+            <Button
+              variant="text"
+              children="Cancel"
+              sx={stylings.cancelButton}
+            ></Button>
+          </Grid>
+          <Grid item>
+            <Box display="flex" flexDirection="row" alignItems="center">
+              <Typography variant="body" paddingRight="1.5rem">{selected.length} Patients Selected</Typography>
+              <Button
+              data-testid="selectLabButton"
+                variant="contained"
+                onClick={()=>onSelectLabClick?.(selected,userId)}
+                children="Select Lab"
+                sx={stylings.containedButton}
+              ></Button>
+            </Box>
+          </Grid>
         </Grid>
-      ))}
-    </Grid>
-  );
-};
+      </Box>
+    </>
+  )
+}
 
-export default SelectAndAddPatient;
+export default SelectAndAddPatient

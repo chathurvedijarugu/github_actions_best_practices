@@ -1,7 +1,16 @@
 {
-    "patients": [
-      {
-        "data":"demoData"
-      }
-    ]
+  "patients": [
+    {
+      "id": 10,
+      "patientDetails": [
+        {
+          "relation": "Myself",
+          "name": "Rakesh Reddy",
+          "age": 20,
+          "gender": "Male",
+          "selected": true
+        }
+      ]
+    }
+  ]
 }

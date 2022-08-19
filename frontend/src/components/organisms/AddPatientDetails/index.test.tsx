@@ -5,7 +5,8 @@ import AddPatientDetails from "./index";
 
 describe("AddPatientDetails Component", () => {
   it("should render component", () => {
-    render(<AddPatientDetails />);
+    const test1=jest.fn()
+    render(<AddPatientDetails onNextClick={test1}/>);
     expect(screen).toBeTruthy;
     var element = screen.getByPlaceholderText("Enter Your Name");
     element.focus();
@@ -19,7 +20,8 @@ describe("AddPatientDetails Component", () => {
     fireEvent.click(element)
      ele=screen.getAllByTestId("radioButton")
      fireEvent.click(ele[1])
-
-
+     element=screen.getByTestId("nextButton")
+     fireEvent.click(element)
+     expect(test1).toBeCalled
   });
 });
