@@ -4,14 +4,17 @@ import SelectAndAddPatient from ".";
 import { patientDetails } from "../../../utils/constant";
 describe("Select & Add patient", () => {
   it("Truthy test", () => {
-    const element = render(
+    const wrapper = render(
       <SelectAndAddPatient
-        onEditClick={() => {}}
-        onCheckBoxClick={(x) => {console.log(x)}}
         patientDetails={patientDetails}
       />
     );
-    expect(element).toBeTruthy();
-    fireEvent.click(screen.getAllByText("Edit")[0], { button: 0 });
+    expect(wrapper).toBeTruthy();
+    var element=wrapper.getByTestId("newPatientButton")
+    fireEvent.click(element)
+    element=wrapper.getByTestId("checkbox-1")
+    fireEvent.click(element)
+    var element=wrapper.getByTestId("selectLabButton")
+    fireEvent.click(element)
   });
 });

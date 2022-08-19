@@ -12,7 +12,7 @@ export const patientDetails = [
     age: '30 years',
     gender: 'Male',
     name: 'Patrick Smith',
-    relation: 'Self',
+    relation: 'Myself',
   },
   {
     age: '30 years',
@@ -23,7 +23,7 @@ export const patientDetails = [
 ]
 export const tagLabels = [
   {
-    label: 'MySelf',
+    label: 'Myself',
     focused: false,
   },
   {
@@ -90,3 +90,11 @@ export const profileMenu = [
     icon: logOutIcon,
   },
 ]
+export type patientDetailsType={
+  relation:string,
+  name:string,
+  age:number,
+  gender:string,
+  selected:boolean
+
+}
