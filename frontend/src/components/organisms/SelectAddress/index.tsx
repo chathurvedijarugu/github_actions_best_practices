@@ -2,12 +2,8 @@ import { Box, Button, Checkbox, Divider, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import theme from '../../../theme'
 import AddIcon from '@mui/icons-material/Add'
+import SelectAddressCard from '../../molecules/SelectAddressCard'
 
-type SelectAddressProps = {
-  patientDetails?: any
-  onNewPatientClick?:()=>void
-  onSelectLabClick?:(selected:any,userId:any)=>void
-}
 const stylings = {
   footer: {
     position: 'absolute',
@@ -56,26 +52,18 @@ const stylings = {
     boxShadow: '0px 0px 26px 0px #E9E8ED80',
   },
 }
+type SelectAddressProps = {
+  addressData?: any
+  onAddAddressClick?: () => void
+  onCompleteClick?: (selected: any, userId: any) => void
+}
 const SelectAddress = ({
-  onNewPatientClick,
-  onSelectLabClick,
-  patientDetails,
+  addressData,
+  onAddAddressClick,
+  onCompleteClick,
 }: SelectAddressProps) => {
-  const [selected, setSelected] = useState<any>([])
-  const handleCheckBoxClick = (key: any) => {
-    if (selected.includes(key)) {
-      var newArr = [...selected]
-
-      newArr.splice(key, 1)
-      setSelected(newArr)
-    } else {
-      var newArr = [...selected]
-
-      newArr.push(key)
-      setSelected(newArr)
-    }
-  }
-let userId=10;
+  const [selected, setSelected] = useState(0)
+  let userId = 10
   return (
     <>
       <Box sx={stylings.selectPatient}>
@@ -99,14 +87,26 @@ let userId=10;
                 variant="text"
                 data-testid="newPatientButton"
                 sx={stylings.newPatientButton}
-                onClick={onNewPatientClick}
+                onClick={onAddAddressClick}
                 startIcon={<AddIcon />}
                 children="Add Address"
               ></Button>
             </Grid>
           </Grid>
-          
- 
+          <Grid container direction="column" rowGap="1rem" paddingTop="1rem">
+            {addressData.map((item: any, index: number) => {
+              return (
+                <Grid item>
+                  <SelectAddressCard
+                    addressData={item}
+                    activeId={selected}
+                    index={index}
+                    handleOnClick={() => setSelected(index)}
+                  />
+                </Grid>
+              )
+            })}
+          </Grid>
         </Box>
       </Box>
       <Box sx={stylings.footer}>
@@ -119,13 +119,13 @@ let userId=10;
             ></Button>
           </Grid>
           <Grid item>
-              <Button
-              data-testid="selectLabButton"
-                variant="contained"
-                onClick={()=>onSelectLabClick?.(selected,userId)}
-                children="Select Lab"
-                sx={stylings.containedButton}
-              ></Button>
+            <Button
+              data-testid="comleteButton"
+              variant="contained"
+              onClick={() => onCompleteClick?.(selected, userId)}
+              children="Complete Order"
+              sx={stylings.containedButton}
+            ></Button>
           </Grid>
         </Grid>
       </Box>
