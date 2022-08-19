@@ -13,4 +13,18 @@
       ]
     }
   ]
+  ,
+  "addresses": [
+    {
+      "id": 1,
+      "addressDetails": [
+        {
+          "houseDetails": "2232 Calfornia",
+          "areaDetails": "Mountain View",
+          "zipcode": "500008",
+          "city": "Calfornia"
+        }
+      ]
+    }
+  ]
 }
