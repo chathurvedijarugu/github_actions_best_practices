@@ -239,7 +239,6 @@ let theme = createTheme({
       fontWeight: '400',
       textTransform: 'none',
     },
-
     overline2: {
       fontFamily: 'Inter',
       fontSize: '12px',

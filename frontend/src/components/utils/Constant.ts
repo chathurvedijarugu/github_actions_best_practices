@@ -260,5 +260,11 @@ export const labList2 = [
   },
 ]
 export const OTP = 'OTP'
+export const FIRST_NAME="First Name";
+export const LAST_NAME="Last Name";
+export const EMAIL="Email id";
+export const ENTER_MOBILE="Enter your Mobile number"
+export const MOBILE_LABEL="Mobile Number"
+export const OTP_TEXT="Enter the OTP to verify your details"
 export const UPCOMING_REPORTS = 'Upcoming Reports'
 export const RECENT_REPORTS = 'Recent Reports'
