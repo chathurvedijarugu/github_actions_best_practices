@@ -110,3 +110,17 @@ export type patientDetailsType={
   selected:boolean
 
 }
+export const addresData=[
+  {
+    houseDetails:"2235 California Street",
+    areaDetails:"Mountain View ",
+    city:"Calfornia",
+    zipcode:"500008"
+  },
+  {
+    houseDetails:"2235 NanalNagar",
+    areaDetails:"Near Mehdipatnam",
+    city:"Hyderabad",
+    zipcode:"500008"
+  }
+]
