@@ -110,7 +110,7 @@ export type patientDetailsType={
   selected:boolean
 
 }
-export const addresData=[
+export const addressData=[
   {
     houseDetails:"2235 California Street",
     areaDetails:"Mountain View ",

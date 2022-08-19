@@ -55,7 +55,7 @@ const stylings = {
     boxShadow: '0px 0px 26px 0px #E9E8ED80',
   },
 }
-const AddPatientDetailsPage = () => {
+const SelectAddressPage = () => {
   const navigate = useNavigate()
   const handleClickonLogo = () => {
     navigate('/homePage')
@@ -101,4 +101,4 @@ const AddPatientDetailsPage = () => {
   )
 }
 
-export default AddPatientDetailsPage
+export default SelectAddressPage
