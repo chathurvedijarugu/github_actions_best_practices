@@ -3,7 +3,7 @@ import React from 'react'
 import { Button, TextField } from '../Login'
 import  CustomImage from '../../atoms/ImageAtom'
 import theme from '../../../theme'
-import { useMobileNumber } from './hook'
+import { useMobileNumber } from './useMobileNumberHook'
 import { useAuth0 } from '@auth0/auth0-react'
 import { ENTER_MOBILE, MOBILE_LABEL } from '../../utils/Constant'
 
