@@ -7,22 +7,25 @@ import Altos from '../../../assets/icons/altos.svg'
 import Calender from '../../../assets/icons/calendar1.svg'
 import PatientInfo from '../PatientInfo/index'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
+import { Props } from '../PatientInfo/index'
 import {
   LAB_NAME,
-  PRICE,
   ITEM_TOTAL,
   LABEL_GRAND_TOTAL,
-  FINAL_PRICE,
-  DISCOUNT_PRICE,
   LABEL_DISCOUNT,
   SLOT_SELECTED,
   CHANGE,
-  DATE,
-  TIME,
   HEADING_ADDRESS,
-  ADDRESS,
 } from '../../utils/Constant'
-const ReviewOrder: React.FC = () => {
+interface OrderProps {
+  patients: Props[]
+  discount: number
+  date: string
+  time: string
+  address: string
+}
+const ReviewOrder: React.FC<OrderProps> = (props) => {
+  const { patients, date, time, address, discount } = props
   const useStyles = makeStyles({
     root: {
       height: '100%',
@@ -106,6 +109,10 @@ const ReviewOrder: React.FC = () => {
     },
   })
   const classes = useStyles()
+  const Total = patients.reduce(
+    (sum, { testCost }: { testCost: number }) => sum + testCost,
+    0
+  )
   return (
     <Grid container rowGap={4} className={classes.root}>
       <Grid item className={classes.labDetailsCon}>
@@ -128,7 +135,7 @@ const ReviewOrder: React.FC = () => {
           </Grid>
           <Grid item container justifyContent="flex-end" xs={6}>
             <Typography variant="caption2" className={classes.label}>
-              ${PRICE}
+              ${Total}
             </Typography>
           </Grid>
         </Grid>
@@ -140,7 +147,7 @@ const ReviewOrder: React.FC = () => {
           </Grid>
           <Grid item container justifyContent="flex-end" xs={6}>
             <Typography variant="caption2" className={classes.price}>
-              -${DISCOUNT_PRICE}
+              -${discount}
             </Typography>
           </Grid>
         </Grid>
@@ -152,21 +159,26 @@ const ReviewOrder: React.FC = () => {
           </Grid>
           <Grid item container justifyContent="flex-end" xs={6}>
             <Typography variant="caption1" className={classes.finalPrice}>
-              ${FINAL_PRICE}
+              ${Total - discount}
             </Typography>
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <PatientInfo
-          age={30}
-          gender="M"
-          patientName="Patrick Smith"
-          relation="Self"
-          testCost={3000}
-          testName="COVID RT-PCR Test"
-        />
-      </Grid>
+      {patients.map((patient) => {
+        return (
+          <Grid item xs={12}>
+            <PatientInfo
+              age={patient.age}
+              gender={patient.gender}
+              patientName={patient.patientName}
+              relation={patient.relation}
+              testCost={patient.testCost}
+              testName={patient.testName}
+            />
+          </Grid>
+        )
+      })}
+
       <Grid item container className={classes.labDetailsContainer}>
         <Grid item container className={classes.mainHeading}>
           <Grid item xs={6} container className={classes.mainHeading}>
@@ -190,11 +202,11 @@ const ReviewOrder: React.FC = () => {
           xs={6}
         >
           <Grid item>
-            <Typography variant="overline">{DATE}</Typography>
+            <Typography variant="overline">{date}</Typography>
           </Grid>
           <Divider variant="fullWidth" orientation="vertical" />
           <Grid item>
-            <Typography variant="overline">{TIME}</Typography>
+            <Typography variant="overline">{time}</Typography>
           </Grid>
         </Grid>
       </Grid>
@@ -225,7 +237,7 @@ const ReviewOrder: React.FC = () => {
         >
           <Grid item className={classes.slot}>
             <Typography variant="overline" className={classes.slot}>
-              {ADDRESS}
+              {address}
             </Typography>
           </Grid>
         </Grid>
