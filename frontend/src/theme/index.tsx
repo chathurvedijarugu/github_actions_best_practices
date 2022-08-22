@@ -108,7 +108,7 @@ let theme = createTheme({
     secondary: {
       A100: '#EBDAF2',
       '500': '#C898D9',
-      '800': '#9E62B2',
+      '800': '#9E62B3',
       '50': '#F9F5FA',
       A400: '#9E62B2',
     },

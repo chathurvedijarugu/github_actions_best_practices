@@ -24,10 +24,10 @@ export const SelectedTimeButton = styled(ButtonComponent)({
   width: '8em',
   padding: '0.5em',
   gap: '0.25em',
-  backgroundColor: theme.palette.secondary.dark,
+  backgroundColor: theme.palette.secondary["800"],
   borderRadius: '0.75em',
   ':hover': {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: theme.palette.secondary["800"],
   },
 })
 

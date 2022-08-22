@@ -1,3 +1,4 @@
+import { DateTimeType } from '../components/organisms/SelectAppointment'
 import { patientDetailsType } from '../utils/constant'
 import { addressDetailsType } from '../utils/constant'
 
@@ -37,3 +38,10 @@ export const addAddressDetails = async (details: addressDetailsType, userId: num
 
 }
 
+export const addSlotTime = async (slotSelected: DateTimeType, userId: number) => {
+  
+  const response = await API.get(`/slotsBooked/${userId}`)
+  await response.data.slots.push(slotSelected)
+  await API.put(`/slotsBooked/${userId}`, response.data)
+
+}
