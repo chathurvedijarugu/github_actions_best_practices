@@ -19,6 +19,7 @@ const style = {
         boxShadow: theme.shadows[1],
         width: "100%",
         padding: theme.spacing(6),
+        height: "100%"
     },
 
     trackGrid: {
