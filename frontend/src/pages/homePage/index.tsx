@@ -145,10 +145,10 @@ const HomePage = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item width="100%">
+            <Grid item width="100%" data-testid="choose-us">
                 <WhyChooseUs></WhyChooseUs>
             </Grid>
-            <Grid item sx={style.innerGrid}>
+            <Grid item sx={style.innerGrid} data-testid="test-detail">
                 <TestDetailMolecule></TestDetailMolecule>
             </Grid>
             <Grid item sx={style.testimonialGrid}>
@@ -165,10 +165,10 @@ const HomePage = () => {
                     })}
                 </Grid>    
             </Grid>
-            <Grid item sx={style.innerGrid}>
+            <Grid item sx={style.innerGrid} data-testid="faq">
                 <FAQs></FAQs>
             </Grid>
-            <Grid item>
+            <Grid item data-testid="footer">
                 <Footer></Footer>
             </Grid>
         </Grid>
