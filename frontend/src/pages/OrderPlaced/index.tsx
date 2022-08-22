@@ -52,7 +52,7 @@ const OrderPlacedPage = () => {
                 <Grid item sx={style.image}>
                     <img src={paymentSuccess} alt="payment-success" height="650rem"/>
                 </Grid>
-                <Grid item sx={{height: "45rem"}}>
+                <Grid item sx={{height: "45rem"}} data-testid="order-placed">
                     <OrderPlaced 
                         instructions={"Please don't eat or drink anything other than water for 8 -10 hours prior to the appointment."}
                         onClickHome={onClickHome}
