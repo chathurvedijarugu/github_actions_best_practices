@@ -270,3 +270,4 @@ export const UPCOMING_REPORTS = 'Upcoming Reports'
 export const RECENT_REPORTS = 'Recent Reports'
 export const SELECT_LAB = 'Select Lab'
 export const SORT = 'Sort'
+export const MAIN_LOGO="https://svgshare.com/i/k5T.svg";
