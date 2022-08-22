@@ -1,5 +1,6 @@
 import { Box, Grid, Radio, Typography } from '@mui/material'
 import React from 'react'
+import { addressDetailsType } from '../../../utils/constant'
 import RadioButton from '../../atoms/radioButton'
 const stylings = {
   outerCard: {
@@ -9,15 +10,15 @@ const stylings = {
   },
 }
 type SelectAddressCardProps = {
-  addressData: any
-  activeId: any
-  index: any
+  addressData: addressDetailsType
+  activeId: number
+  index: number
   handleOnClick:()=>void
 }
 const SelectAddressCard = (props: SelectAddressCardProps) => {
   const { addressData, activeId, index ,handleOnClick} = props
   return (
-    <Box sx={stylings.outerCard} onClick={handleOnClick}>
+    <Box data-testid={`selectAddressCardBox${index}`} sx={stylings.outerCard} onClick={handleOnClick}>
       <Box
         padding="0.75rem"
         sx={{
@@ -36,6 +37,11 @@ const SelectAddressCard = (props: SelectAddressCardProps) => {
           <Grid item>
             <Typography variant="overline2" color="#5A5766">
               Address {index+1}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="caption2" color="#2D2A38">
+              {addressData.addressType}
             </Typography>
           </Grid>
           <Grid item>

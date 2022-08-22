@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../components/atoms/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ProgressBar from '../../components/molecules/progressBar'
@@ -8,7 +8,8 @@ import logo from '../../assets/icons/logo.svg'
 import theme from '../../theme'
 import { useNavigate } from 'react-router-dom'
 import SelectAddress from '../../components/organisms/SelectAddress'
-import { addressData } from '../../utils/constant'
+import {  ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
+import { getAddressDetails } from '../../services/services'
 
 const stylings = {
   footer: {
@@ -56,14 +57,26 @@ const stylings = {
   },
 }
 const SelectAddressPage = () => {
+  let userId=1;
   const navigate = useNavigate()
   const handleClickonLogo = () => {
     navigate('/homePage')
   }
   const handleClickonBackButton = () => {
-    navigate('/selectAppointementPage')
+    navigate('/AddAddressPage')
   }
-
+  const hanldeOnAddAddress = () => {
+    navigate('/AddAddressPage')
+  }
+  const handleCompleteOrder = () => {
+    navigate('/reviewOrder')
+  }
+  const [data,setData]=useState([])
+  useEffect(() => {
+   getAddressDetails(userId).then((res)=>{
+     setData(res.addressDetails)
+   })
+  }, [])
   return (
     <>
       <Box onClick={handleClickonLogo}>
@@ -87,7 +100,7 @@ const SelectAddressPage = () => {
         <Grid xs  item>
             <Box width="671px">
             <ProgressBar
-              values={["Lab Test","Select Address","Add Address","Review Order"]}
+              values={ ADDRESS_PAGE_BAR_VALUES}
               currentIndex={2}
             />
             </Box>
@@ -95,7 +108,7 @@ const SelectAddressPage = () => {
       </Grid>
       
       <Box display="flex" paddingTop="2rem" justifyContent="center">
-  <SelectAddress addressData={addressData}/>
+  <SelectAddress addressData={data} onAddAddressClick={hanldeOnAddAddress}/>
       </Box>
     </>
   )

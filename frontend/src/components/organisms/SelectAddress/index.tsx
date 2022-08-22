@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import theme from '../../../theme'
 import AddIcon from '@mui/icons-material/Add'
 import SelectAddressCard from '../../molecules/SelectAddressCard'
+import { addressDetailsType } from '../../../utils/constant'
 
 const stylings = {
   footer: {
@@ -53,9 +54,9 @@ const stylings = {
   },
 }
 type SelectAddressProps = {
-  addressData?: any
+  addressData: addressDetailsType[]
   onAddAddressClick?: () => void
-  onCompleteClick?: (selected: any, userId: any) => void
+  onCompleteClick?: (selectedAddress: addressDetailsType) => void
 }
 const SelectAddress = ({
   addressData,
@@ -63,7 +64,6 @@ const SelectAddress = ({
   onCompleteClick,
 }: SelectAddressProps) => {
   const [selected, setSelected] = useState(0)
-  let userId = 10
   return (
     <>
       <Box sx={stylings.selectPatient}>
@@ -85,7 +85,7 @@ const SelectAddress = ({
             <Grid item>
               <Button
                 variant="text"
-                data-testid="newPatientButton"
+                data-testid="addAddressButton"
                 sx={stylings.newPatientButton}
                 onClick={onAddAddressClick}
                 startIcon={<AddIcon />}
@@ -96,7 +96,7 @@ const SelectAddress = ({
           <Grid container direction="column" rowGap="1rem" paddingTop="1rem">
             {addressData.map((item: any, index: number) => {
               return (
-                <Grid item>
+                <Grid data-testid={`card-${index}`} item>
                   <SelectAddressCard
                     addressData={item}
                     activeId={selected}
@@ -120,9 +120,9 @@ const SelectAddress = ({
           </Grid>
           <Grid item>
             <Button
-              data-testid="comleteButton"
+              data-testid="comleteOrderButton"
               variant="contained"
-              onClick={() => onCompleteClick?.(selected, userId)}
+              onClick={() => onCompleteClick?.(addressData[selected])}
               children="Complete Order"
               sx={stylings.containedButton}
             ></Button>

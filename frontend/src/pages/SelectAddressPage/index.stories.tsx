@@ -9,4 +9,4 @@ export default {
 
 const Template: ComponentStory<typeof SelectAddressPage> = (args) => <SelectAddressPage />;
 
-export const Faq = Template.bind({});
+export const Select = Template.bind({});

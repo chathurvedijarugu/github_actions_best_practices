@@ -56,3 +56,8 @@ export const addSlotTime = async (
     })
     .catch((err) => console.log(err))
 }
+export const getAddressDetails=async(userId:number)=>{
+  const response = await API.get(`/addresses/${userId}`)
+  return response.data
+}
+
