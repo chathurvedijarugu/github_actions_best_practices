@@ -15,7 +15,8 @@ interface MainTemplateProps {
   mainComponent: React.ReactNode
   nextClick: () => void
   backClick?: () => void
-  footerTextComponent: React.ReactNode
+  footerTextComponent?: React.ReactNode
+  buttonLabel: string
 }
 const MainTemplate = ({
   mainComponent,
@@ -23,6 +24,7 @@ const MainTemplate = ({
   nextClick,
   backClick,
   footerTextComponent,
+  buttonLabel,
 }: MainTemplateProps) => {
   return (
     <Grid
@@ -36,13 +38,8 @@ const MainTemplate = ({
         <Image imgAlt="zemoso_logo" imgSrc={MAIN_LOGO} />
       </Grid>
       <Grid item xs marginX={9}>
-        <Grid
-          container
-          width="60%"
-          justifyContent={'space-between'}
-          alignItems="center"
-        >
-          <Grid item width={'fit-content'}>
+        <Grid container width="100%" alignItems="center">
+          <Grid item width={'fit-content'} xs={3}>
             <CustomButton
               onClick={() => {
                 backClick?.() ?? (() => {})
@@ -55,8 +52,16 @@ const MainTemplate = ({
               </Typography>
             </CustomButton>
           </Grid>
-          <Grid item xs={4}>
-            <Box>{stepperComponent}</Box>
+          <Grid
+            item
+            container
+            justifyContent="center"
+            sx={{ alignItems: 'center' }}
+            height="100%"
+          >
+            <Grid item width="673px">
+              <Box>{stepperComponent}</Box>
+            </Grid>
           </Grid>
         </Grid>
         <Grid item xs>
@@ -101,7 +106,7 @@ const MainTemplate = ({
           <Grid item>
             {footerTextComponent}
             <Button onClick={nextClick} variant="contained">
-              <Typography variant="body">Add Patient</Typography>
+              <Typography variant="body">{buttonLabel}</Typography>
             </Button>
           </Grid>
         </Grid>

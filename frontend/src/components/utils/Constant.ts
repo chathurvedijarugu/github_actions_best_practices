@@ -9,16 +9,16 @@ import labIcon4 from '../../assets/icons/labIcon4.png'
 import labIcon5 from '../../assets/icons/labIcon5.png'
 import labIcon6 from '../../assets/icons/labIcon6.png'
 
-import avatarImage from "../../assets/icons/avatarImage.svg";
+import avatarImage from '../../assets/icons/avatarImage.svg'
 
-import bloodTest from "../../assets/icons/bloodtest.svg";
-import bodyTest from "../../assets/icons/body.svg";
-import covidTest from "../../assets/icons/covid.svg";
-import diabetesTest from "../../assets/icons/diabetestest.svg";
-import kidneyTest from "../../assets/icons/kidney.svg";
-import lipidTest from "../../assets/icons/lipid.svg";
-import liverTest from "../../assets/icons/liver.svg";
-import thyroidTest from "../../assets/icons/throid.svg";
+import bloodTest from '../../assets/icons/bloodtest.svg'
+import bodyTest from '../../assets/icons/body.svg'
+import covidTest from '../../assets/icons/covid.svg'
+import diabetesTest from '../../assets/icons/diabetestest.svg'
+import kidneyTest from '../../assets/icons/kidney.svg'
+import lipidTest from '../../assets/icons/lipid.svg'
+import liverTest from '../../assets/icons/liver.svg'
+import thyroidTest from '../../assets/icons/throid.svg'
 
 export const PATIENT_DETAILS = 'Patient Details (1)'
 export const NUMBER_OF_TESTS = '1 Test'
@@ -279,73 +279,77 @@ export const labList2 = [
   },
 ]
 export const OTP = 'OTP'
-export const FIRST_NAME="First Name";
-export const LAST_NAME="Last Name";
-export const EMAIL="Email id";
-export const ENTER_MOBILE="Enter your Mobile number"
-export const MOBILE_LABEL="Mobile Number"
-export const OTP_TEXT="Enter the OTP to verify your details"
+export const FIRST_NAME = 'First Name'
+export const LAST_NAME = 'Last Name'
+export const EMAIL = 'Email id'
+export const ENTER_MOBILE = 'Enter your Mobile number'
+export const MOBILE_LABEL = 'Mobile Number'
+export const OTP_TEXT = 'Enter the OTP to verify your details'
 export const UPCOMING_REPORTS = 'Upcoming Reports'
 export const RECENT_REPORTS = 'Recent Reports'
 export const SELECT_LAB = 'Select Lab'
 export const SORT = 'Sort'
-export const MAIN_LOGO="https://svgshare.com/i/k5T.svg";
+export const MAIN_LOGO = 'https://svgshare.com/i/k5T.svg'
 
 export const testimonials = [
   {
     avatar: avatarImage,
-    name: "Abby",
-    location: "San Jose, CA",
-    comment: "Very friendly and professional. Loved the follow-up and progress calls",
+    name: 'Abby',
+    location: 'San Jose, CA',
+    comment:
+      'Very friendly and professional. Loved the follow-up and progress calls',
   },
   {
     avatar: avatarImage,
-    name: "Abby",
-    location: "San Jose, CA",
-    comment: "Very friendly and professional. Loved the follow-up and progress calls. I would recommend zemoso diagnostics to my friends and family.",
+    name: 'Abby',
+    location: 'San Jose, CA',
+    comment:
+      'Very friendly and professional. Loved the follow-up and progress calls. I would recommend zemoso diagnostics to my friends and family.',
   },
   {
     avatar: avatarImage,
-    name: "Abby",
-    location: "San Jose, CA",
-    comment: "Very friendly and professional. Loved the follow-up and progress calls",
+    name: 'Abby',
+    location: 'San Jose, CA',
+    comment:
+      'Very friendly and professional. Loved the follow-up and progress calls',
   },
   {
     avatar: avatarImage,
-    name: "Abby",
-    location: "San Jose, CA",
-    comment: "Very friendly and professional. Loved the follow-up and progress calls",
+    name: 'Abby',
+    location: 'San Jose, CA',
+    comment:
+      'Very friendly and professional. Loved the follow-up and progress calls',
   },
 ]
 
 export const testList1 = [
   {
     logo: bodyTest,
-    testName: "Full body Check",
+    testName: 'Full body Check',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: covidTest,
-    testName: "Covid RTPCR",
+    testName: 'Covid RTPCR',
     onClick: () => {},
     clickable: true,
   },
   {
     logo: liverTest,
-    testName: "Liver Function",
+    testName: 'Liver Function',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: bloodTest,
-    testName: "Complete Blood Count",
+    testName: 'Complete Blood Count',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: bodyTest,
-    testName: "Full body Check",
+    testName: 'Full body Check',
     onClick: () => {},
     clickable: false,
   },
@@ -354,31 +358,31 @@ export const testList1 = [
 export const testList2 = [
   {
     logo: diabetesTest,
-    testName: "Diabetes Test",
+    testName: 'Diabetes Test',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: kidneyTest,
-    testName: "Kidney Function Test",
+    testName: 'Kidney Function Test',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: thyroidTest,
-    testName: "Thyroid Test",
+    testName: 'Thyroid Test',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: lipidTest,
-    testName: "Lipid Profile",
+    testName: 'Lipid Profile',
     onClick: () => {},
     clickable: false,
   },
   {
     logo: diabetesTest,
-    testName: "Diabetes Test",
+    testName: 'Diabetes Test',
     onClick: () => {},
     clickable: false,
   },

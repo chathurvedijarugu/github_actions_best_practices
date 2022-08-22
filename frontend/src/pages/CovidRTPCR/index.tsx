@@ -6,12 +6,6 @@ import ProgressBar from '../../components/molecules/progressBar'
 import TestInfo from '../../components/molecules/TestInfo'
 import MainTemplate from '../../components/templates/Main'
 
-const Button = styled(CustomButton)({
-  borderRadius: '0.5rem',
-  height: '2.625rem',
-  width: '13.875rem',
-})
-
 const CovidRTPCR = () => {
   const navigate = useNavigate()
   return (
@@ -31,6 +25,7 @@ const CovidRTPCR = () => {
         </Box>
       }
       footerTextComponent={undefined}
+      buttonLabel="Add Patient"
     ></MainTemplate>
   )
 }
