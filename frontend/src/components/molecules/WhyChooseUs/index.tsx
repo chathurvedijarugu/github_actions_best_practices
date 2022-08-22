@@ -5,13 +5,12 @@ import { labList1, labList2 } from '../../utils/Constant'
 import IconwithText from '../IconwithText'
 const box = {
   width: '100%',
-  height: '22.25rem',
   backgroundColor: theme.palette.primary["800"],
 }
 const WhyChooseUs = () => {
   return (
     <Box sx={box}>
-      <Grid container direction="column" rowGap="1.5rem" padding="4rem">
+      <Grid container direction="column" rowGap="1.5rem" px="5.625rem" py="5rem">
         <Grid item>
           <Typography color={theme.palette.gammaWhite.main} variant="h1">Why Choose Us</Typography>
         </Grid>

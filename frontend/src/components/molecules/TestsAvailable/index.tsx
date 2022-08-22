@@ -53,6 +53,12 @@ const TestDetailMolecule = () => {
               iconIllustation={stressIllustration}
             ></TestDetailCard>
           </Grid>
+          <Grid item>
+            <TestDetailCard
+              text="Stress Assessment"
+              iconIllustation={stressIllustration}
+            ></TestDetailCard>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
