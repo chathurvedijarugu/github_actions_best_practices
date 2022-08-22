@@ -171,7 +171,7 @@ const SelectAppointmentForm = ({
   const daysOfMonth = noOfDays[monthNo]
   const daysOfDate = daysOfDateFunc()
   const weekDays = weekDaysFunc()
-let userId=10;
+  let userId=10;
   const changeMonth = () => {
     setdayAdder(() => {
       let finalVal = 0
