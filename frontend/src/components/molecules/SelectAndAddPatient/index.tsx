@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import theme from '../../../theme'
 import PatientCard, { PatientDetails } from '../PatientCard'
 import AddIcon from '@mui/icons-material/Add'
-
+import {LabFooter} from "../../organisms/AddAdressDetails"
 type SelectAndAddPatientProps = {
   patientDetails: PatientDetails[]
   onNewPatientClick?:()=>void
@@ -136,13 +136,13 @@ let userId=10;
           </Box>
         </Box>
       </Box>
-      <Box sx={stylings.footer}>
-        <Grid container justifyContent="space-between" padding="6rem">
+      <Box sx={LabFooter.footer}>
+        <Grid container justifyContent="space-between" padding="3rem">
           <Grid item>
             <Button
               variant="text"
               children="Cancel"
-              sx={stylings.cancelButton}
+              sx={LabFooter.cancelButton}
             ></Button>
           </Grid>
           <Grid item>
@@ -153,7 +153,7 @@ let userId=10;
                 variant="contained"
                 onClick={()=>onSelectLabClick?.(selected,userId)}
                 children="Select Lab"
-                sx={stylings.containedButton}
+                sx={LabFooter.containedButton}
               ></Button>
             </Box>
           </Grid>

@@ -4,7 +4,8 @@ import React from 'react'
 import CustomButton from '../../atoms/Button'
 import { MAIN_LOGO } from '../../utils/Constant'
 import Image from '../../atoms/ImageAtom'
-
+import logo from "../../../assets/icons/logo.svg"
+import Logo from '../../molecules/logo'
 const Button = styled(CustomButton)({
   borderRadius: '0.5rem',
   height: '2.625rem',
@@ -15,6 +16,7 @@ interface MainTemplateProps {
   mainComponent: React.ReactNode
   nextClick: () => void
   backClick?: () => void
+  onLogoClick?:()=>void
   footerTextComponent?: React.ReactNode
   buttonLabel: string
 }
@@ -23,9 +25,11 @@ const MainTemplate = ({
   stepperComponent,
   nextClick,
   backClick,
+  onLogoClick,
   footerTextComponent,
   buttonLabel,
 }: MainTemplateProps) => {
+
   return (
     <Grid
       container
@@ -34,16 +38,14 @@ const MainTemplate = ({
       justifyContent={'center'}
       columnSpacing={1}
     >
-      <Grid item xs={12} marginX={10} marginY={4}>
-        <Image imgAlt="zemoso_logo" imgSrc={MAIN_LOGO} />
+      <Grid onClick={onLogoClick} item xs={12} marginX={10} marginY={4}>
+        <Logo img={logo} text="Zemoso Diagnostics" />
       </Grid>
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
           <Grid item width={'fit-content'} xs={3}>
             <CustomButton
-              onClick={() => {
-                backClick?.() ?? (() => {})
-              }}
+              onClick={backClick}
               color="primary"
             >
               <ArrowBack />
