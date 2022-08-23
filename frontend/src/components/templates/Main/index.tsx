@@ -4,7 +4,7 @@ import React from 'react'
 import CustomButton from '../../atoms/Button'
 import { MAIN_LOGO } from '../../utils/Constant'
 import Image from '../../atoms/ImageAtom'
-import logo from "../../../assets/icons/logo.svg"
+import logo from '../../../assets/icons/logo.svg'
 import Logo from '../../molecules/logo'
 const Button = styled(CustomButton)({
   borderRadius: '0.5rem',
@@ -16,7 +16,7 @@ interface MainTemplateProps {
   mainComponent: React.ReactNode
   nextClick: () => void
   backClick?: () => void
-  onLogoClick?:()=>void
+  onLogoClick?: () => void
   footerTextComponent?: React.ReactNode
   buttonLabel: string
 }
@@ -29,7 +29,6 @@ const MainTemplate = ({
   footerTextComponent,
   buttonLabel,
 }: MainTemplateProps) => {
-
   return (
     <Grid
       container
@@ -44,10 +43,7 @@ const MainTemplate = ({
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
           <Grid item width={'fit-content'} xs={3}>
-            <CustomButton
-              onClick={backClick}
-              color="primary"
-            >
+            <CustomButton onClick={backClick} color="primary">
               <ArrowBack />
               <Typography marginX={1} variant="body">
                 Back
@@ -105,9 +101,11 @@ const MainTemplate = ({
               <Typography variant="body">Cancel</Typography>
             </CustomButton>
           </Grid>
-          <Grid item>
+
+          <Grid item display="flex">
             {footerTextComponent}
-            <Button onClick={nextClick} variant="contained">
+
+            <Button onClick={nextClick} variant="contained" fullWidth>
               <Typography variant="body">{buttonLabel}</Typography>
             </Button>
           </Grid>

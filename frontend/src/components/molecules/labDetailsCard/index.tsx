@@ -46,8 +46,8 @@ const LabDetailsCard: React.FC<Props> = (props: Props) => {
     labIcon: {
       backgroundColor: theme.palette.gammaWhite.main,
       borderRadius: theme.spacing(1),
-      height: '2.5rem',
-      width: '2.5rem',
+      height: '35px',
+      width: '40px',
     },
 
     innerGrid: {
@@ -102,7 +102,7 @@ const LabDetailsCard: React.FC<Props> = (props: Props) => {
       data-testid="lab-details"
     >
       <Grid item className={classes.labIcon}>
-        <img src={props.labIcon} />
+        <img src={props.labIcon} className={classes.labIcon} />
       </Grid>
       <Grid item container className={classes.innerGrid}>
         <Grid item className={classes.labName}>
