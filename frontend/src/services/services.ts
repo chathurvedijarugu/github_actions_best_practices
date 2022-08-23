@@ -36,6 +36,7 @@ export const getPatientDetails = async (userId: number) => {
   const response = await API.get(`/patients/${userId}`)
   return response.data
 }
+
 export const addAddressDetails = async (
   details: addressDetailsType,
   userId: number
@@ -43,6 +44,10 @@ export const addAddressDetails = async (
   const response = await API.get(`/addresses/${userId}`)
   await response.data.addressDetails.push(details)
   await API.put(`/addresses/${userId}`, response.data)
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((err) => console.log(err))
 }
 
 export const addSlotTime = async (
@@ -56,3 +61,13 @@ export const addSlotTime = async (
     })
     .catch((err) => console.log(err))
 }
+export const getAddressDetails = async (userId: number) => {
+  let addressData: any[] = []
+  await API.get(`/addresses/${userId}`)
+    .then((res) => {
+      addressData = res.data
+    })
+    .catch((err) => console.log(err))
+  return addressData
+}
+

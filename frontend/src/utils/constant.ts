@@ -101,6 +101,7 @@ export type addressDetailsType = {
   areaDetails: string
   zipcode: string
   city: string
+  addressType:string
 }
 export type patientDetailsType={
   relation:string,
@@ -110,3 +111,19 @@ export type patientDetailsType={
   selected:boolean
 
 }
+export const addressData=[
+  {
+    houseDetails:"2235 California Street",
+    areaDetails:"Mountain View ",
+    city:"Calfornia",
+    zipcode:"100132",
+    addressType:"HOME"
+  },
+  {
+    houseDetails:"2235 NanalNagar",
+    areaDetails:"Near Mehdipatnam",
+    city:"Hyderabad",
+    zipcode:"500008",
+    addressType:"OTHERS"
+  }
+]
