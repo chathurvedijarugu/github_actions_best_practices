@@ -6,7 +6,6 @@ import { MAIN_LOGO } from '../../utils/Constant'
 import Image from '../../atoms/ImageAtom'
 import logo from "../../../assets/icons/logo.svg"
 import Logo from '../../molecules/logo'
-import { useNavigate } from 'react-router-dom'
 const Button = styled(CustomButton)({
   borderRadius: '0.5rem',
   height: '2.625rem',
@@ -17,6 +16,7 @@ interface MainTemplateProps {
   mainComponent: React.ReactNode
   nextClick: () => void
   backClick?: () => void
+  onLogoClick?:()=>void
   footerTextComponent?: React.ReactNode
   buttonLabel: string
 }
@@ -25,10 +25,10 @@ const MainTemplate = ({
   stepperComponent,
   nextClick,
   backClick,
+  onLogoClick,
   footerTextComponent,
   buttonLabel,
 }: MainTemplateProps) => {
-  const navigate = useNavigate()
 
   return (
     <Grid
@@ -38,16 +38,14 @@ const MainTemplate = ({
       justifyContent={'center'}
       columnSpacing={1}
     >
-      <Grid onClick={()=>navigate("/homePage")} item xs={12} marginX={10} marginY={4}>
+      <Grid onClick={onLogoClick} item xs={12} marginX={10} marginY={4}>
         <Logo img={logo} text="Zemoso Diagnostics" />
       </Grid>
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
           <Grid item width={'fit-content'} xs={3}>
             <CustomButton
-              onClick={() => {
-                backClick?.() ?? (() => {})
-              }}
+              onClick={backClick}
               color="primary"
             >
               <ArrowBack />
