@@ -90,6 +90,18 @@ export const profileMenu = [
     icon: logOutIcon,
   },
 ]
+export const ADDRESS_PAGE_BAR_VALUES = [
+  'Lab Test',
+  'Select Appointement',
+  'Add Address',
+  'Review Order',
+]
+export type addressDetailsType = {
+  houseDetails: string
+  areaDetails: string
+  zipcode: string
+  city: string
+}
 export type patientDetailsType={
   relation:string,
   name:string,

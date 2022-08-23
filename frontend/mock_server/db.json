@@ -12,5 +12,31 @@
         }
       ]
     }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "addressDetails": [
+        {
+          "houseDetails": "2232 Calfornia",
+          "areaDetails": "Mountain View",
+          "zipcode": "500008",
+          "city": "Calfornia"
+        }
+      ]
+    }
+  ],
+  "slotsBooked": [
+    {
+      "id": 10,
+      "slots": [
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        }
+      ]
+    }
   ]
 }

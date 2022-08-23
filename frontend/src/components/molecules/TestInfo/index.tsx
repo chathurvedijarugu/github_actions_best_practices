@@ -1,14 +1,14 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import React from "react";
-import theme from "../../../theme";
-import Home from "../../../assets/icons/home1.svg";
-import Test from "../../../assets/icons/TestTube.svg";
-import Doctor from "../../../assets/icons/Doctor.svg";
-import Reports from "../../../assets/icons/Reports.svg";
-import Dollar from "../../../assets/icons/Dollar.png";
-import TimelineDot from "@mui/lab/TimelineDot";
-import Clock from "../../../assets/icons/Clock.svg";
+import { Box, Grid, Typography } from '@mui/material'
+import { makeStyles } from '@mui/styles'
+import React from 'react'
+import theme from '../../../theme'
+import Home from '../../../assets/icons/home1.svg'
+import Test from '../../../assets/icons/TestTube.svg'
+import Doctor from '../../../assets/icons/Doctor.svg'
+import Reports from '../../../assets/icons/Reports.svg'
+import Dollar from '../../../assets/icons/Dollar.png'
+import TimelineDot from '@mui/lab/TimelineDot'
+import Clock from '../../../assets/icons/Clock.svg'
 import {
   COVID_RTPCR,
   HOME_VISIT,
@@ -25,60 +25,67 @@ import {
   FEATURE_1,
   FEATURE_2,
   FEATURE_3,
-} from "../../utils/Constant";
+} from '../../utils/Constant'
 
 const TestInfo: React.FC = (props) => {
   const useStyles = makeStyles({
     root: {
-      height: "100%",
-      width: "100%",
+      height: '100%',
+      width: '100%',
     },
     innerBox: {
-      paddingLeft: "11.34px",
-      paddingRight: "11.99px",
-      height: "100%",
-      width: "100%",
+      paddingLeft: '11.34px',
+      paddingRight: '11.99px',
+      height: '100%',
+      width: '100%',
     },
     mainHeading: {
       color: theme.palette.gammaHigh.main,
-      fontSize: "12px",
-      lineHeight: "18px",
-      fontWeight: "400",
+      fontSize: '12px',
+      lineHeight: '18px',
+      fontWeight: '400',
     },
     logo: {
-      borderRadius: "8px",
-      background: "#FBF7FC",
-      alignItems: "center",
-      display: "flex",
-      justifyContent: "center",
-      width: "100%",
-      height: "100%",
+      borderRadius: '8px',
+      background: '#FBF7FC',
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      width: '100%',
+      height: '100%',
     },
     testDetails: {
-      justifyContent: "space-between",
-      display: "flex",
-      alignItems: "center",
-      borderRadius: "8px",
+      justifyContent: 'space-between',
+      display: 'flex',
+      alignItems: 'center',
+      borderRadius: '8px',
       border: `1px solid ${theme.palette.grey[100]}`,
-      paddingRight: "10px",
+      paddingRight: '10px',
       color: theme.palette.gammaHigh.main,
     },
     center: {
-      display: "flex",
-      justContent: "center",
-      alignItems: "center",
+      display: 'flex',
+      justContent: 'center',
+      alignItems: 'center',
     },
     bgColor: {
-      background: "#FBF7FC",
-      borderRadius: "12px",
-      padding: "17px 12px",
+      background: '#FBF7FC',
+      borderRadius: '12px',
+      padding: '17px 12px',
+      height: '3em',
       color: theme.palette.gammaHigh.main,
     },
     overline2: {
-      fontWeight: "700",
+      fontWeight: '700',
     },
-  });
-  const classes = useStyles();
+    list: {
+      paddingLeft: '0.75em',
+      maxWidth: '35em',
+      minWidth: 'fit-content',
+      margin: '0',
+    },
+  })
+  const classes = useStyles()
   return (
     <Box className={classes.root}>
       <Grid container className={classes.innerBox} rowGap={4}>
@@ -138,54 +145,56 @@ const TestInfo: React.FC = (props) => {
           </Grid>
           <TimelineDot />
           <Grid item className={classes.center}>
-            <img src={Clock} alt="dollar" />
+            <img src={Clock} alt="dollar" style={{ paddingRight: '5px' }} />
             <Typography variant="overline">{REPORTS_TIME}</Typography>
           </Grid>
         </Grid>
 
         <Grid item container rowGap={2}>
-          <Grid item xs={12}>
-            <li>
-              <Typography
-                variant="overline"
-                color={theme.palette.gammaMedium.main}
-              >
-                {DESCRIPTION_1}
-              </Typography>
-            </li>
-          </Grid>
-          <Grid item xs={12}>
-            <li>
-              <Typography
-                variant="overline"
-                color={theme.palette.gammaMedium.main}
-              >
-                {DISCLAIMER_1}
-              </Typography>
-            </li>
-          </Grid>
+          <ul className={classes.list}>
+            <Grid item xs={12}>
+              <li>
+                <Typography
+                  variant="overline"
+                  color={theme.palette.gammaMedium.main}
+                >
+                  {DESCRIPTION_1}
+                </Typography>
+              </li>
+            </Grid>
+            <Grid item xs={12}>
+              <li>
+                <Typography
+                  variant="overline"
+                  color={theme.palette.gammaMedium.main}
+                >
+                  {DISCLAIMER_1}
+                </Typography>
+              </li>
+            </Grid>
 
-          <Grid item xs={12}>
-            <li>
-              <Typography
-                variant="overline"
-                color={theme.palette.gammaMedium.main}
-              >
-                {DISCLAIMER_2}
-              </Typography>
-            </li>
-          </Grid>
+            <Grid item xs={12}>
+              <li>
+                <Typography
+                  variant="overline"
+                  color={theme.palette.gammaMedium.main}
+                >
+                  {DISCLAIMER_2}
+                </Typography>
+              </li>
+            </Grid>
 
-          <Grid item xs={12}>
-            <li>
-              <Typography
-                variant="overline"
-                color={theme.palette.gammaMedium.main}
-              >
-                {MUNICIPAL_GUIDELINES}
-              </Typography>
-            </li>
-          </Grid>
+            <Grid item xs={12}>
+              <li>
+                <Typography
+                  variant="overline"
+                  color={theme.palette.gammaMedium.main}
+                >
+                  {MUNICIPAL_GUIDELINES}
+                </Typography>
+              </li>
+            </Grid>
+          </ul>
         </Grid>
         <Grid item container rowGap={2}>
           <Grid item>
@@ -217,7 +226,7 @@ const TestInfo: React.FC = (props) => {
         </Grid>
       </Grid>
     </Box>
-  );
-};
+  )
+}
 
-export default TestInfo;
+export default TestInfo
