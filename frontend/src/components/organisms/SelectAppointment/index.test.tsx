@@ -4,12 +4,14 @@ import SelectAppointmentForm from '.'
 
 describe('Testing the SelectAppointmentForm', () => {
   it('render default SelectAppointmentForm', () => {
+    const testFn=jest.fn();
     render(
       <SelectAppointmentForm
         month={'January'}
         date={1}
         day={'Monday'}
         time={'6.00am - 7.00am'}
+        getDateTime={testFn}
       />
     )
     const januaryButton = screen.getByTestId('January')
@@ -251,5 +253,9 @@ describe('Testing the SelectAppointmentForm', () => {
 
     const time17Button = screen.getByTestId('05.00 - 06.00')
     expect(time17Button).toBeDefined()
+
+    const element=screen.getByTestId("footerAddaddresButton")
+    fireEvent.click(element)
+    expect(testFn).toBeCalled;
   })
 })
