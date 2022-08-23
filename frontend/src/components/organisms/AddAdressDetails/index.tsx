@@ -3,6 +3,39 @@ import React, { useState } from 'react'
 import theme from '../../../theme'
 import { addressDetailsType } from '../../../utils/constant'
 import Button from '../../atoms/Button'
+
+export const LabFooter={
+  footer: {
+    position: 'absolute',
+    boxShadow: '0px -4px 6px 0px #0000000F',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '70px',
+    bottom: 0,
+    width: '100%',
+    backroundColor:"white"
+  },
+  cancelButton: {
+    color: '#FC5C5C',
+    fontWeight: theme.typography.body.fontWeight,
+    fontSize: theme.typography.body.fontSize,
+    lineHeight: '20px',
+    borderRadius: '4px',
+    height: '42px',
+    '&:hover': {
+      background: 'none',
+    },
+  },
+  containedButton: {
+    fontWeight: theme.typography.body.fontWeight,
+    fontSize: theme.typography.body.fontSize,
+    lineHeight: '20px',
+    borderRadius: '8px',
+    width: '222px',
+    height: '42px',
+  },
+}
 const stylings = {
   outerBox: {
     boxShadow: '0px 0px 26px 0px #E9E8ED80',
@@ -24,35 +57,6 @@ const stylings = {
   heading3: {
     fontWeight: theme.typography.caption2.fontWeight,
     color: theme.palette.gammaLow.main,
-  },
-  footer: {
-    position: 'absolute',
-    boxShadow: '0px -4px 6px 0px #0000000F',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '70px',
-    bottom: 0,
-    width: '100%',
-  },
-  cancelButton: {
-    color: '#FC5C5C',
-    fontWeight: theme.typography.body1.fontWeight,
-    fontSize: theme.typography.body1.fontSize,
-    lineHeight: '18px',
-    borderRadius: '4px',
-    height: '42px',
-    '&:hover': {
-      background: 'none',
-    },
-  },
-  containedButton: {
-    fontWeight: theme.typography.body1.fontWeight,
-    fontSize: theme.typography.body1.fontSize,
-    lineHeight: '18px',
-    borderRadius: '8px',
-    width: '222px',
-    height: '42px',
   },
   textBox: {
     display: 'flex',
@@ -169,13 +173,13 @@ const AddAddress = (props: addAddressProps) => {
           </Grid>
         </Box>
       </Box>
-      <Box sx={stylings.footer}>
-        <Grid container justifyContent="space-between" padding="6rem">
+      <Box sx={LabFooter.footer}>
+        <Grid container justifyContent="space-between" padding="3rem">
           <Grid item>
             <Button
               variant="text"
               children="Cancel"
-              sx={stylings.cancelButton}
+              sx={LabFooter.cancelButton}
             ></Button>
           </Grid>
           <Grid item>
@@ -192,7 +196,7 @@ const AddAddress = (props: addAddressProps) => {
               data-testid="saveAddressButton"
               variant="contained"
               children="Save Address"
-              sx={stylings.containedButton}
+              sx={LabFooter.containedButton}
             ></Button>
           </Grid>
         </Grid>
