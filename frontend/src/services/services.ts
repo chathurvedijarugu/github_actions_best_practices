@@ -1,7 +1,7 @@
 import { DateTimeType } from '../components/organisms/SelectAppointment'
 import { patientDetailsType } from '../utils/constant'
 import { addressDetailsType } from '../utils/constant'
-
+import { TestProps } from '../components/organisms/SelectLabMainContent'
 import API from './API'
 export const updatePatientDetails = async (
   selected: number[],
@@ -48,6 +48,17 @@ export const addAddressDetails = async (
       console.log(response)
     })
     .catch((err) => console.log(err))
+}
+export const getLabs = async () => {
+  let tests: any = []
+  await API.get('/labs')
+    .then((res) => {
+      tests = res.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  return tests
 }
 
 export const addSlotTime = async (

@@ -5,7 +5,7 @@ import LabDetailsCard from '../../molecules/labDetailsCard'
 import { SELECT_LAB, SORT } from '../../utils/Constant'
 import theme from '../../../theme'
 import SortImg from '../../../assets/icons/Sort.svg'
-type Props = {
+export type Props = {
   id: number
   labIcon: string
   labName: string
@@ -16,7 +16,7 @@ type Props = {
   rating: string
   slots: number
 }
-type TestProps = {
+export type TestProps = {
   tests: Props[]
 }
 
@@ -43,6 +43,7 @@ const SelectLabMainContent: React.FC<TestProps> = (props) => {
   const [select, setSelect] = useState(1)
   const handleClick = async (labId: number) => {
     setSelect(labId)
+    localStorage.setItem('lab', JSON.stringify(props.tests[labId - 1]))
   }
   return (
     <>
