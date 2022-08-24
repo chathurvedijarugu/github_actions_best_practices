@@ -32,14 +32,14 @@ const ReviewOrder: React.FC<OrderProps> = (props) => {
       width: '100%',
     },
     labDetailsContainer: {
-      height: '100%',
+      height: 'fit-content',
       width: '100%',
       border: `1px solid ${theme.palette.grey[100]}`,
       borderRadius: '8px',
       padding: '16px',
     },
     labDetailsCon: {
-      height: '100%',
+      height: 'fit-content',
       width: '100%',
       border: `1px solid ${theme.palette.grey[100]}`,
       borderRadius: '8px',
@@ -126,7 +126,7 @@ const ReviewOrder: React.FC<OrderProps> = (props) => {
         </div>
       </Grid>
 
-      <Grid item container spacing={1} className={classes.priceContainer}>
+      <Grid item container spacing={3} className={classes.priceContainer}>
         <Grid item container>
           <Grid item xs={6}>
             <Typography variant="caption2" className={classes.label}>

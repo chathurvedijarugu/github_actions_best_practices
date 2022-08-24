@@ -4,7 +4,7 @@ import React from 'react'
 import CustomButton from '../../atoms/Button'
 import { MAIN_LOGO } from '../../utils/Constant'
 import Image from '../../atoms/ImageAtom'
-import logo from "../../../assets/icons/logo.svg"
+import logo from '../../../assets/icons/logo.svg'
 import Logo from '../../molecules/logo'
 const Button = styled(CustomButton)({
   borderRadius: '0.5rem',
@@ -16,7 +16,7 @@ interface MainTemplateProps {
   mainComponent: React.ReactNode
   nextClick: () => void
   backClick?: () => void
-  onLogoClick?:()=>void
+  onLogoClick?: () => void
   footerTextComponent?: React.ReactNode
   buttonLabel: string
 }
@@ -29,7 +29,6 @@ const MainTemplate = ({
   footerTextComponent,
   buttonLabel,
 }: MainTemplateProps) => {
-
   return (
     <Grid
       container
@@ -43,34 +42,23 @@ const MainTemplate = ({
       </Grid>
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
-          <Grid item width={'fit-content'} xs={3}>
-            <CustomButton
-              onClick={backClick}
-              color="primary"
-            >
+          <Grid item width={'fit-content'}>
+            <CustomButton onClick={backClick} color="primary">
               <ArrowBack />
               <Typography marginX={1} variant="body">
                 Back
               </Typography>
             </CustomButton>
           </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            sx={{ alignItems: 'center' }}
-            height="100%"
-          >
-            <Grid item width="673px">
-              <Box>{stepperComponent}</Box>
-            </Grid>
+          <Grid item xs container justifyContent="center">
+            <Box width="673px">{stepperComponent}</Box>
           </Grid>
         </Grid>
         <Grid item xs>
           <Grid container justifyContent="center" width="100%" height="100%">
             <Grid
               item
-              marginX={'25%'}
+              // marginX={'25%'}
               marginTop={'4rem'}
               width="fit-content"
               height="fit-content"
