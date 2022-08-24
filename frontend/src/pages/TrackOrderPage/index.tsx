@@ -14,6 +14,7 @@ import FileText from '../../assets/icons/file-text.svg';
 import { Box } from '@mui/material';
 import { ADDRESS, PATIENT_DETAILS_ARRAY } from "../../components/utils/Constant";
 import Button from "../../components/atoms/Button";
+import { useNavigate } from "react-router-dom";
 
 const style = {
     root: {
@@ -77,6 +78,10 @@ const style = {
 }
 
 const TrackOrderPage = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/homePage");
+  }
     return(
         <>
         <Grid sx={style.root}>
@@ -131,7 +136,7 @@ const TrackOrderPage = () => {
         <Grid container sx={style.footer}>
           <Grid item data-testid="footer">
             <Button variant="contained" sx={style.button}>
-              <Typography variant="body">Back to Home</Typography>
+              <Typography variant="body" onClick={handleClick}>Back to Home</Typography>
             </Button>
           </Grid>
         </Grid>
