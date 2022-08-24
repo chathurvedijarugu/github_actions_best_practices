@@ -70,14 +70,12 @@ const Header: React.FC = (props) => {
   const handleUserIcon = () => {
     setPopUp((val) => !val)
   }
-  const { setUserId } = useContext(UserContext);
 
   const onLogOut = () => {
     webAuth.logout({
       returnTo: process.env.APP_URL,
       clientID: process.env.CLIENTID,
     })
-    setUserId(null)
   }
   return (
     <>
