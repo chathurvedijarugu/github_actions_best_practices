@@ -1,14 +1,14 @@
 import { Divider, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../components/molecules/logo";
 import logo from "../../assets/icons/logo.svg";
 import theme from "../../theme";
 import OrderInfo from "../../components/organisms/OrderInfo";
 import TrackingStepper from "../../components/molecules/TrackingStepper";
-import { ADDRESS, PATIENT_DETAILS_ARRAY } from "../../components/utils/Constant";
 import Button from "../../components/atoms/Button";
 import { useNavigate } from "react-router-dom";
 import { stepperData } from "./stepperData";
+import { getPatientsandTests } from "../../services/helperFunctions";
 
 const style = {
     root: {
@@ -69,8 +69,18 @@ const style = {
 const TrackOrderPage = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/homePage");
+    navigate("/");
   }
+  const [selectedAddress, setSelectedAddress] = useState('')
+  const [patientDetails,setPatientDetails]=useState<any>([])
+  useEffect(() => {
+    let address = JSON.parse(localStorage.getItem('selectedAddress') as string)
+    const fullAddress = `${address.houseDetails} ${address.areaDetails} ${address.city} ${address.zipcode}`
+    setSelectedAddress(fullAddress)
+
+    let selectedPatients = JSON.parse(localStorage.getItem('selectedPatients') as string)
+    setPatientDetails(getPatientsandTests(selectedPatients))
+  }, [])
     return(
         <>
         <Grid sx={style.root}>
@@ -79,7 +89,7 @@ const TrackOrderPage = () => {
             </Grid>
             <Grid item sx={style.innerGrid}>
                 <Grid item sx={style.image} xs={true} data-testid="order-info">
-                    <OrderInfo patientDetails={PATIENT_DETAILS_ARRAY} labAddress={ADDRESS} totalAmountPaid={2400}></OrderInfo>
+                    <OrderInfo patientDetails={patientDetails} labAddress={selectedAddress} totalAmountPaid={2400}></OrderInfo>
                 </Grid>
                 <Divider sx={style.divider}></Divider>
                 <Grid item sx={style.innerFrame} xs={true} data-testid="tracking-stepper">

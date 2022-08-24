@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@mui/material'
 import React, { useState } from 'react'
-import { updatePatientDetails } from '../../../services/services'
 import theme from '../../../theme'
 import { patientDetailsType, tagLabels } from '../../../utils/constant'
 import CheckBox from '../../atoms/checkbox'

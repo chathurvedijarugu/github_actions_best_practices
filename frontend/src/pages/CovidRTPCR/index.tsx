@@ -14,7 +14,7 @@ const CovidRTPCR = () => {
         navigate('/AddPatientDetailsPage')
       }}
       backClick={() => {
-        navigate('/homePage')
+        navigate('/')
       }}
       stepperComponent={
         <ProgressBar values={['Home', 'Covid RTPCR']} currentIndex={1} />

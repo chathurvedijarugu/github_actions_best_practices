@@ -10,6 +10,7 @@ import SelectLabPage from './pages/SelectLab'
 import SelectAppointementPage from './pages/SelectAppointementPage'
 import FinalOrder from './pages/ReviewOrdersPage'
 import OrderPlaced from './pages/OrderPlaced'
+import TrackOrderPage from './pages/TrackOrderPage'
 const App = () => {
   return (
     <BrowserRouter>
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/selectAddressPage" element={<SelectAddressPage />} />
         <Route path="/reviewOrderPage" element={<FinalOrder />} />
         <Route path="/orderPlacedPage" element={<OrderPlaced  />} />
+        <Route path="/trackOrderPage" element={<TrackOrderPage  />} />
       </Routes>
     </BrowserRouter>
   )

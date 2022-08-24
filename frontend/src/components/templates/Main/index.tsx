@@ -2,8 +2,6 @@ import { ArrowBack } from '@mui/icons-material'
 import { Box, Grid, Typography, styled } from '@mui/material'
 import React from 'react'
 import CustomButton from '../../atoms/Button'
-import { MAIN_LOGO } from '../../utils/Constant'
-import Image from '../../atoms/ImageAtom'
 import logo from '../../../assets/icons/logo.svg'
 import Logo from '../../molecules/logo'
 const Button = styled(CustomButton)({

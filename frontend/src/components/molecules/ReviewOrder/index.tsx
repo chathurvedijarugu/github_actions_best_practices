@@ -5,9 +5,8 @@ import React from 'react'
 import theme from '../../../theme'
 import Altos from '../../../assets/icons/altos.svg'
 import Calender from '../../../assets/icons/calendar1.svg'
-import PatientInfo from '../PatientInfo/index'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
-import { Props } from '../PatientInfo/index'
+import PatientInfo,{ Props } from '../PatientInfo/index'
 import {
   LAB_NAME,
   ITEM_TOTAL,
