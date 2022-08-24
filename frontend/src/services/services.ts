@@ -1,5 +1,5 @@
 import { DateTimeType } from '../components/organisms/SelectAppointment'
-import { patientDetailsType , addressDetailsType} from '../utils/constant'
+import { patientDetailsType, addressDetailsType } from '../utils/constant'
 import API from './API'
 export const updatePatientDetails = async (
   selected: number[],
@@ -118,4 +118,30 @@ export const getAddressDetails = async (userId: number) => {
     })
     .catch((err) => console.log(err))
   return addressData
+}
+export const getReports = async (userId: number) => {
+  let reports: any = []
+  await API.get(`/reports/${userId}`)
+    .then((res) => {
+      reports = res.data.upcomingReports
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  return reports
+}
+export const addreports = async (userId: number) => {
+  const report = {
+    labName: 'Los Altos Center Lab',
+    testName: 'COVID RT-PCR Test',
+    isCompleted: false,
+  }
+  await API.get(`/reports/${userId}`)
+    .then((res) => {
+      res.data.upcomingReports.push(report)
+      API.put(`/reports/${userId}`,res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }

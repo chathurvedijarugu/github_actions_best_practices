@@ -1,5 +1,6 @@
 import { Grid, Icon, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getReports } from '../../../services/services'
 import theme from '../../../theme'
 import TestReport from '../../molecules/TestReport'
 import {
@@ -24,14 +25,17 @@ type TestReportProps = {
   onDownload?: () => void
 }
 const ReportsMainContent: React.FC = () => {
+  let userId = 10
+  const [upcomingReports, setUpcomingReports] = useState([])
+  useEffect(() => {
+    getReports(userId).then((res) => {
+      setUpcomingReports(res)
+      console.log(res)
+    })
+  }, [])
+
   const testDetails: ReportPageProps = {
-    upcomingItems: [
-      {
-        labName: `${LAB_NAME}`,
-        testName: `${TEST_REPORT_TEST_NAME}`,
-        isCompleted: false,
-      },
-    ],
+    upcomingItems: upcomingReports,
     recentItems: [
       {
         labName: `${LAB_NAME}`,
