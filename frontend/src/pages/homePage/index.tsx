@@ -40,7 +40,8 @@ const style = {
         backgroundColor: `${theme.palette.primary[800]}`, 
         px: "5.625rem",
         py: "5rem",
-        width: "100%"
+        width: "100%",
+        alignContent: "center"
     },
 
     searchGrid: {
@@ -153,7 +154,7 @@ const HomePage = () => {
             </Grid>
             <Grid item sx={style.testimonialGrid}>
                 <Grid item>
-                    <Typography color={theme.palette.gammaWhite.main} variant="h1">Customer Testimonials</Typography>
+                    <Typography color={theme.palette.gammaWhite.main} variant="h1" alignSelf={"left"}>Customer Testimonials</Typography>
                 </Grid>
                 <Grid item sx={style.testimonials}>
                     {testimonials.map((item: any, index: any) => {
