@@ -1,4 +1,4 @@
-import { Grid, Icon, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import React, { useContext, useEffect, useState } from 'react'
 import { getReports } from '../../../services/services'
 import theme from '../../../theme'

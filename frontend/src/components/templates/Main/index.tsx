@@ -1,5 +1,5 @@
 import { ArrowBack } from '@mui/icons-material'
-import { Box, Grid, Typography, styled } from '@mui/material'
+import { Grid, Typography, styled } from '@mui/material'
 import React from 'react'
 import CustomButton from '../../atoms/Button'
 import logo from '../../../assets/icons/logo.svg'

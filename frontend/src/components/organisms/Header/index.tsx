@@ -1,5 +1,5 @@
 import { Dialog, Grid, Typography } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, {  useState } from 'react'
 import { makeStyles } from '@mui/styles'
 import CompanyLogo from '../../../assets/icons/companyLogo.svg'
 import theme from '../../../theme'
