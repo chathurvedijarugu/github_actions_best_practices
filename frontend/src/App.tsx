@@ -2,22 +2,32 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ReportsPage from './pages/ReportsPage'
 import HomePage from './pages/homePage'
-import CheckoutPage from './pages/Checkout'
-// import SelectAddressPage from './pages/SelectAddressPage'
 import AddAddressPage from './pages/AddAddressPage'
-import {getPatientLabDetails } from './services/services'
-import { useCheckout } from './pages/Checkout/hook'
+import SelectAddressPage from './pages/SelectAddressPage'
 import CovidRTPCR from './pages/CovidRTPCR'
+import AddPatientDetailsPage from './pages/AddPatientDetailsPage'
+import SelectLabPage from './pages/SelectLab'
+import SelectAppointementPage from './pages/SelectAppointementPage'
+import FinalOrder from './pages/ReviewOrdersPage'
+import OrderPlaced from './pages/OrderPlaced'
+import CheckoutPage from './pages/Checkout'
+import LoginPage from './pages/LoginPage'
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<CheckoutPage />} />
-        {/* <Route path="/reports" element={<ReportsPage />} />
-        <Route path="/myAppointments" />
-        <Route path="/selectAddressPage" element={<SelectAddressPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/auth" element={<LoginPage />} />
+        <Route path="/reports" element={<ReportsPage />} />
+        <Route path="/covid-test" element={<CovidRTPCR />} />
+        <Route path="/AddPatientDetailsPage" element={<AddPatientDetailsPage />} />
+        <Route path="/selectLabPage" element={<SelectLabPage />} />
+        <Route path="/appointementPage" element={<SelectAppointementPage/>}/>
         <Route path="/AddAddressPage" element={<AddAddressPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} /> */}
+        <Route path="/selectAddressPage" element={<SelectAddressPage />} />
+        <Route path="/reviewOrderPage" element={<FinalOrder />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/orderPlacedPage" element={<OrderPlaced  />} />
       </Routes>
     </BrowserRouter>
   )

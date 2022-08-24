@@ -1,6 +1,6 @@
-import { KeyboardArrowDown } from '@mui/icons-material'
-import { Box, Divider, Grid, Typography } from '@mui/material'
-import React from 'react'
+import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material'
+import { Box, Divider, Grid, IconButton, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import User from '../../../assets/icons/userActive.svg'
 import Info from '../../../assets/icons/Info.svg'
 import theme from '../../../theme'
@@ -16,6 +16,7 @@ const OrderInfo = ({
   patientDetails,
   totalAmountPaid,
 }: OrderInfoProps) => {
+  let [click, setClick] = useState<boolean>(false)
   return (
     <Grid
       container
@@ -38,7 +39,7 @@ const OrderInfo = ({
             return (
               <Grid container>
                 <Grid item paddingY={3} paddingX={3}>
-                  <Image imgSrc={User} imgAlt={"user_avatar"}/>
+                  <Image imgSrc={User} imgAlt={'user_avatar'} />
                 </Grid>
                 <Grid item>
                   <Typography
@@ -81,14 +82,14 @@ const OrderInfo = ({
         </Grid>
       </Grid>
       <Grid
-        marginY={5}
+        marginTop={5}
         padding={1}
         display={'inline-flex'}
         alignItems="center"
         bgcolor={theme.palette.grey['100']}
-        width="100%"
+        xs={12}
       >
-        <Image imgSrc={Info} imgAlt="info"/>
+        <Image imgSrc={Info} imgAlt="info" />
         <Box
           width="100%"
           marginLeft={2}
@@ -99,9 +100,37 @@ const OrderInfo = ({
           <Typography variant="overline2" color={theme.palette.primary['800']}>
             Instructions
           </Typography>
-          <KeyboardArrowDown htmlColor={theme.palette.grey['300']} />
+          <IconButton
+            onClick={() => {
+              setClick((prev) => !prev)
+            }}
+          >
+            {click ? (
+              <KeyboardArrowUp htmlColor={theme.palette.grey['300']} />
+            ) : (
+              <KeyboardArrowDown htmlColor={theme.palette.grey['300']} />
+            )}
+          </IconButton>
         </Box>
       </Grid>
+      {click ? (
+        <Grid
+          padding={1}
+          alignItems="center"
+          bgcolor={theme.palette.grey['100']}
+          xs={12}
+        >
+          <Typography
+            variant="captionRegular"
+            color={theme.palette.gammaMedium.main}
+          >
+            Please don't eat or drink anything other than water for 8 -10 hours
+            prior to the appointment.
+          </Typography>
+        </Grid>
+      ) : (
+        <></>
+      )}
     </Grid>
   )
 }

@@ -63,7 +63,9 @@ const CheckoutPage = () => {
         </Grid>
       }
       buttonLabel="Pay Now"
-      nextClick={() => {}}
+      nextClick={() => {
+        navigate('/orderPlacedPage')
+      }}
       stepperComponent={
         <Box justifySelf={'left'} marginX={8}>
           <Typography>Checkout</Typography>

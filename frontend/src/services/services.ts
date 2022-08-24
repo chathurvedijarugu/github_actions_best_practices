@@ -41,13 +41,20 @@ export const addAddressDetails = async (
   details: addressDetailsType,
   userId: number
 ) => {
-  const response = await API.get(`/addresses/${userId}`)
-  await response.data.addressDetails.push(details)
-  await API.put(`/addresses/${userId}`, response.data)
-    .then((response) => {
-      console.log(response)
-    })
-    .catch((err) => console.log(err))
+  if (
+    details.areaDetails !== '' &&
+    details.houseDetails !== '' &&
+    details.city !== '' &&
+    details.zipcode !== ''
+  ) {
+    const response = await API.get(`/addresses/${userId}`)
+    await response.data.addressDetails.push(details)
+    await API.put(`/addresses/${userId}`, response.data)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((err) => console.log(err))
+  }
 }
 export const getLabs = async () => {
   let tests: any = []
@@ -109,7 +116,7 @@ export const getAddressDetails = async (userId: number) => {
   let addressData: any[] = []
   await API.get(`/addresses/${userId}`)
     .then((res) => {
-      addressData = res.data
+      addressData = res.data.addressDetails
     })
     .catch((err) => console.log(err))
   return addressData

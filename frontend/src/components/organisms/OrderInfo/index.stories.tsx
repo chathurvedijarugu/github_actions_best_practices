@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof OrderInfo>
 
 const Template: ComponentStory<typeof OrderInfo> = (args) => (
-  <Box width="50%">
+  <Box width="20vw">
     <OrderInfo {...args} />
   </Box>
 )

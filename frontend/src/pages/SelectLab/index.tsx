@@ -16,12 +16,18 @@ const SelectLabPage = () => {
   return (
     <MainTemplate
       nextClick={() => {
-        navigate('/checkout')
+        navigate('/appointementPage')
       }}
       backClick={() => {
-        navigate('/addAddress')
+        navigate('/AddPatientDetailsPage')
       }}
       stepperComponent={
+        <Box
+        width="100%"
+        justifyContent={'center'}
+        display="flex"
+      >
+        <Box width="40vw">
         <ProgressBar
           values={[
             'Lab test',
@@ -31,6 +37,8 @@ const SelectLabPage = () => {
           ]}
           currentIndex={0}
         />
+        </Box>
+        </Box>
       }
       mainComponent={
         <Box width="583px" height="600px">
@@ -38,7 +46,7 @@ const SelectLabPage = () => {
         </Box>
       }
       footerTextComponent={undefined}
-      buttonLabel="Continue"
+      buttonLabel="Select Date & Time"
     ></MainTemplate>
   )
 }

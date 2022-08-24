@@ -44,7 +44,7 @@ const LabTextIcon: React.FC<Props> = (props) => {
         <img src={logo} alt="lab test" />
       </div>
       <div className={classes.text}>
-        <Typography variant="caption1" data-testid="testName">
+        <Typography variant="caption2" data-testid="testName">
           {testName}
         </Typography>
       </div>

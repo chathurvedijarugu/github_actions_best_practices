@@ -70,32 +70,33 @@ const AddPatientDetailsPage = () => {
       setPatientsData(res.patientDetails)
     })
   }, [visible])
-  const handleSelectLab = async (selected: number[], userId: number) => {
-    await updatePatientDetails(selected, userId)
+  const handleSelectLab = async (selected: any, userId: number) => {
+    localStorage.setItem("selectedPatients",JSON.stringify(selected))
     navigate('/selectLabPage')
   }
   const handleClickonLogo = () => {
     navigate('/homePage')
   }
   const handleClickonBackButton = () => {
-    navigate('/testinfoPage')
+    navigate('/covid-test')
   }
   return (
-    <>
-      <Box onClick={handleClickonLogo}>
+    <Box marginY={6} marginX={10}>
+      <Box onClick={handleClickonLogo} >
         <Logo img={logo} text="Zemoso Diagnostics" />
       </Box>
       <Grid
         container
         direction="row"
-        columnGap="550px"
+        columnGap="600px"
         alignItems="center"
-        paddingTop="2rem"
+        paddingTop="2.5rem"
       >
         <Grid item>
           <Button
             onClick={handleClickonBackButton}
             variant="text"
+            color="primary"
             startIcon={<ArrowBackIcon />}
             children={<Typography variant="body">Back</Typography>}
           />
@@ -121,13 +122,13 @@ const AddPatientDetailsPage = () => {
           <SelectAndAddPatient
             patientDetails={patientsData}
             onNewPatientClick={() => setVisible((val) => !val)}
-            onSelectLabClick={(selected: number[], userId: number) =>
+            onSelectLabClick={(selected: any, userId: number) =>
               handleSelectLab(selected, userId)
             }
           />
         )}
       </Box>
-    </>
+    </Box>
   )
 }
 

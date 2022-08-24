@@ -19,11 +19,10 @@ const CovidRTPCR = () => {
       stepperComponent={
         <Box
           width="100%"
-          bgcolor="orange"
           justifyContent={'center'}
           display="flex"
         >
-          <Box width="20vw" bgcolor="red">
+          <Box width="20vw">
             <ProgressBar values={['Home', 'Covid RTPCR']} currentIndex={1} />
           </Box>
         </Box>

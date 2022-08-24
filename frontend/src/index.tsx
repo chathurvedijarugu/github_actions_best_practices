@@ -14,7 +14,7 @@ ReactDOM.render(
     <Auth0Provider
       clientId={process.env.CLIENTID!}
       domain={process.env.DOMAIN!}
-      redirectUri={window.location.origin}
+      redirectUri={"http://localhost:3000"}
     >
       <StyledEngineProvider injectFirst>
         <MUIThemeProvider theme={theme}>

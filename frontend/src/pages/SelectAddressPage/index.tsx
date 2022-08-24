@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../components/atoms/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ProgressBar from '../../components/molecules/progressBar'
@@ -7,30 +7,32 @@ import Logo from '../../components/molecules/logo'
 import logo from '../../assets/icons/logo.svg'
 import theme from '../../theme'
 import { useNavigate } from 'react-router-dom'
-import AddAddress from '../../components/organisms/AddAdressDetails'
-import SelectAppointement, { DateTimeProps, DateTimeType } from '../../components/organisms/SelectAppointment'
-import { addAddressDetails, addSlotTime } from '../../services/services'
-import {
-  addressDetailsType,
-  ADDRESS_PAGE_BAR_VALUES,
-} from '../../utils/constant'
+import SelectAddress from '../../components/organisms/SelectAddress'
+import {  addressDetailsType, ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
+import { getAddressDetails } from '../../services/services'
 
-const SelectAppointementPage = () => {
+const SelectAddressPage = () => {
+  let userId=1;
   const navigate = useNavigate()
   const handleClickonLogo = () => {
     navigate('/homePage')
   }
   const handleClickonBackButton = () => {
-    navigate('/selectLabPage')
+    navigate('/AddAddressPage')
   }
-  const handleAddAddressButton = async (
-    slotSelected: DateTimeType,
-    userId: number
-  ) => {
-    await addSlotTime(slotSelected,userId)
-    localStorage.setItem("slotTime",JSON.stringify(slotSelected))
-    navigate('/addAddressPage')
+  const hanldeOnAddAddress = () => {
+    navigate('/AddAddressPage')
   }
+  const handleCompleteOrder = (selectedAddress:addressDetailsType) => {
+    localStorage.setItem("selectedAddress",JSON.stringify(selectedAddress))
+    navigate('/reviewOrderPage')
+  }
+  const [data,setData]=useState<any>([])
+  useEffect(() => {
+   getAddressDetails(userId).then((res)=>{
+      setData(res)
+   })
+  }, [])
   return (
     <Box marginY={6} marginX={10}>
       <Box onClick={handleClickonLogo}>
@@ -39,7 +41,7 @@ const SelectAppointementPage = () => {
       <Grid
         container
         direction="row"
-        columnGap="495px"
+        columnGap="490px"
         alignItems="center"
         paddingTop="2.5rem"
       >
@@ -51,24 +53,21 @@ const SelectAppointementPage = () => {
             children={<Typography variant="body">Back</Typography>}
           />
         </Grid>
-        <Grid xs item>
-          <Box width="671px">
-            <ProgressBar values={ADDRESS_PAGE_BAR_VALUES} currentIndex={1} />
-          </Box>
+        <Grid xs  item>
+            <Box width="671px">
+            <ProgressBar
+              values={ ADDRESS_PAGE_BAR_VALUES}
+              currentIndex={2}
+            />
+            </Box>
         </Grid>
       </Grid>
-
+      
       <Box display="flex" paddingTop="2rem" justifyContent="center">
-        <SelectAppointement
-          month={'January'}
-          date={1}
-          day={'Monday'}
-          time={'6.00am - 7.00am'}
-          getDateTime={(slotSelected:DateTimeType,userId:number)=>{handleAddAddressButton(slotSelected,userId)}}
-        />
+  <SelectAddress addressData={data} onAddAddressClick={hanldeOnAddAddress} onCompleteClick={(selectedAddress:addressDetailsType)=>handleCompleteOrder(selectedAddress)}/>
       </Box>
     </Box>
   )
 }
 
-export default SelectAppointementPage
+export default SelectAddressPage

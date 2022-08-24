@@ -69,8 +69,10 @@ const ReviewOrder: React.FC<OrderProps> = (props) => {
     priceContainer: {
       boxShadow: '0px 0px 12px rgba(233, 232, 237, 0.53)',
       borderRadius: '12px',
-      paddingLeft: '19.33px',
+      margin:0,
+      paddingLeft: '5.33px',
       paddingRight: '19.33px',
+      paddingBottom:"5px"
     },
     label: {
       color: theme.palette.gammaMedium.main,
