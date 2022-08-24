@@ -1,0 +1,103 @@
+import { Divider, Grid, Typography } from "@mui/material";
+import React from "react";
+import Logo from "../../components/molecules/logo";
+import logo from "../../assets/icons/logo.svg";
+import theme from "../../theme";
+import OrderInfo from "../../components/organisms/OrderInfo";
+import TrackingStepper from "../../components/molecules/TrackingStepper";
+import { ADDRESS, PATIENT_DETAILS_ARRAY } from "../../components/utils/Constant";
+import Button from "../../components/atoms/Button";
+import { useNavigate } from "react-router-dom";
+import { stepperData } from "./stepperData";
+
+const style = {
+    root: {
+        px: "5.625rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: theme.spacing(21),
+        width: "100%"
+    },
+
+    innerGrid: {
+        display: "flex",
+        flexDirection: "row",
+        gap: theme.spacing(36),
+        width: "100%",
+        backgroundColor: theme.palette.gammaWhite.main,
+    },
+
+    image: {
+        boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
+        padding: theme.spacing(10),
+    },
+
+    logo: {
+        mt: theme.spacing(6),
+    },
+
+    innerFrame: {
+        boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
+        borderRadius: theme.spacing(2),
+        padding: theme.spacing(8),
+    },
+
+    divider: {
+        border: `1px solid ${theme.palette.grey[100]}`,
+    },
+
+    footer: {
+        px: theme.spacing(22.5),
+        py: theme.spacing(6),
+        height: "10%",
+        boxShadow: "0px -4px 6px 0px #0000000F",
+        width: "100%",
+        bgcolor: "white",
+        position: "fixed",
+        bottom: 0,
+        alignItems: "center",
+        justifyContent: "flex-end",
+    },
+
+    button: {
+        px: theme.spacing(14.375),
+        py: theme.spacing(2.75),
+        borderRadius: theme.spacing(2),
+    }
+}
+
+const TrackOrderPage = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/homePage");
+  }
+    return(
+        <>
+        <Grid sx={style.root}>
+            <Grid item sx={style.logo}>
+                <Logo img={logo} text={"Zemoso Diagnostics"}></Logo>
+            </Grid>
+            <Grid item sx={style.innerGrid}>
+                <Grid item sx={style.image} xs={true} data-testid="order-info">
+                    <OrderInfo patientDetails={PATIENT_DETAILS_ARRAY} labAddress={ADDRESS} totalAmountPaid={2400}></OrderInfo>
+                </Grid>
+                <Divider sx={style.divider}></Divider>
+                <Grid item sx={style.innerFrame} xs={true} data-testid="tracking-stepper">
+                        <TrackingStepper 
+                            data={stepperData} 
+                            currentIndex={1}></TrackingStepper>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid container sx={style.footer}>
+          <Grid item data-testid="footer">
+            <Button variant="contained" sx={style.button}>
+              <Typography variant="body" onClick={handleClick}>Back to Home</Typography>
+            </Button>
+          </Grid>
+        </Grid>
+        </>
+    );
+};
+
+export default TrackOrderPage;
