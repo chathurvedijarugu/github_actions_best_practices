@@ -45,7 +45,7 @@ export default function TrackingStepper({
   currentIndex,
 }: TrackingStepperProps) {
   return (
-    <Box width="50%">
+    <Box width="100%">
       <Timeline sx={{ m: 0, width: '100%' }}>
         <Typography mt={2} mb={`${theme.spacing(8)}`} variant="subtitle1">
           Track your order

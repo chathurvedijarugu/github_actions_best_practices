@@ -34,11 +34,8 @@ const style = {
     },
 
     image: {
-        ml: theme.spacing(31),
-        width: "122.64vw",
-        height: "83.34vh",
         boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
-        padding: theme.spacing(6),
+        padding: theme.spacing(10),
     },
 
     logo: {
@@ -46,8 +43,6 @@ const style = {
     },
 
     innerFrame: {
-        width: "148.34vw",
-        height: "159vh",
         boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
         borderRadius: theme.spacing(2),
         padding: theme.spacing(8),
@@ -89,11 +84,11 @@ const TrackOrderPage = () => {
                 <Logo img={logo} text={"Zemoso Diagnostics"}></Logo>
             </Grid>
             <Grid item sx={style.innerGrid}>
-                <Grid item sx={style.image} data-testid="order-info">
+                <Grid item sx={style.image} xs={true} data-testid="order-info">
                     <OrderInfo patientDetails={PATIENT_DETAILS_ARRAY} labAddress={ADDRESS} totalAmountPaid={2400}></OrderInfo>
                 </Grid>
                 <Divider sx={style.divider}></Divider>
-                <Grid item sx={style.innerFrame} data-testid="tracking-stepper">
+                <Grid item sx={style.innerFrame} xs={true} data-testid="tracking-stepper">
                         <TrackingStepper 
                             data={
                                 [
