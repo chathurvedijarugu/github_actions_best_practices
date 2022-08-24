@@ -11,7 +11,7 @@ interface OTPProps {
   buttonClick: () => void
 }
 const OTP = ({ buttonClick }: OTPProps) => {
-  let {enable,otp,setOtp}=useOTP()
+  let {enable}=useOTP()
   let {user}=useAuth0()
   return (
     <Grid

@@ -9,7 +9,7 @@ import {
   Typography,
   ButtonProps as CustomButtonProps,
 } from '@mui/material'
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import CustomButton from '../../atoms/Button'
 import Image from '../../atoms/ImageAtom'
 import theme from '../../../theme'
@@ -18,8 +18,7 @@ import Apple from '../../../assets/icons/Apple.svg'
 import Facebook from '../../../assets/icons/Facebook.svg'
 import { useLogin } from './hook'
 import { useAuth0 } from '@auth0/auth0-react'
-import { EMAIL, FIRST_NAME, LAST_NAME, UserContext } from '../../utils/Constant'
-import { useNavigate } from 'react-router-dom'
+import { EMAIL, FIRST_NAME, LAST_NAME } from '../../utils/Constant'
 export const TextField = styled(CustomTextField)({
   '& input': {
     fontSize: '14px',
@@ -50,23 +49,9 @@ interface LoginPageProps {
   buttonClick: () => void
 }
 const Login = ({ buttonClick }: LoginPageProps) => {
-  const navigate = useNavigate()
   let { enable, details, onChangeDetails } = useLogin()
-  let { loginWithRedirect, user, getAccessTokenSilently } = useAuth0()
-  let [userID, setUserID] = useContext(UserContext)
-  useEffect(() => {
-    getAccessTokenSilently().then((value) => {
-      console.log(value)
-    })
-    setUserID(user?.sub?.slice(user.sub.indexOf("|")+1,user.sub.length))
-    console.log(user)
-    console.log(userID)
-  }, [user?.sub])
-  useEffect(() => {
-    if (userID != undefined) {
-      navigate('/')
-    }
-  }, [userID])
+  let { loginWithRedirect, user } = useAuth0()
+ 
   console.log(user)
 
   return (
