@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../../utils/Constant'
-import { useAuth0 } from '@auth0/auth0-react'
+import React, { useEffect, useState } from 'react'
+
 type UserLogin = {
   firstName: string
   lastName: string
@@ -13,9 +11,6 @@ export const useLogin = () => {
     email: '',
     lastName: '',
   })
-  const navigate = useNavigate()
-  let { loginWithRedirect, user, getAccessTokenSilently } = useAuth0()
-  let [userID, setUserID] = useContext(UserContext)
   let [enable, setEnable] = useState<boolean>(false)
   useEffect(() => {
     if (
