@@ -1,5 +1,5 @@
-import { Grid, Icon, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Grid, Typography } from '@mui/material'
+import React, { useContext, useEffect, useState } from 'react'
 import { getReports } from '../../../services/services'
 import theme from '../../../theme'
 import TestReport from '../../molecules/TestReport'
@@ -11,6 +11,7 @@ import {
   TEST_REPORT_TEST_NAME,
   TEST_REPORT_DATE,
   TEST_REPORT_TIME,
+  UserContext,
 } from '../../utils/Constant'
 export type ReportPageProps = {
   upcomingItems: TestReportProps[]
@@ -25,12 +26,12 @@ type TestReportProps = {
   onDownload?: () => void
 }
 const ReportsMainContent: React.FC = () => {
-  let userId = 10
+  const { userId } = useContext(UserContext);
   const [upcomingReports, setUpcomingReports] = useState([])
   useEffect(() => {
-    getReports(userId).then((res) => {
+    getReports(10).then((res) => {
       setUpcomingReports(res)
-      console.log(res)
+      console.log(userId)
     })
   }, [])
 
@@ -91,7 +92,7 @@ const ReportsMainContent: React.FC = () => {
           <Grid item container direction="column" rowGap={8}>
             {testDetails.upcomingItems.map((test: TestReportProps) => {
               return (
-                <Grid item width="60%" bgcolor="red">
+                <Grid item width="60%" >
                   <TestReport
                     labName={test.labName}
                     testName={test.testName}
