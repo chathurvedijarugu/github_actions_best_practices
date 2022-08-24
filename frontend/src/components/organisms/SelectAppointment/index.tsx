@@ -22,6 +22,7 @@ import {
   weekDaysFunc,
 } from '../../utils/Constant'
 import TimeSelection from '../../molecules/TimeSelection'
+import { LabFooter } from '../AddAdressDetails'
 
 const StyledPaper = styled(Paper)({
   width: '36.4375em',
@@ -341,13 +342,13 @@ const SelectAppointmentForm = ({
           <TimeSelection chosenTime={selectedTime} setTime={setSelectedTime} />
         </MT48Div>
       </StyledPaper>
-      <Box sx={stylings.footer}>
-        <Grid container justifyContent="space-between" padding="6rem">
+      <Box sx={LabFooter.footer}>
+        <Grid container justifyContent="space-between" padding="3rem">
           <Grid item>
             <Button
               variant="text"
               children="Cancel"
-              sx={stylings.cancelButton}
+              sx={LabFooter.cancelButton}
             ></Button>
           </Grid>
           <Grid item>
@@ -368,7 +369,7 @@ const SelectAppointmentForm = ({
                   getDateTime?.(slotSelected, userId)
                 }}
                 children="Add Address"
-                sx={stylings.containedButton}
+                sx={LabFooter.containedButton}
               ></Button>
             </Box>
           </Grid>

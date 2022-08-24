@@ -8,7 +8,7 @@ import logo from '../../assets/icons/logo.svg'
 import theme from '../../theme'
 import { useNavigate } from 'react-router-dom'
 import SelectAddress from '../../components/organisms/SelectAddress'
-import {  ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
+import {  addressDetailsType, ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
 import { getAddressDetails } from '../../services/services'
 
 const stylings = {
@@ -68,26 +68,27 @@ const SelectAddressPage = () => {
   const hanldeOnAddAddress = () => {
     navigate('/AddAddressPage')
   }
-  const handleCompleteOrder = () => {
-    navigate('/reviewOrder')
+  const handleCompleteOrder = (selectedAddress:addressDetailsType) => {
+    localStorage.setItem("selectedAddress",JSON.stringify(selectedAddress))
+    navigate('/reviewOrderPage')
   }
-  const [data,setData]=useState([])
+  const [data,setData]=useState<any>([])
   useEffect(() => {
    getAddressDetails(userId).then((res)=>{
-     setData(res.addressDetails)
+      setData(res)
    })
   }, [])
   return (
-    <>
+    <Box marginY={6} marginX={10}>
       <Box onClick={handleClickonLogo}>
         <Logo img={logo} text="Zemoso Diagnostics" />
       </Box>
       <Grid
         container
         direction="row"
-        columnGap="435px"
+        columnGap="490px"
         alignItems="center"
-        paddingTop="2rem"
+        paddingTop="2.5rem"
       >
         <Grid item>
           <Button
@@ -108,9 +109,9 @@ const SelectAddressPage = () => {
       </Grid>
       
       <Box display="flex" paddingTop="2rem" justifyContent="center">
-  <SelectAddress addressData={data} onAddAddressClick={hanldeOnAddAddress}/>
+  <SelectAddress addressData={data} onAddAddressClick={hanldeOnAddAddress} onCompleteClick={(selectedAddress:addressDetailsType)=>handleCompleteOrder(selectedAddress)}/>
       </Box>
-    </>
+    </Box>
   )
 }
 

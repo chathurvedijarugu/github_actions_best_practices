@@ -6,15 +6,15 @@ import Button from '../../atoms/Button'
 
 export const LabFooter={
   footer: {
-    position: 'absolute',
+    position: 'fixed',
     boxShadow: '0px -4px 6px 0px #0000000F',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '70px',
+    height: '10%',
     bottom: 0,
     width: '100%',
-    backroundColor:"white"
+    backgroundColor:"white"
   },
   cancelButton: {
     color: '#FC5C5C',

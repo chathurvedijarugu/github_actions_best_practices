@@ -9,6 +9,20 @@
           "age": 20,
           "gender": "Male",
           "selected": true
+        },
+        {
+          "relation": "Myself",
+          "name": "Patrick Smith",
+          "age": 0,
+          "gender": "Male",
+          "selected": true
+        },
+        {
+          "relation": "Father",
+          "name": "Vittal Reddy",
+          "age": 56,
+          "gender": "Male",
+          "selected": false
         }
       ]
     }
@@ -30,13 +44,6 @@
           "city": "Hyderabad",
           "zipcode": "500008",
           "addressType": "OTHERS"
-        },
-        {
-          "houseDetails": "Plot no.11?p",
-          "areaDetails": "Mallikarjuna Nagar",
-          "zipcode": "500086",
-          "city": "Hyderabad",
-          "addressType": "OTHERS"
         }
       ]
     }
@@ -48,6 +55,84 @@
         {
           "month": "January",
           "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "March",
+          "date": 5,
+          "day": "Monday",
+          "time": "09.00am - 10.00am"
+        },
+        {
+          "month": "January",
+          "date": 6,
+          "day": "Saturday",
+          "time": "09.00am - 10.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "February",
+          "date": 4,
+          "day": "Sunday",
+          "time": "07.00am - 08.00am"
+        },
+        {
+          "month": "January",
+          "date": 1,
+          "day": "Monday",
+          "time": "06.00am - 07.00am"
+        },
+        {
+          "month": "March",
+          "date": 5,
+          "day": "Monday",
+          "time": "09.00am - 10.00am"
+        },
+        {
+          "month": "March",
+          "date": 5,
           "day": "Monday",
           "time": "06.00am - 07.00am"
         }

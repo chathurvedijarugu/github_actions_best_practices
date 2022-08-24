@@ -21,26 +21,27 @@ const SelectAppointementPage = () => {
     navigate('/homePage')
   }
   const handleClickonBackButton = () => {
-    navigate('/labTestPage')
+    navigate('/selectLabPage')
   }
   const handleAddAddressButton = async (
     slotSelected: DateTimeType,
     userId: number
   ) => {
     await addSlotTime(slotSelected,userId)
+    localStorage.setItem("slotTime",JSON.stringify(slotSelected))
     navigate('/addAddressPage')
   }
   return (
-    <>
+    <Box marginY={6} marginX={10}>
       <Box onClick={handleClickonLogo}>
         <Logo img={logo} text="Zemoso Diagnostics" />
       </Box>
       <Grid
         container
         direction="row"
-        columnGap="435px"
+        columnGap="495px"
         alignItems="center"
-        paddingTop="2rem"
+        paddingTop="2.5rem"
       >
         <Grid item>
           <Button
@@ -66,7 +67,7 @@ const SelectAppointementPage = () => {
           getDateTime={(slotSelected:DateTimeType,userId:number)=>{handleAddAddressButton(slotSelected,userId)}}
         />
       </Box>
-    </>
+    </Box>
   )
 }
 
