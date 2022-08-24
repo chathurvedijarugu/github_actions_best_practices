@@ -38,6 +38,7 @@ declare module '@mui/material/styles' {
     caption2: React.CSSProperties
     title: React.CSSProperties
     gammaRegular: React.CSSProperties
+    captionRegular:React.CSSProperties
     overline2: React.CSSProperties
   }
 
@@ -48,6 +49,7 @@ declare module '@mui/material/styles' {
     caption2?: React.CSSProperties
     title?: React.CSSProperties
     gammaRegular?: React.CSSProperties
+    captionRegular?:React.CSSProperties
     overline2?: React.CSSProperties
   }
 }
@@ -59,6 +61,7 @@ declare module '@mui/material/Typography' {
     caption2: true
     title: true
     gammaRegular: true
+    captionRegular:true
     overline2:true
   }
 }
@@ -105,7 +108,7 @@ let theme = createTheme({
     secondary: {
       A100: '#EBDAF2',
       '500': '#C898D9',
-      '800': '#9E62B2',
+      '800': '#9E62B3',
       '50': '#F9F5FA',
       A400: '#9E62B2',
     },
@@ -215,6 +218,13 @@ let theme = createTheme({
       fontWeight: '500',
       textTransform: 'none',
     },
+    captionRegular:{
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      lineHeight: '20px',
+      fontWeight: '400',
+      textTransform: 'none',
+    },
     button: {
       fontFamily: 'Inter',
       fontSize: '18px',
@@ -229,7 +239,6 @@ let theme = createTheme({
       fontWeight: '400',
       textTransform: 'none',
     },
-
     overline2: {
       fontFamily: 'Inter',
       fontSize: '12px',
