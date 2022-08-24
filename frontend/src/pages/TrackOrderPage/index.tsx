@@ -16,20 +16,19 @@ const style = {
         display: "flex",
         flexDirection: "column",
         gap: theme.spacing(21),
-        width: "100%"
     },
 
     innerGrid: {
         display: "flex",
         flexDirection: "row",
         gap: theme.spacing(36),
-        width: "100%",
         backgroundColor: theme.palette.gammaWhite.main,
     },
 
     image: {
         boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
         padding: theme.spacing(10),
+        display: "flexbox",
     },
 
     logo: {
@@ -51,7 +50,6 @@ const style = {
         py: theme.spacing(6),
         height: "10%",
         boxShadow: "0px -4px 6px 0px #0000000F",
-        width: "100%",
         bgcolor: "white",
         position: "fixed",
         bottom: 0,
@@ -83,16 +81,16 @@ const TrackOrderPage = () => {
   }, [])
     return(
         <>
-        <Grid sx={style.root}>
+        <Grid container sx={style.root}>
             <Grid item sx={style.logo}>
                 <Logo img={logo} text={"Zemoso Diagnostics"}></Logo>
             </Grid>
-            <Grid item sx={style.innerGrid}>
-                <Grid item sx={style.image} xs={true} data-testid="order-info">
+            <Grid item sx={style.innerGrid} xs={12}>
+                <Grid item sx={style.image} xs={5} data-testid="order-info">
                     <OrderInfo patientDetails={patientDetails} labAddress={selectedAddress} totalAmountPaid={2400}></OrderInfo>
                 </Grid>
                 <Divider sx={style.divider}></Divider>
-                <Grid item sx={style.innerFrame} xs={true} data-testid="tracking-stepper">
+                <Grid item sx={style.innerFrame} xs={5} data-testid="tracking-stepper">
                         <TrackingStepper 
                             data={stepperData} 
                             currentIndex={1}></TrackingStepper>

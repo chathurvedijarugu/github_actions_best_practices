@@ -22,7 +22,6 @@ const OrderInfo = ({
       container
       padding={4}
       direction="column"
-      width="fit-content"
       boxShadow={theme.shadows[1]}
     >
       <Grid
@@ -32,7 +31,6 @@ const OrderInfo = ({
         spacing={1}
         boxShadow={theme.shadows[1]}
         direction="column"
-        width="fit-content"
       >
         <Grid item>
           {patientDetails.map((value) => {
