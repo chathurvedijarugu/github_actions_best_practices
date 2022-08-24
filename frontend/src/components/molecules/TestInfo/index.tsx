@@ -36,7 +36,7 @@ const TestInfo: React.FC = (props) => {
     innerBox: {
       paddingLeft: '11.34px',
       paddingRight: '11.99px',
-      height: '100%',
+      height: '480px',
       width: '100%',
     },
     mainHeading: {
@@ -51,8 +51,8 @@ const TestInfo: React.FC = (props) => {
       alignItems: 'center',
       display: 'flex',
       justifyContent: 'center',
-      width: '100%',
-      height: '100%',
+      width: '500px',
+      height: '45px',
     },
     testDetails: {
       justifyContent: 'space-between',
@@ -62,6 +62,8 @@ const TestInfo: React.FC = (props) => {
       border: `1px solid ${theme.palette.grey[100]}`,
       paddingRight: '10px',
       color: theme.palette.gammaHigh.main,
+      width: '293px',
+      height: '36px',
     },
     center: {
       display: 'flex',
@@ -88,13 +90,13 @@ const TestInfo: React.FC = (props) => {
   const classes = useStyles()
   return (
     <Box className={classes.root}>
-      <Grid container className={classes.innerBox} rowGap={4}>
+      <Grid container className={classes.innerBox}>
         <Grid item xs={6} className={classes.mainHeading}>
           <Typography variant="subtitle1">{COVID_RTPCR}</Typography>
         </Grid>
         <Grid item container>
           <Grid item container xs={3} spacing={1} className={classes.center}>
-            <Grid item xs={3} className={classes.logo}>
+            <Grid item xs={4} className={classes.logo}>
               <img src={Home} alt="home" />
             </Grid>
             <Grid item xs={3}>
@@ -105,7 +107,7 @@ const TestInfo: React.FC = (props) => {
           </Grid>
 
           <Grid item container xs={3} spacing={1} className={classes.center}>
-            <Grid item xs={3} className={classes.logo}>
+            <Grid item xs={4} className={classes.logo}>
               <img src={Test} alt="home" />
             </Grid>
             <Grid item xs={3}>
@@ -116,7 +118,7 @@ const TestInfo: React.FC = (props) => {
           </Grid>
 
           <Grid item container xs={3} spacing={1} className={classes.center}>
-            <Grid item xs={3} className={classes.logo}>
+            <Grid item xs={4} className={classes.logo}>
               <img src={Doctor} alt="home" />
             </Grid>
             <Grid item xs={3}>
@@ -127,7 +129,7 @@ const TestInfo: React.FC = (props) => {
           </Grid>
 
           <Grid item container xs={3} spacing={1} className={classes.center}>
-            <Grid item xs={3} className={classes.logo}>
+            <Grid item xs={4} className={classes.logo}>
               <img src={Reports} alt="home" />
             </Grid>
             <Grid item xs={3}>
@@ -144,7 +146,7 @@ const TestInfo: React.FC = (props) => {
             <Typography variant="overline">{STARTING_PRICE}</Typography>
           </Grid>
           <Grid item>
-          <TimelineDot />
+            <TimelineDot />
           </Grid>
           <Grid item className={classes.center}>
             <img src={Clock} alt="dollar" style={{ paddingRight: '5px' }} />
@@ -152,7 +154,7 @@ const TestInfo: React.FC = (props) => {
           </Grid>
         </Grid>
 
-        <Grid item container rowGap={2}>
+        <Grid item container>
           <ul className={classes.list}>
             <Grid item xs={12}>
               <li>
