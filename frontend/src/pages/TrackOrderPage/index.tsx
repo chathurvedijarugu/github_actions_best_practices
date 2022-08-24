@@ -34,8 +34,8 @@ const style = {
 
     image: {
         ml: theme.spacing(31),
-        width: "482px",
-        height: "330px",
+        width: "122.64vw",
+        height: "83.34vh",
         boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
         padding: theme.spacing(6),
     },
@@ -45,8 +45,8 @@ const style = {
     },
 
     innerFrame: {
-        width: "583px",
-        height: "628px",
+        width: "148.34vw",
+        height: "159vh",
         boxShadow: "0px 0px 26px rgba(233, 232, 237, 0.5)",
         borderRadius: theme.spacing(2),
         padding: theme.spacing(8),
