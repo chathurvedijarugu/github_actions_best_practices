@@ -1,9 +1,10 @@
 import { Box, Button, Checkbox, Divider, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import theme from '../../../theme'
 import PatientCard, { PatientDetails } from '../PatientCard'
 import AddIcon from '@mui/icons-material/Add'
 import {LabFooter} from "../../organisms/AddAdressDetails"
+import { UserContext } from '../../utils/Constant'
 type SelectAndAddPatientProps = {
   patientDetails: PatientDetails[]
   onNewPatientClick?:()=>void
@@ -76,6 +77,7 @@ const SelectAndAddPatient = ({
       setSelected(newArr)
     }
   }
+
 let userId=10;
   return (
     <>

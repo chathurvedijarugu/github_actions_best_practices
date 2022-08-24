@@ -1,5 +1,5 @@
 import { Dialog, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { makeStyles } from '@mui/styles'
 import CompanyLogo from '../../../assets/icons/companyLogo.svg'
 import theme from '../../../theme'
@@ -13,10 +13,12 @@ import {
   MY_APPOINTMENT_LABEL,
   REPORTS_LABEL,
   NAVBAR_ADDRESS,
+  UserContext,
 } from '../../utils/Constant'
 
 import { NavLink } from 'react-router-dom'
 import UserProfile from '../UserProfile'
+import { webAuth } from '../../utils/webAuth'
 
 const Header: React.FC = (props) => {
   const useStyles = makeStyles({
@@ -68,8 +70,14 @@ const Header: React.FC = (props) => {
   const handleUserIcon = () => {
     setPopUp((val) => !val)
   }
+  const { setUserId } = useContext(UserContext);
+
   const onLogOut = () => {
-    //To Be handled after developing Login Page
+    webAuth.logout({
+      returnTo: process.env.APP_URL,
+      clientID: process.env.CLIENTID,
+    })
+    setUserId(null)
   }
   return (
     <>
