@@ -1,7 +1,6 @@
 import { DateTimeType } from '../components/organisms/SelectAppointment'
 import { patientDetailsType } from '../utils/constant'
 import { addressDetailsType } from '../utils/constant'
-import { TestProps } from '../components/organisms/SelectLabMainContent'
 import API from './API'
 export const updatePatientDetails = async (
   selected: number[],

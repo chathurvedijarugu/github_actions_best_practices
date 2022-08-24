@@ -86,6 +86,7 @@ let userId=10;
             justifyContent="space-between"
             alignItems="center"
             height="54px"
+            paddingLeft="1rem"
           >
             <Grid item>
               <Typography
@@ -107,7 +108,7 @@ let userId=10;
             </Grid>
           </Grid>
           <Divider />
-          <Box paddingTop="36px">
+          <Box paddingTop="36px" paddingRight="2rem">
             <Grid container direction="column">
               {patientDetails.map((value, index) => (
                 <Grid item xs key={index}>
