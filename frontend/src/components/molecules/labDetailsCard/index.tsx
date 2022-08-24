@@ -34,7 +34,7 @@ const LabDetailsCard: React.FC<Props> = (props: Props) => {
       borderRadius: theme.spacing(2),
       border: props.selected
         ? `2px solid ${theme.palette.secondary.main}`
-        : 'none',
+        : '1px solid #E9E8ED',
       cursor: 'pointer',
     },
 
