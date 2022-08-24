@@ -5,16 +5,10 @@ import logo from "../../assets/icons/logo.svg";
 import theme from "../../theme";
 import OrderInfo from "../../components/organisms/OrderInfo";
 import TrackingStepper from "../../components/molecules/TrackingStepper";
-import LabTechnician from '../../assets/icons/LabTechnician.svg';
-import Check from '../../assets/icons/check.svg';
-import PickUp from '../../assets/icons/pickup.svg';
-import TestConducted from '../../assets/icons/testConducted.svg';
-import LabTechnicianImage from '../../assets/icons/LabTechnicianImage.svg';
-import FileText from '../../assets/icons/file-text.svg';
-import { Box } from '@mui/material';
 import { ADDRESS, PATIENT_DETAILS_ARRAY } from "../../components/utils/Constant";
 import Button from "../../components/atoms/Button";
 import { useNavigate } from "react-router-dom";
+import { stepperData } from "./stepperData";
 
 const style = {
     root: {
@@ -90,40 +84,7 @@ const TrackOrderPage = () => {
                 <Divider sx={style.divider}></Divider>
                 <Grid item sx={style.innerFrame} xs={true} data-testid="tracking-stepper">
                         <TrackingStepper 
-                            data={
-                                [
-                                    {
-                                      icon: Check,
-                                      heading: 'Order placed',
-                                      caption: 'Placed on Mon, 22 Feb, 11.00 AM',
-                                    },
-                                    {
-                                      icon: LabTechnician,
-                                      heading: 'Lab technician assigned',
-                                      caption: (
-                                        <Box display="flex" marginY={1} paddingX={1} alignItems="center">
-                                          <img src={LabTechnicianImage} />
-                                          {'Esther Howard'}
-                                        </Box>
-                                      ),
-                                    },
-                                    {
-                                      icon: PickUp,
-                                      heading: 'Sample collection',
-                                      caption: 'On Tue, 23 Feb, 7.00 - 8.00 AM',
-                                    },
-                                    {
-                                      icon: TestConducted,
-                                      heading: 'Sample being examined',
-                                      caption: 'Estimated time - 24 hrs',
-                                    },
-                                    {
-                                      icon: FileText,
-                                      heading: 'Report ready',
-                                      caption: '',
-                                    },
-                                  ]
-                            } 
+                            data={stepperData} 
                             currentIndex={1}></TrackingStepper>
                 </Grid>
             </Grid>
