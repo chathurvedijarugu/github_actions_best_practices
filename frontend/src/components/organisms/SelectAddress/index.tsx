@@ -4,38 +4,9 @@ import theme from '../../../theme'
 import AddIcon from '@mui/icons-material/Add'
 import SelectAddressCard from '../../molecules/SelectAddressCard'
 import { addressDetailsType } from '../../../utils/constant'
+import { LabFooter } from '../AddAdressDetails'
 
 const stylings = {
-  footer: {
-    position: 'absolute',
-    boxShadow: '0px -4px 6px 0px #0000000F',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '70px',
-    bottom: 0,
-    width: '100%',
-  },
-  cancelButton: {
-    color: '#FC5C5C',
-    fontWeight: theme.typography.body1.fontWeight,
-    fontSize: theme.typography.body1.fontSize,
-    lineHeight: '18px',
-    borderRadius: '4px',
-    width: '222px',
-    height: '42px',
-    '&:hover': {
-      background: 'none',
-    },
-  },
-  containedButton: {
-    fontWeight: theme.typography.body1.fontWeight,
-    fontSize: theme.typography.body1.fontSize,
-    lineHeight: '18px',
-    borderRadius: '8px',
-    width: '222px',
-    height: '42px',
-  },
   newPatientButton: {
     color: '#6B4DE0',
     width: '10.937rem',
@@ -109,13 +80,13 @@ const SelectAddress = ({
           </Grid>
         </Box>
       </Box>
-      <Box sx={stylings.footer}>
-        <Grid container justifyContent="space-between" padding="6rem">
+      <Box sx={LabFooter.footer}>
+        <Grid container justifyContent="space-between" padding="3rem">
           <Grid item>
             <Button
               variant="text"
               children="Cancel"
-              sx={stylings.cancelButton}
+              sx={LabFooter.cancelButton}
             ></Button>
           </Grid>
           <Grid item>
@@ -124,7 +95,7 @@ const SelectAddress = ({
               variant="contained"
               onClick={() => onCompleteClick?.(addressData[selected])}
               children="Complete Order"
-              sx={stylings.containedButton}
+              sx={LabFooter.containedButton}
             ></Button>
           </Grid>
         </Grid>

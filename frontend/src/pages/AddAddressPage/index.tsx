@@ -18,7 +18,7 @@ const AddAddressPage = () => {
     navigate('/homePage')
   }
   const handleClickonBackButton = () => {
-    navigate('/selectAppointementPage')
+    navigate('/appointementPage')
   }
   const handleSaveAddress=async(details:addressDetailsType,userId:number)=>{
 await addAddressDetails(details,userId)
@@ -26,16 +26,16 @@ await addAddressDetails(details,userId)
 
   }
   return (
-    <>
+    <Box marginY={6} marginX={10}>
       <Box onClick={handleClickonLogo}>
         <Logo img={logo} text="Zemoso Diagnostics" />
       </Box>
       <Grid
         container
         direction="row"
-        columnGap="435px"
+        columnGap="490px"
         alignItems="center"
-        paddingTop="2rem"
+        paddingTop="2.5rem"
       >
         <Grid item>
           <Button
@@ -60,7 +60,7 @@ await addAddressDetails(details,userId)
             handleSaveAddress(addressDetails,userId)
         }}/>
       </Box>
-    </>
+    </Box>
   )
 }
 

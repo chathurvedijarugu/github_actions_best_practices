@@ -7,7 +7,7 @@ import {LabFooter} from "../../organisms/AddAdressDetails"
 type SelectAndAddPatientProps = {
   patientDetails: PatientDetails[]
   onNewPatientClick?:()=>void
-  onSelectLabClick?:(selected:number[],userId:number)=>void
+  onSelectLabClick?:(selected:any,userId:number)=>void
 }
 const stylings = {
   footer: {
@@ -64,7 +64,7 @@ const SelectAndAddPatient = ({
 }: SelectAndAddPatientProps) => {
   const [selected, setSelected] = useState<any>([])
   const handleCheckBoxClick = (key: any) => {
-    if (selected.includes(key)) {
+    if (selected.includes(patientDetails[key])) {
       var newArr = [...selected]
 
       newArr.splice(key, 1)
@@ -72,7 +72,7 @@ const SelectAndAddPatient = ({
     } else {
       var newArr = [...selected]
 
-      newArr.push(key)
+      newArr.push(patientDetails[key])
       setSelected(newArr)
     }
   }
