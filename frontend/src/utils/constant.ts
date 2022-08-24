@@ -6,7 +6,6 @@ import offersIcon from '../assets/userprofileIcons/offers.svg'
 import helpIcon from '../assets/userprofileIcons/question.svg'
 import tandcIcon from '../assets/userprofileIcons/Docs.svg'
 import logOutIcon from '../assets/userprofileIcons/logout.svg'
-
 export const patientDetails = [
   {
     age: '30 years',
@@ -101,6 +100,7 @@ export type addressDetailsType = {
   areaDetails: string
   zipcode: string
   city: string
+  addressType:string
 }
 export type patientDetailsType={
   relation:string,
@@ -110,3 +110,19 @@ export type patientDetailsType={
   selected:boolean
 
 }
+export const addressData=[
+  {
+    houseDetails:"2235 California Street",
+    areaDetails:"Mountain View ",
+    city:"Calfornia",
+    zipcode:"100132",
+    addressType:"HOME"
+  },
+  {
+    houseDetails:"2235 NanalNagar",
+    areaDetails:"Near Mehdipatnam",
+    city:"Hyderabad",
+    zipcode:"500008",
+    addressType:"OTHERS"
+  }
+]

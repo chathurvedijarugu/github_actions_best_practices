@@ -42,8 +42,11 @@ const MainTemplate = ({
       </Grid>
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
-          <Grid item width={'fit-content'}>
-            <CustomButton onClick={backClick} color="primary">
+          <Grid item width={'fit-content'} xs={3}>
+            <CustomButton
+              onClick={backClick}
+              color="primary"
+            >
               <ArrowBack />
               <Typography marginX={1} variant="body">
                 Back
@@ -93,9 +96,11 @@ const MainTemplate = ({
               <Typography variant="body">Cancel</Typography>
             </CustomButton>
           </Grid>
-          <Grid item>
+
+          <Grid item display="flex">
             {footerTextComponent}
-            <Button onClick={nextClick} variant="contained">
+
+            <Button onClick={nextClick} variant="contained" fullWidth>
               <Typography variant="body">{buttonLabel}</Typography>
             </Button>
           </Grid>

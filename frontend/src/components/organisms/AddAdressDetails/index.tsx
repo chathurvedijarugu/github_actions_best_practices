@@ -190,6 +190,7 @@ const AddAddress = (props: addAddressProps) => {
                   areaDetails: areaDetails,
                   zipcode: zipcode,
                   city: city,
+                  addressType:"OTHERS"
                 }
                 return props.onSaveAddressClick?.(addressDetails, userId)
               }}

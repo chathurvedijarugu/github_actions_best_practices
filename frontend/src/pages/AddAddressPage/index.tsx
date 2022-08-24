@@ -11,7 +11,8 @@ import AddAddress from '../../components/organisms/AddAdressDetails'
 import { addAddressDetails } from '../../services/services'
 import { addressDetailsType, ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
 
-const AddPatientDetailsPage = () => {
+
+const AddAddressPage = () => {
   const navigate = useNavigate()
   const handleClickonLogo = () => {
     navigate('/homePage')
@@ -21,7 +22,7 @@ const AddPatientDetailsPage = () => {
   }
   const handleSaveAddress=async(details:addressDetailsType,userId:number)=>{
 await addAddressDetails(details,userId)
-    navigate('/reviewOrderPage')
+    navigate('/selectAddressPage')
 
   }
   return (
@@ -63,4 +64,4 @@ await addAddressDetails(details,userId)
   )
 }
 
-export default AddPatientDetailsPage
+export default AddAddressPage

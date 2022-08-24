@@ -1,7 +1,7 @@
 import { DateTimeType } from '../components/organisms/SelectAppointment'
 import { patientDetailsType } from '../utils/constant'
 import { addressDetailsType } from '../utils/constant'
-
+import { TestProps } from '../components/organisms/SelectLabMainContent'
 import API from './API'
 export const updatePatientDetails = async (
   selected: number[],
@@ -36,6 +36,7 @@ export const getPatientDetails = async (userId: number) => {
   const response = await API.get(`/patients/${userId}`)
   return response.data
 }
+
 export const addAddressDetails = async (
   details: addressDetailsType,
   userId: number
@@ -43,8 +44,56 @@ export const addAddressDetails = async (
   const response = await API.get(`/addresses/${userId}`)
   await response.data.addressDetails.push(details)
   await API.put(`/addresses/${userId}`, response.data)
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((err) => console.log(err))
+}
+export const getLabs = async () => {
+  let tests: any = []
+  await API.get('/labs')
+    .then((res) => {
+      tests = res.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  return tests
+}
+export const getLabsById = async (labID: number) => {
+  let labs: any = []
+  await API.get(`/labs/${labID}`)
+    .then((value) => {
+      labs = value.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  return labs
+}
+export const getPatientLabDetails = async (patients: any[], labID: number) => {
+  let details: any = []
+  await getLabsById(labID).then((value) => {
+    details.push(value)
+  })
+  patients.map(async (value) => {
+    await getPatientDetails(value).then((patient) => {
+      let tempData = {}
+      console.log(patient)
+      tempData = { ...patient }
+      details.push(tempData)
+    })
+  })
+  return details
 }
 
+export const getSlotByPatientID = async (patientID: number) => {
+  let details: any = []
+  await API.get(`/slotsBooked/${patientID}`).then((response) => {
+    details = response.data.slots
+  })
+  return details
+}
 export const addSlotTime = async (
   slotSelected: DateTimeType,
   userId: number
@@ -55,4 +104,13 @@ export const addSlotTime = async (
       API.put(`/slotsBooked/${userId}`, response.data)
     })
     .catch((err) => console.log(err))
+}
+export const getAddressDetails = async (userId: number) => {
+  let addressData: any[] = []
+  await API.get(`/addresses/${userId}`)
+    .then((res) => {
+      addressData = res.data
+    })
+    .catch((err) => console.log(err))
+  return addressData
 }
