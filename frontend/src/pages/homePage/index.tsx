@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SearchField from '../../components/molecules/searchField'
 import theme from '../../theme'
 import searchIcon from '../../assets/icons/search.svg'
@@ -11,6 +11,7 @@ import {
   testimonials,
   testList1,
   testList2,
+  UserContext,
 } from '../../components/utils/Constant'
 import WhyChooseUs from '../../components/molecules/WhyChooseUs'
 import TestDetailMolecule from '../../components/molecules/TestsAvailable'
@@ -97,12 +98,11 @@ const HomePage = () => {
   const onClickCovidTest = () => {
     navigate('/covid-test')
   }
-  let { user } = useAuth0()
+  let [userID,setUserID]=useContext(UserContext);
   useEffect(() => {
-    user?.sub != undefined ? '' : navigate('/auth')
-    console.log(user?.sub)
-    console.log(user)
-  }, [])
+    userID!=undefined && userID.length>0 ? navigate('/') : navigate('/auth')
+    console.log(userID)
+  }, [userID])
 
   return (
     <Grid sx={style.root}>

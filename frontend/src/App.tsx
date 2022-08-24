@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ReportsPage from './pages/ReportsPage'
 import HomePage from './pages/homePage'
@@ -12,8 +12,11 @@ import FinalOrder from './pages/ReviewOrdersPage'
 import OrderPlaced from './pages/OrderPlaced'
 import CheckoutPage from './pages/Checkout'
 import LoginPage from './pages/LoginPage'
+import { UserContext } from './components/utils/Constant'
 const App = () => {
+  let [userID,setUserID]=useState<string>('')
   return (
+    <UserContext.Provider value={[userID,setUserID]} >
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -30,6 +33,7 @@ const App = () => {
         <Route path="/orderPlacedPage" element={<OrderPlaced  />} />
       </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
   )
 }
 

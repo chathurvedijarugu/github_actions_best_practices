@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Login from '../../components/organisms/Login'
 import MobileNumber from '../../components/organisms/MobileNumber'
 import OTP from '../../components/organisms/OTP'
 import SignIn from '../../components/templates/SignIn'
 const LoginPage = () => {
   let [counter, setCounter] = useState(0)
+  const navigate=useNavigate()
   const renderSwitch = () => {
     switch (counter) {
       case 0:
@@ -27,7 +29,7 @@ const LoginPage = () => {
         return (
           <OTP
             buttonClick={() => {
-              setCounter(0)
+              navigate("/")
             }}
           />
         )
