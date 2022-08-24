@@ -8,7 +8,7 @@ import {
   time4To6,
   timeRange4To6,
   timeWithAmPm,
-  timeCoversion
+  timeCoversion,
 } from '../../utils/Constant'
 import ButtonComponent from '../../atoms/Button'
 import { FlexDiv, MT40Div } from '../../organisms/SelectAppointment'
@@ -24,10 +24,10 @@ export const SelectedTimeButton = styled(ButtonComponent)({
   width: '8em',
   padding: '0.5em',
   gap: '0.25em',
-  backgroundColor: theme.palette.secondary["800"],
+  backgroundColor: theme.palette.secondary['800'],
   borderRadius: '0.75em',
   ':hover': {
-    backgroundColor: theme.palette.secondary["800"],
+    backgroundColor: theme.palette.secondary['800'],
   },
 })
 
@@ -68,7 +68,7 @@ const TimeSelection = ({ setTime, chosenTime }: TimeSelectionProps) => {
   const ChosenTime = ({ time, i }: TimeProps) => (
     <Grid key={i} item={true} xs={6}>
       <SelectedTimeButton data-testid={time}>
-        <Typography variant="overline" color="secondary.contrastText">
+        <Typography variant="overline2" color="secondary.contrastText">
           {time}
         </Typography>
       </SelectedTimeButton>
@@ -89,7 +89,7 @@ const TimeSelection = ({ setTime, chosenTime }: TimeSelectionProps) => {
           handleClick(time)
         }}
       >
-        <Typography variant="overline" color="text.disabled">
+        <Typography variant="overline2" color="text.disabled">
           {time}
         </Typography>
       </TimeButton>
@@ -108,7 +108,7 @@ const TimeSelection = ({ setTime, chosenTime }: TimeSelectionProps) => {
     <>
       <FlexDiv>
         <div>
-          <Typography variant="caption" color="text.primary">
+          <Typography variant="caption2" color="text.primary">
             {time6To12}
           </Typography>
         </div>
@@ -122,7 +122,7 @@ const TimeSelection = ({ setTime, chosenTime }: TimeSelectionProps) => {
       <MT40Div>
         <FlexDiv>
           <div>
-            <Typography variant="caption" color="text.primary">
+            <Typography variant="caption2" color="text.primary">
               {time12To4}
             </Typography>
           </div>
@@ -137,7 +137,7 @@ const TimeSelection = ({ setTime, chosenTime }: TimeSelectionProps) => {
       <MT40Div>
         <FlexDiv>
           <div>
-            <Typography variant="caption" color="text.primary">
+            <Typography variant="caption2" color="text.primary">
               {time4To6}
             </Typography>
           </div>

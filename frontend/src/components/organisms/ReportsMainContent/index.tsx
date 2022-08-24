@@ -52,6 +52,8 @@ const ReportsMainContent: React.FC = () => {
   const style = {
     root: {
       paddingTop: '40px',
+      paddingLeft: '90px',
+      paddingRight: '90px',
     },
     label: {
       fontSize: '20px',

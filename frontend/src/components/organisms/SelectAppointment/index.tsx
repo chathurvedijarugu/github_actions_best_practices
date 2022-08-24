@@ -112,7 +112,7 @@ export type DateTimeType = {
 
 export type DateTimeProps = {
   setDateTime?: (dateTime: DateTimeType) => void
-  getDateTime?: (slotSelected: DateTimeType,userId:number) => void
+  getDateTime?: (slotSelected: DateTimeType, userId: number) => void
   month: string
   date: number
   day: string
@@ -128,7 +128,7 @@ const stylings = {
     height: '70px',
     bottom: 0,
     width: '100%',
-    backgroundColor:"white",
+    backgroundColor: 'white',
   },
   cancelButton: {
     color: '#FC5C5C',
@@ -172,7 +172,7 @@ const SelectAppointmentForm = ({
   const daysOfMonth = noOfDays[monthNo]
   const daysOfDate = daysOfDateFunc()
   const weekDays = weekDaysFunc()
-  let userId=10;
+  let userId = 10
   const changeMonth = () => {
     setdayAdder(() => {
       let finalVal = 0
@@ -283,15 +283,12 @@ const SelectAppointmentForm = ({
                         <FlexColumnDiv>
                           <Typography
                             variant="overline"
-                            color="secondary.contrastText"
+                            color="#ffffff"
                             gutterBottom
                           >
                             {daysOfDate[i + dayStartNo + dayAdder]}
                           </Typography>
-                          <Typography
-                            variant="overline"
-                            color="secondary.contrastText"
-                          >
+                          <Typography variant="body" color="#ffffff">
                             {i + dayStartNo}
                           </Typography>
                         </FlexColumnDiv>
@@ -310,12 +307,12 @@ const SelectAppointmentForm = ({
                         <FlexColumnDiv>
                           <Typography
                             variant="overline"
-                            color="text.disabled"
+                            color="#5A5766 "
                             gutterBottom
                           >
                             {daysOfDate[i + dayStartNo + dayAdder]}
                           </Typography>
-                          <Typography variant="overline" color="text.secondary">
+                          <Typography variant="body" color="#5A5766 ">
                             {i + dayStartNo}
                           </Typography>
                         </FlexColumnDiv>

@@ -4,14 +4,8 @@ import ReportsMainContent from '../../components/organisms/ReportsMainContent'
 import { Grid } from '@mui/material'
 
 const ReportsPage: React.FC = () => {
-  const style = {
-    root: {
-      paddingLeft: '90px',
-      paddingRight: '90px',
-    },
-  }
   return (
-    <Grid item sx={style.root}>
+    <Grid item>
       <LabTest children={<ReportsMainContent />} />
     </Grid>
   )
