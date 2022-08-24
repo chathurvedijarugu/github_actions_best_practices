@@ -12,8 +12,8 @@ import { Auth0Provider } from '@auth0/auth0-react'
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      clientId={process.env.DOMAIN!}
-      domain={process.env.CLIENTD!}
+      clientId={process.env.CLIENTID!}
+      domain={process.env.DOMAIN!}
       redirectUri={window.location.origin}
     >
       <StyledEngineProvider injectFirst>

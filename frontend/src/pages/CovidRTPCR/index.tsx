@@ -17,7 +17,15 @@ const CovidRTPCR = () => {
         navigate('/')
       }}
       stepperComponent={
-        <ProgressBar values={['Home', 'Covid RTPCR']} currentIndex={1} />
+        <Box
+          width="100%"
+          justifyContent={'center'}
+          display="flex"
+        >
+          <Box width="20vw">
+            <ProgressBar values={['Home', 'Covid RTPCR']} currentIndex={1} />
+          </Box>
+        </Box>
       }
       mainComponent={
         <Box width="583px" height="560px">

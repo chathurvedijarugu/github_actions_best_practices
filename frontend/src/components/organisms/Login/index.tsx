@@ -50,7 +50,10 @@ interface LoginPageProps {
 }
 const Login = ({ buttonClick }: LoginPageProps) => {
   let { enable, details, onChangeDetails } = useLogin()
-  let { loginWithRedirect } = useAuth0()
+  let { loginWithRedirect, user } = useAuth0()
+ 
+  console.log(user)
+
   return (
     <Grid
       container
@@ -70,7 +73,7 @@ const Login = ({ buttonClick }: LoginPageProps) => {
           display="block"
           color={theme.palette.gammaLow.main}
         >
-         {FIRST_NAME}
+          {FIRST_NAME}
         </Typography>
         <TextField
           fullWidth
@@ -168,7 +171,11 @@ const Login = ({ buttonClick }: LoginPageProps) => {
       </Grid>
       <Grid item>
         <Stack display="flex" justifyContent={'space-around'} direction={'row'}>
-          <IconButton onClick={()=>{loginWithRedirect()}}>
+          <IconButton
+            onClick={() => {
+              loginWithRedirect()
+            }}
+          >
             <Box
               bgcolor={theme.palette.grey['50']}
               display="flex"

@@ -29,12 +29,18 @@ const FinalOrder = () => {
   return (
     <MainTemplate
       nextClick={() => {
-        navigate('/orderPlacedPage')
+        navigate('/checkout')
       }}
       backClick={() => {
         navigate('/selectAddressPage')
       }}
       stepperComponent={
+        <Box
+        width="100%"
+        justifyContent={'center'}
+        display="flex"
+      >
+        <Box width="40vw">
         <ProgressBar
           values={[
             'Lab test',
@@ -44,6 +50,8 @@ const FinalOrder = () => {
           ]}
           currentIndex={3}
         />
+        </Box>
+        </Box>
       }
       mainComponent={
         <Box width="583px">

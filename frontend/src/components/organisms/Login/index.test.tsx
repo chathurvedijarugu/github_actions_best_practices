@@ -1,16 +1,30 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event/'
-import "@testing-library/jest-dom";
+import '@testing-library/jest-dom'
 import React from 'react'
 import Login from '.'
+import { MemoryRouter } from 'react-router-dom'
+import { Auth0Provider } from '@auth0/auth0-react'
+import crypto from '@trust/webcrypto'
 describe('Login', () => {
-  it('Truthy Test', async() => {
+  beforeAll(() => {
+    window.crypto = crypto
+  })
+  it('Truthy Test', async () => {
     const ele = render(
-      <Login
-        buttonClick={() => {
-          console.log('clicked')
-        }}
-      />
+      <MemoryRouter>
+        <Auth0Provider
+          clientId={process.env.CLIENTID!}
+          domain={process.env.DOMAIN!}
+          redirectUri={window.location.origin}
+        >
+          <Login
+            buttonClick={() => {
+              console.log('clicked')
+            }}
+          />
+        </Auth0Provider>
+      </MemoryRouter>
     )
     fireEvent.click(screen.getByText('Continue'), { button: 0 })
     await userEvent.type(screen.getByPlaceholderText('eg: Smith'), 'S')
@@ -22,7 +36,9 @@ describe('Login', () => {
       screen.getByPlaceholderText('eg: patricksmith@gmail.com'),
       'SS@'
     )
-    expect(screen.getByPlaceholderText('eg: patricksmith@gmail.com')).toHaveValue('SS@')
+    expect(
+      screen.getByPlaceholderText('eg: patricksmith@gmail.com')
+    ).toHaveValue('SS@')
     expect(ele).toBeTruthy()
   })
 })

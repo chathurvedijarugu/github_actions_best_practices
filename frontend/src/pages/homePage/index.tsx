@@ -1,37 +1,39 @@
-import { Grid, Typography } from "@mui/material";
-import React from "react";
-import SearchField from "../../components/molecules/searchField";
-import theme from "../../theme";
-import searchIcon from "../../assets/icons/search.svg";
-import Banner from "../../components/molecules/Banner";
+import { Grid, Typography } from '@mui/material'
+import React, { useContext, useEffect } from 'react'
+import SearchField from '../../components/molecules/searchField'
+import theme from '../../theme'
+import searchIcon from '../../assets/icons/search.svg'
+import Banner from '../../components/molecules/Banner'
 import {
-    BANNER_BUTTON_TEXT,
-    BANNER_CAPTION,
-    BANNER_HEADLINE,
-    testimonials,
-    testList1,
-    testList2,
-  } from "../../components/utils/Constant";
-import WhyChooseUs from "../../components/molecules/WhyChooseUs";
-import TestDetailMolecule from "../../components/molecules/TestsAvailable";
-import FAQs from "../../components/molecules/FAQs";
-import Footer from "../../components/molecules/Footer";
-import Testimonial from "../../components/molecules/testimonial";
-import LabTextIcon from "../../components/molecules/LabTestIcon";
-import Header from "../../components/organisms/Header";
-import { useNavigate } from "react-router-dom";
+  BANNER_BUTTON_TEXT,
+  BANNER_CAPTION,
+  BANNER_HEADLINE,
+  testimonials,
+  testList1,
+  testList2,
+  UserContext,
+} from '../../components/utils/Constant'
+import WhyChooseUs from '../../components/molecules/WhyChooseUs'
+import TestDetailMolecule from '../../components/molecules/TestsAvailable'
+import FAQs from '../../components/molecules/FAQs'
+import Footer from '../../components/molecules/Footer'
+import Testimonial from '../../components/molecules/testimonial'
+import LabTextIcon from '../../components/molecules/LabTestIcon'
+import Header from '../../components/organisms/Header'
+import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const style = {
-    root: {
-        display: "flex",
-        flexDirection: "column",
-    },
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
 
-    testimonials: {  
-        display: "flex",
-        flexDirection: "row", 
-        gap: "1.5rem",
-    },
+  testimonials: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '1.5rem',
+  },
 
     testimonialGrid: {
         display: "flex", 
@@ -44,59 +46,64 @@ const style = {
         alignContent: "center"
     },
 
-    searchGrid: {
-        px: "5.625rem", 
-        mb: `${theme.spacing(8)}`,
-    },
+  searchGrid: {
+    px: '5.625rem',
+    mb: `${theme.spacing(8)}`,
+  },
 
-    bannerGrid: {
-        px: "5.625rem",
-    },
+  bannerGrid: {
+    px: '5.625rem',
+  },
 
-    testGrid: {
-        px: "5.625rem", 
-        py: "5rem", 
-        width: "100%",
-    },
+  testGrid: {
+    px: '5.625rem',
+    py: '5rem',
+    width: '100%',
+  },
 
-    innerTestGrid: {
-        mb: `${theme.spacing(8)}`,
-        display: "flex", 
-        flexDirection: "row", 
-        justifyContent: "space-between",
-    },
+  innerTestGrid: {
+    mb: `${theme.spacing(8)}`,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 
-    list1Grid: {
-        display: "flex", 
-        flexDirection: "row", 
-        gap: `${theme.spacing(4.5)}`, 
-        mb: `${theme.spacing(4.5)}`,
-    },
+  list1Grid: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: `${theme.spacing(4.5)}`,
+    mb: `${theme.spacing(4.5)}`,
+  },
 
-    list2Grid: {
-        display: "flex", 
-        flexDirection: "row", 
-        gap: `${theme.spacing(4.5)}`,
-    },
+  list2Grid: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: `${theme.spacing(4.5)}`,
+  },
 
-    testFrame: {
-        padding: `${theme.spacing(4)} ${theme.spacing(22)}`,
-        borderRadius: `${theme.spacing(2)}`, 
-        boxShadow: "0px 0px 8px rgba(233, 232, 237, 0.5)", 
-        width: "100%",
-    },
+  testFrame: {
+    padding: `${theme.spacing(4)} ${theme.spacing(22)}`,
+    borderRadius: `${theme.spacing(2)}`,
+    boxShadow: '0px 0px 8px rgba(233, 232, 237, 0.5)',
+    width: '100%',
+  },
 
-    innerGrid: {
-        px: "5.625rem", 
-        py: "5rem"
-    },
+  innerGrid: {
+    px: '5.625rem',
+    py: '5rem',
+  },
 }
 
 const HomePage = () => {
-    const navigate = useNavigate();
-    const onClickCovidTest = () => {
-        navigate("/covid-test");
-    };
+  const navigate = useNavigate()
+  const onClickCovidTest = () => {
+    navigate('/covid-test')
+  }
+  let [userID,setUserID]=useContext(UserContext);
+  useEffect(() => {
+    userID!=undefined && userID.length>0 ? navigate('/') : navigate('/auth')
+    console.log(userID)
+  }, [userID])
 
     return (
         <Grid sx={style.root}>
@@ -175,5 +182,4 @@ const HomePage = () => {
         </Grid>
     );
 };
-
-export default HomePage;
+export default HomePage

@@ -19,6 +19,7 @@ import kidneyTest from '../../assets/icons/kidney.svg'
 import lipidTest from '../../assets/icons/lipid.svg'
 import liverTest from '../../assets/icons/liver.svg'
 import thyroidTest from '../../assets/icons/throid.svg'
+import React from 'react'
 
 export const PATIENT_DETAILS = 'Patient Details (1)'
 export const NUMBER_OF_TESTS = '1 Test'
@@ -321,7 +322,9 @@ export const testimonials = [
       'Very friendly and professional. Loved the follow-up and progress calls',
   },
 ]
-
+export const CARD_NUMER='1244 1234 1345 3255'
+export const CARD_HOLDER_NAME='Yessie'
+export const EXPIRY_DATE='02/25'
 export const testList1 = [
   {
     logo: bodyTest,
@@ -387,3 +390,4 @@ export const testList2 = [
     clickable: false,
   },
 ]
+export const UserContext=React.createContext<any>('');

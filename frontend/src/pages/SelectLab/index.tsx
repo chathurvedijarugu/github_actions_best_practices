@@ -22,6 +22,12 @@ const SelectLabPage = () => {
         navigate('/AddPatientDetailsPage')
       }}
       stepperComponent={
+        <Box
+        width="100%"
+        justifyContent={'center'}
+        display="flex"
+      >
+        <Box width="40vw">
         <ProgressBar
           values={[
             'Lab test',
@@ -31,6 +37,8 @@ const SelectLabPage = () => {
           ]}
           currentIndex={0}
         />
+        </Box>
+        </Box>
       }
       mainComponent={
         <Box width="583px" height="600px">

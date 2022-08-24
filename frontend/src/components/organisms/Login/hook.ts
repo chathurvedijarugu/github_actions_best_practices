@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 type UserLogin = {
   firstName: string
   lastName: string
@@ -13,9 +14,9 @@ export const useLogin = () => {
   let [enable, setEnable] = useState<boolean>(false)
   useEffect(() => {
     if (
-      details?.email.length! > 0 &&
-      details?.firstName.length! > 0 &&
-      details?.lastName.length! > 0 &&
+      details?.email.length > 0 &&
+      details?.firstName.length > 0 &&
+      details?.lastName.length > 0 &&
       details?.email.includes('@')
     ) {
       setEnable(true)

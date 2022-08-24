@@ -6,7 +6,6 @@ import offersIcon from '../assets/userprofileIcons/offers.svg'
 import helpIcon from '../assets/userprofileIcons/question.svg'
 import tandcIcon from '../assets/userprofileIcons/Docs.svg'
 import logOutIcon from '../assets/userprofileIcons/logout.svg'
-
 export const patientDetails = [
   {
     age: '30 years',

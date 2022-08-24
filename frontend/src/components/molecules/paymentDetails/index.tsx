@@ -123,7 +123,7 @@ const PaymentDetails: React.FC<Props> = (props: Props) => {
                     <Button variant="text" children="Add Card" startIcon={<AddIcon />} sx={style.button}></Button>
                 </Grid>
             </Grid>
-            <Grid item sx={style.middle}>
+            <Grid item sx={style.middle} borderRadius={"2rem"}>
                 <Grid item sx={style.middleFrame}>
                     <img src={cardIcon} alt="card-icon" />
                     <Typography variant="body" sx={style.sample}>Sample</Typography>

@@ -65,7 +65,40 @@ export const getLabs = async () => {
     })
   return tests
 }
+export const getLabsById = async (labID: number) => {
+  let labs: any = []
+  await API.get(`/labs/${labID}`)
+    .then((value) => {
+      labs = value.data
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  return labs
+}
+export const getPatientLabDetails = async (patients: any[], labID: number) => {
+  let details: any = []
+  await getLabsById(labID).then((value) => {
+    details.push(value)
+  })
+  patients.map(async (value) => {
+    await getPatientDetails(value).then((patient) => {
+      let tempData = {}
+      console.log(patient)
+      tempData = { ...patient }
+      details.push(tempData)
+    })
+  })
+  return details
+}
 
+export const getSlotByPatientID = async (patientID: number) => {
+  let details: any = []
+  await API.get(`/slotsBooked/${patientID}`).then((response) => {
+    details = response.data.slots
+  })
+  return details
+}
 export const addSlotTime = async (
   slotSelected: DateTimeType,
   userId: number

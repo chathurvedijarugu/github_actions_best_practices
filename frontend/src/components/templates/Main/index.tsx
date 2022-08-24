@@ -40,7 +40,7 @@ const MainTemplate = ({
       </Grid>
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
-          <Grid item width={'fit-content'} xs={3}>
+          <Grid item width={'fit-content'}>
             <CustomButton onClick={backClick} color="primary">
               <ArrowBack />
               <Typography marginX={1} variant="body">
@@ -48,23 +48,15 @@ const MainTemplate = ({
               </Typography>
             </CustomButton>
           </Grid>
-          <Grid
-            item
-            container
-            justifyContent="center"
-            sx={{ alignItems: 'center' }}
-            height="100%"
-          >
-            <Grid item width="673px">
-              <Box>{stepperComponent}</Box>
-            </Grid>
+          <Grid item xs container>
+            {stepperComponent}
           </Grid>
         </Grid>
         <Grid item xs>
           <Grid container justifyContent="center" width="100%" height="100%">
             <Grid
               item
-              marginX={'25%'}
+              // marginX={'25%'}
               marginTop={'4rem'}
               width="fit-content"
               height="fit-content"
