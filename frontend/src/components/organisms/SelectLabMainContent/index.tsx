@@ -5,6 +5,8 @@ import LabDetailsCard from '../../molecules/labDetailsCard'
 import { SELECT_LAB, SORT } from '../../utils/Constant'
 import theme from '../../../theme'
 import SortImg from '../../../assets/icons/Sort.svg'
+import Button from '../../atoms/Button'
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
 export type Props = {
   id: number
   labIcon: string
@@ -37,6 +39,9 @@ const SelectLabMainContent: React.FC<TestProps> = (props) => {
       flexDirection: 'row',
       alignItems: 'center',
     },
+    addButton: {
+      float: 'right',
+    },
   })
 
   const classes = useStyles()
@@ -48,6 +53,11 @@ const SelectLabMainContent: React.FC<TestProps> = (props) => {
   return (
     <>
       <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <Button className={classes.addButton} startIcon={<AddOutlinedIcon />}>
+            <Typography variant="body">Add Test</Typography>
+          </Button>
+        </Grid>
         <Grid item container>
           <Grid item xs={11}>
             <Typography variant="body" className={classes.heading}>

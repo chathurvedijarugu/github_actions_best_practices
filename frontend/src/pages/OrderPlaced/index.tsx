@@ -40,7 +40,7 @@ const OrderPlacedPage = () => {
     }
 
     const onClickTrack = () => {
-        navigate("/track-order");
+        navigate("/trackOrderPage");
     }
 
     return(

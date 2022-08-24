@@ -15,7 +15,7 @@ const WhyChooseUs = () => {
           <Typography color={theme.palette.gammaWhite.main} variant="h1">Why Choose Us</Typography>
         </Grid>
         <Grid item>
-          <Grid container direction="row" columnGap="1.5rem">
+          <Grid container direction="row" columnGap="2.5rem">
             {labList1.map((item: any, index: any) => {
               return (
                 <Grid item>
@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
           </Grid>
         </Grid>
         <Grid item>
-          <Grid container direction="row" columnGap="1.5rem">
+          <Grid container direction="row" columnGap="2.5rem">
             {labList2.map((item: any, index: any) => {
               return (
                 <Grid item>

@@ -13,6 +13,7 @@ import OrderPlaced from './pages/OrderPlaced'
 import CheckoutPage from './pages/Checkout'
 import LoginPage from './pages/LoginPage'
 import { UserContext } from './components/utils/Constant'
+import TrackOrderPage from './pages/TrackOrderPage'
 const App = () => {
   let [userID,setUserID]=useState<string>('')
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/reviewOrderPage" element={<FinalOrder />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/orderPlacedPage" element={<OrderPlaced  />} />
+        <Route path="/trackOrderPage" element={<TrackOrderPage  />} />
       </Routes>
     </BrowserRouter>
     </UserContext.Provider>

@@ -1,4 +1,4 @@
-import { Box, Grid, Input, TextField, Typography } from '@mui/material'
+import { Box, Grid, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import theme from '../../../theme'
 import { addressDetailsType } from '../../../utils/constant'
@@ -53,7 +53,8 @@ const stylings = {
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: '400',
-  },
+    disableUnderline: true
+    },
   heading3: {
     fontWeight: theme.typography.caption2.fontWeight,
     color: theme.palette.gammaLow.main,
@@ -65,6 +66,7 @@ const stylings = {
   },
   margin: {
     marginTop: '0px',
+    borderBottom:"1px solid #E9E8ED"
   },
 }
 type addAddressProps = {
@@ -115,7 +117,7 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField }}
+                  InputProps={{ style: stylings.inputTextField,disableUnderline: true}}
                   InputLabelProps={{ style: stylings.inputTextField }}
                 />
               </Box>
@@ -131,7 +133,7 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField }}
+                  InputProps={{ style: stylings.inputTextField ,disableUnderline: true}}
                   InputLabelProps={{ style: stylings.inputTextField }}
                 />
               </Box>
@@ -148,7 +150,7 @@ const AddAddress = (props: addAddressProps) => {
                   fullWidth
                   type="number"
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField }}
+                  InputProps={{ style: stylings.inputTextField,disableUnderline: true }}
                   InputLabelProps={{ style: stylings.inputTextField }}
                   inputProps={{ maxLength: 8 }}
                 />
@@ -165,7 +167,7 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField }}
+                  InputProps={{ style: stylings.inputTextField,disableUnderline: true }}
                   InputLabelProps={{ style: stylings.inputTextField }}
                 />
               </Box>
