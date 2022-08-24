@@ -91,7 +91,7 @@ const ReportsMainContent: React.FC = () => {
           <Grid item container direction="column" rowGap={8}>
             {testDetails.upcomingItems.map((test: TestReportProps) => {
               return (
-                <Grid item>
+                <Grid item width="60%" bgcolor="red">
                   <TestReport
                     labName={test.labName}
                     testName={test.testName}
@@ -117,7 +117,7 @@ const ReportsMainContent: React.FC = () => {
           <Grid item container direction="column" rowGap={8}>
             {testDetails.recentItems.map((test: TestReportProps) => {
               return (
-                <Grid item>
+                <Grid item width="60%">
                   <TestReport
                     labName={test.labName}
                     testName={test.testName}

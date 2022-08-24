@@ -15,7 +15,7 @@ export const useLoginPage = () => {
     console.log(userID)
   }, [user?.sub])
   useEffect(() => {
-    if (userID != undefined) {
+    if (userID != undefined && userID.length>0) {
       navigate('/')
     }
   }, [userID])

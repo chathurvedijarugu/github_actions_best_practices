@@ -40,6 +40,7 @@ const TestReport = ({
       padding={2}
       border={`1px solid ${theme.palette.grey['50']}`}
       container
+      boxShadow="0px 0px 12px 0px rgba(233, 232, 237, 0.53)"
       width="100%"
     >
       <Grid item margin={3}>
