@@ -1,6 +1,5 @@
 import { DateTimeType } from '../components/organisms/SelectAppointment'
-import { patientDetailsType } from '../utils/constant'
-import { addressDetailsType } from '../utils/constant'
+import { patientDetailsType , addressDetailsType} from '../utils/constant'
 import API from './API'
 export const updatePatientDetails = async (
   selected: number[],
@@ -8,7 +7,7 @@ export const updatePatientDetails = async (
 ) => {
   const response = await API.get(`/patients/${userId}`)
 
-  for (var i = 0; i < selected.length; i++) {
+  for (let i = 0; i < selected.length; i++) {
     response.data.patientDetails[i].selected = true
   }
   await API.put(`/patients/${userId}`, response.data)

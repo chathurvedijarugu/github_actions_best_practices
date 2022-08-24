@@ -65,12 +65,12 @@ const SelectAndAddPatient = ({
   const [selected, setSelected] = useState<any>([])
   const handleCheckBoxClick = (key: any) => {
     if (selected.includes(patientDetails[key])) {
-      var newArr = [...selected]
+      let newArr = [...selected]
 
       newArr.splice(key, 1)
       setSelected(newArr)
     } else {
-      var newArr = [...selected]
+      let newArr = [...selected]
 
       newArr.push(patientDetails[key])
       setSelected(newArr)

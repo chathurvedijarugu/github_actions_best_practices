@@ -11,7 +11,7 @@ const stylings = {
     paddingLeft: '3.75rem',
     paddingRight: '3.75rem',
     paddingTop: '2.5rem',
-    paddingBottom: '7rem',
+    paddingBottom: '17rem',
   },
   closeIcon: {
     display: 'flex',
@@ -44,7 +44,7 @@ const stylings = {
   },
   optionsContainer: {
     rowGap: '2rem',
-    paddingTop: '2rem',
+    paddingTop: '3rem',
   },
   text1: {
     fontWeight: theme.typography.subtitle1.fontWeight,

@@ -1,6 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React from 'react'
-import homeImg from '../../../assets/userprofileIcons/home.svg'
 import rightArrow from '../../../assets/userprofileIcons/Shape.svg'
 import theme from '../../../theme'
 export type UserProfileCardProps = {
