@@ -4,25 +4,11 @@
       "id": 10,
       "patientDetails": [
         {
-          "relation": "Myself",
-          "name": "Rakesh Reddy",
-          "age": 20,
-          "gender": "Male",
-          "selected": true
-        },
-        {
-          "relation": "Myself",
+          "relation": "Self",
           "name": "Patrick Smith",
           "age": 0,
           "gender": "Male",
           "selected": true
-        },
-        {
-          "relation": "Father",
-          "name": "Vittal Reddy",
-          "age": 56,
-          "gender": "Male",
-          "selected": false
         }
       ]
     }
@@ -37,13 +23,6 @@
           "city": "Calfornia",
           "zipcode": "10032",
           "addressType": "HOME"
-        },
-        {
-          "houseDetails": "2235 NanalNagar",
-          "areaDetails": "Near Mehdipatnam",
-          "city": "Hyderabad",
-          "zipcode": "500008",
-          "addressType": "OTHERS"
         }
       ]
     }
@@ -57,108 +36,18 @@
           "date": 1,
           "day": "Monday",
           "time": "06.00am - 07.00am"
-        },
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "id": 10,
+      "upcomingReports": [
         {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "March",
-          "date": 5,
-          "day": "Monday",
-          "time": "09.00am - 10.00am"
-        },
-        {
-          "month": "January",
-          "date": 6,
-          "day": "Saturday",
-          "time": "09.00am - 10.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "February",
-          "date": 4,
-          "day": "Sunday",
-          "time": "07.00am - 08.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "March",
-          "date": 5,
-          "day": "Monday",
-          "time": "09.00am - 10.00am"
-        },
-        {
-          "month": "March",
-          "date": 5,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 5,
-          "day": "Friday",
-          "time": "07.00am - 08.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        },
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
+          "labName": "Los Altos Center Lab",
+          "testName": "COVID RT-PCR Test",
+          "isCompleted": false
         }
       ]
     }

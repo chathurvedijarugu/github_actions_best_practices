@@ -84,7 +84,7 @@ const stylings = {
   heading3: {
     fontWeight: theme.typography.caption2.fontWeight,
     color: theme.palette.gammaLow.main,
-  }
+  },
 }
 type AddPatientDetailsProps = {
   onNextClick?: (details: patientDetailsType, userId: number) => void
@@ -95,7 +95,7 @@ const AddPatient = (props: AddPatientDetailsProps) => {
   const [gender, setGender] = useState<any>('')
   const [checked, setChecked] = useState<any>(false)
   const [tagsValue, setTagsValue] = useState<any>(tagLabels)
-  const [person, setPerson] = useState<any>('MySelf')
+  const [person, setPerson] = useState<any>('Self')
   const onNameChange = (event: any) => {
     setName(event.target.value)
     console.log(event.target.value)
@@ -127,7 +127,11 @@ const AddPatient = (props: AddPatientDetailsProps) => {
       }
     }
     setTagsValue(newArr)
-    setPerson(newArr[key].label)
+    if (newArr[key].label === 'Myself') {
+      setPerson('Self')
+    } else {
+      setPerson(newArr[key].label)
+    }
   }
   let userId = 10
   return (
