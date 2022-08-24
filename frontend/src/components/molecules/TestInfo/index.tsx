@@ -143,7 +143,9 @@ const TestInfo: React.FC = (props) => {
             <img src={Dollar} alt="dollar" />
             <Typography variant="overline">{STARTING_PRICE}</Typography>
           </Grid>
+          <Grid item>
           <TimelineDot />
+          </Grid>
           <Grid item className={classes.center}>
             <img src={Clock} alt="dollar" style={{ paddingRight: '5px' }} />
             <Typography variant="overline">{REPORTS_TIME}</Typography>

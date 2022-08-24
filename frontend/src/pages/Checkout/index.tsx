@@ -1,17 +1,35 @@
-import { Box, Grid, Paper, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Divider, Grid, Paper, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PaymentDetails from '../../components/molecules/paymentDetails'
 import ReviewOrder from '../../components/molecules/ReviewOrder'
 import MainTemplate from '../../components/templates/Main'
-import { paymentOptions } from '../../components/utils/Constant'
+import { CARD_HOLDER_NAME, CARD_NUMER, EXPIRY_DATE, paymentOptions } from '../../components/utils/Constant'
+import { getSelectedPatientDetails } from '../../services/helperFunctions'
 import { useCheckout } from './hook'
 const CheckoutPage = () => {
-  const { details, slots } = useCheckout()
-  console.log(details,slots)
-  console.log(details.length)
-  console.log(details["1"])
-  const patientDetails = (details.length>0)?details["1"].patientDetails:[]
-  // const patientDetails: any[]=[];
+  const navigate = useNavigate()
+  const [selectedAddress, setSelectedAddress] = useState('')
+  const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
+  const [patientDetails, setPatientDetails] = useState<any>([])
+  useEffect(() => {
+    let address = JSON.parse(localStorage.getItem('selectedAddress') as string)
+    const fullAddress = `${address.houseDetails} ${address.areaDetails} ${address.city} ${address.zipcode}`
+    setSelectedAddress(fullAddress)
+    let slotTime = JSON.parse(localStorage.getItem('slotTime') as string)
+    const fullDate = `${slotTime.day.slice(0, 3)}, ${slotTime.month.slice(
+      0,
+      3
+    )} ${slotTime.date}, 2022`
+    setDate(fullDate)
+    setTime(slotTime.time)
+    let selectedPatients = JSON.parse(
+      localStorage.getItem('selectedPatients') as string
+    )
+    setPatientDetails(getSelectedPatientDetails(selectedPatients))
+  }, [])
+
   return (
     <MainTemplate
       mainComponent={
@@ -24,45 +42,21 @@ const CheckoutPage = () => {
             boxShadow={'0px 0px 26px 0px rgba(233, 232, 237, 0.5)'}
           >
             <ReviewOrder
-              patients={[
-                patientDetails.map((value: { patientName: any; age: any; gender: any[]; relation: any }) => {
-                  return {
-                    patientName: `${value.patientName}`,
-                    age: `${value.age}`,
-                    gender: `${value.gender[0]}`,
-                    relation: `${value.relation}`,
-                    testName: 'COVID RT-PCR Test',
-                    testCost: 2000,
-                  }
-                }),
-                // {
-                //   patientName: 'Patrick Smith',
-                //   testName: 'COVID RT-PCR Test',
-                //   age: 30,
-                //   gender: 'M',
-                //   relation: 'Self',
-                //   testCost: 2000,
-                // },
-                // {
-                //   patientName: 'Patrick Smith',
-                //   testName: 'COVID RT-PCR Test',
-                //   age: 30,
-                //   gender: 'M',
-                //   relation: 'Self',
-                //   testCost: 2000,
-                // },
-              ]}
-              address="2235 California Street Mountain View California APT#021 - 11023"
-              date="Tue, Feb 23, 2022"
-              time="07.00 - 08.00 AM"
+              patients={patientDetails}
+              address={selectedAddress}
+              date={date}
+              time={time}
               discount={200}
             />
           </Grid>
+          <Grid item>
+            <Divider orientation='vertical' />
+          </Grid>
           <Grid item xs={4}>
             <PaymentDetails
-              cardNumber={'1244 1234 1345 3255'}
-              cardHolder={'Yessie'}
-              expiryDate={'02/25'}
+              cardNumber={CARD_NUMER}
+              cardHolder={CARD_HOLDER_NAME}
+              expiryDate={EXPIRY_DATE}
               paymentOptions={paymentOptions}
             />
           </Grid>
@@ -71,7 +65,7 @@ const CheckoutPage = () => {
       buttonLabel="Pay Now"
       nextClick={() => {}}
       stepperComponent={
-        <Box justifySelf={'left'}>
+        <Box justifySelf={'left'} marginX={8}>
           <Typography>Checkout</Typography>
         </Box>
       }

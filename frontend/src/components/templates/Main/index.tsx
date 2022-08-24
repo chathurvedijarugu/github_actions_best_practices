@@ -42,19 +42,16 @@ const MainTemplate = ({
       </Grid>
       <Grid item xs marginX={9}>
         <Grid container width="100%" alignItems="center">
-          <Grid item width={'fit-content'} xs={3}>
-            <CustomButton
-              onClick={backClick}
-              color="primary"
-            >
+          <Grid item width={'fit-content'}>
+            <CustomButton onClick={backClick} color="primary">
               <ArrowBack />
               <Typography marginX={1} variant="body">
                 Back
               </Typography>
             </CustomButton>
           </Grid>
-          <Grid item xs container justifyContent="center">
-            <Box width="673px">{stepperComponent}</Box>
+          <Grid item xs container>
+            {stepperComponent}
           </Grid>
         </Grid>
         <Grid item xs>

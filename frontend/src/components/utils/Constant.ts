@@ -321,7 +321,9 @@ export const testimonials = [
       'Very friendly and professional. Loved the follow-up and progress calls',
   },
 ]
-
+export const CARD_NUMER='1244 1234 1345 3255'
+export const CARD_HOLDER_NAME='Yessie'
+export const EXPIRY_DATE='02/25'
 export const testList1 = [
   {
     logo: bodyTest,

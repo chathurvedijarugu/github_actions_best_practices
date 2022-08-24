@@ -7,6 +7,7 @@ import CheckoutPage from './pages/Checkout'
 import AddAddressPage from './pages/AddAddressPage'
 import {getPatientLabDetails } from './services/services'
 import { useCheckout } from './pages/Checkout/hook'
+import CovidRTPCR from './pages/CovidRTPCR'
 const App = () => {
   return (
     <BrowserRouter>
