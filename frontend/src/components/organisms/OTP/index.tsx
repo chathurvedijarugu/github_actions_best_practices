@@ -19,6 +19,8 @@ const OTP = ({ buttonClick }: OTPProps) => {
       p={5}
       bgcolor="white"
       spacing={5}
+      paddingLeft={0}
+      width="20vw"
       minHeight="80%"
     >
       <Grid item xs={12} display="flex" justifyContent="center">

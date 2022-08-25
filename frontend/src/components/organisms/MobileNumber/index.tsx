@@ -21,6 +21,8 @@ const MobileNumber = ({ buttonClick }: MobileNumberProps) => {
     <Grid
       container
       bgcolor="white"
+      paddingLeft={0}
+      width="20vw"
       p={5}
       spacing={5}
     >
