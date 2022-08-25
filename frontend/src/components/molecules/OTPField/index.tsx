@@ -9,7 +9,14 @@ const OTPStyles: Object = {
   width: '40px',
   height: '40px',
   backgroundColor: 'inherit',
-  color: theme.palette.gammaLow.main,
+  color: theme.palette.gammaHigh.main,
+  fontWeight: 400,
+  fontSize: '14px',
+  lineHeight: '18px',
+}
+const Heading = {
+  fontSize: '12px',
+  lineHeight: '16px',
 }
 const FocusStyles: Object = {
   borderBottom: `1px solid ${theme.palette.grey[300]}`,
@@ -28,8 +35,12 @@ const OTPField: React.FC = () => {
     setOTP(otp)
   }
   return (
-    <Box sx={{ color: 'red' }}>
-      <Typography color={theme.palette.gammaLow.main} variant="caption1">
+    <Box>
+      <Typography
+        color={theme.palette.gammaLow.main}
+        variant="body"
+        style={Heading}
+      >
         {OTP}
       </Typography>
       <OtpInput
