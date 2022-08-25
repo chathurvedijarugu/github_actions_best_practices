@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend/src
+        working-directory: frontend/mock_server
     steps:
       - name: checkout the repo
         uses: actions/checkout@v2
