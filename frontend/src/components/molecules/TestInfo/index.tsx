@@ -7,7 +7,6 @@ import Test from '../../../assets/icons/TestTube.svg'
 import Doctor from '../../../assets/icons/Doctor.svg'
 import Reports from '../../../assets/icons/Reports.svg'
 import Dollar from '../../../assets/icons/Dollar.png'
-import TimelineDot from '@mui/lab/TimelineDot'
 import Clock from '../../../assets/icons/Clock.svg'
 import {
   COVID_RTPCR,
@@ -145,9 +144,15 @@ const TestInfo: React.FC = (props) => {
             <img src={Dollar} alt="dollar" />
             <Typography variant="overline">{STARTING_PRICE}</Typography>
           </Grid>
-          <Grid item>
-            <TimelineDot />
-          </Grid>
+          <Grid
+            item
+            sx={{
+              borderRadius: '50px',
+              backgroundColor: theme.palette.grey[500],
+              width: '6px',
+              height: '6px',
+            }}
+          ></Grid>
           <Grid item className={classes.center}>
             <img src={Clock} alt="dollar" style={{ paddingRight: '5px' }} />
             <Typography variant="overline">{REPORTS_TIME}</Typography>
