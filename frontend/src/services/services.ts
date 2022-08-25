@@ -2,10 +2,7 @@ import { DateTimeType } from '../components/organisms/SelectAppointment'
 import { webAuth } from '../components/utils/webAuth'
 import { patientDetailsType, addressDetailsType } from '../utils/constant'
 import API from './API'
-export const updatePatientDetails = async (
-  selected: number[],
-  userId: any
-) => {
+export const updatePatientDetails = async (selected: number[], userId: any) => {
   const response = await API.get(`/patients/${userId}`)
 
   for (let i = 0; i < selected.length; i++) {
@@ -32,8 +29,18 @@ export const addPatientDetails = async (
 }
 
 export const getPatientDetails = async (userId: any) => {
-  const response = await API.get(`/patients/${userId}`)
-  return response.data
+  try {
+    const response = await API.get(`/patients/${userId}`)
+    return response.data
+  } catch {
+    const response = await API.post(`/patients/`, {
+      id: userId,
+      patientDetails: [],
+    })
+    console.log('in catch block')
+    console.log(response.data)
+    return response.data
+  }
 }
 
 export const addAddressDetails = async (
@@ -46,6 +53,7 @@ export const addAddressDetails = async (
     details.city !== '' &&
     details.zipcode !== ''
   ) {
+    try{
     const response = await API.get(`/addresses/${userId}`)
     await response.data.addressDetails.push(details)
     await API.put(`/addresses/${userId}`, response.data)
@@ -54,6 +62,13 @@ export const addAddressDetails = async (
       })
       .catch((err) => console.log(err))
   }
+  catch{
+    await API.post('/addresses',{
+      "id":userId,
+      "addressDetails":[details]
+    }).then((value)=>{console.log(value)}).catch((err)=>{console.log(err)})
+  }
+}
 }
 export const getLabs = async () => {
   let tests: any = []
@@ -100,16 +115,18 @@ export const getSlotByPatientID = async (patientID: number) => {
   })
   return details
 }
-export const addSlotTime = async (
-  slotSelected: DateTimeType,
-  userId: any
-) => {
+export const addSlotTime = async (slotSelected: DateTimeType, userId: any) => {
   await API.get(`/slotsBooked/${userId}`)
     .then((response) => {
       response.data.slots.push(slotSelected)
       API.put(`/slotsBooked/${userId}`, response.data)
     })
-    .catch((err) => console.log(err))
+    .catch(async (err) => {
+      await API.post(`/slotsBooked/`, {
+        id: userId,
+        slots: [slotSelected],
+      })
+    })
 }
 export const getAddressDetails = async (userId: any) => {
   let addressData: any[] = []
@@ -117,7 +134,14 @@ export const getAddressDetails = async (userId: any) => {
     .then((res) => {
       addressData = res.data.addressDetails
     })
-    .catch((err) => console.log(err))
+    .catch(async(err) => {
+      await API.post('/addresses',{
+        "id":userId,
+        "addressDetails":[]
+      }).then((value)=>{
+        addressData=value.data.addressDetails
+      })
+    })
   return addressData
 }
 export const getReports = async (userId: any) => {
@@ -140,9 +164,12 @@ export const addreports = async (userId: any) => {
   await API.get(`/reports/${userId}`)
     .then((res) => {
       res.data.upcomingReports.push(report)
-      API.put(`/reports/${userId}`,res.data)
+      API.put(`/reports/${userId}`, res.data)
     })
-    .catch((err) => {
-      console.log(err)
+    .catch(async(err) => {
+     await API.post('/reports',{
+      "id":userId,
+      "upcomingReports":[report]
+     })
     })
 }
