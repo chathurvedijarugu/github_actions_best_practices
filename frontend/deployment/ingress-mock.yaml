@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bc51-ingress
+  labels:
+    name:  bc51-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+   ingressClassName: nginx
+   rules:
+   - host: mock.bc58.ga
+     http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: bc58-json
+            port:
+              number: 3003
