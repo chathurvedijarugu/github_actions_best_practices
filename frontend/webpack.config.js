@@ -9,6 +9,12 @@ module.exports = {
   output: {
     path: __dirname + '/dist/',
   },
+   target: "web",
+   devServer: {
+    static: './dist',
+    open: true,
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {
