@@ -57,10 +57,12 @@ const Login = ({ buttonClick }: LoginPageProps) => {
   return (
     <Grid
       container
+      width="20vw"
       direction="column"
       spacing={5}
       bgcolor="white"
       p={5}
+      paddingLeft="0"
       height="40%"
       justifyContent="center"
     >
