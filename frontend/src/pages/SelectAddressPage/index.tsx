@@ -14,7 +14,7 @@ import { UserContext } from '../../components/utils/Constant'
 const SelectAddressPage = () => {
   const navigate = useNavigate()
   const handleClickonLogo = () => {
-    navigate('/homePage')
+    navigate('/')
   }
   const handleClickonBackButton = () => {
     navigate('/AddAddressPage')

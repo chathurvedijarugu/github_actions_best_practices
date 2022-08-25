@@ -4,6 +4,7 @@ import React from 'react'
 import CustomButton from '../../atoms/Button'
 import logo from '../../../assets/icons/logo.svg'
 import Logo from '../../molecules/logo'
+import { useNavigate } from 'react-router-dom'
 const Button = styled(CustomButton)({
   borderRadius: '0.5rem',
   height: '2.625rem',
@@ -27,6 +28,11 @@ const MainTemplate = ({
   footerTextComponent,
   buttonLabel,
 }: MainTemplateProps) => {
+  const navigate = useNavigate()
+
+  const handleClickonLogo=()=>{
+   navigate("/")
+  }
   return (
     <Grid
       container
@@ -35,7 +41,7 @@ const MainTemplate = ({
       justifyContent={'center'}
       columnSpacing={1}
     >
-      <Grid onClick={onLogoClick} item xs={12} marginX={10} marginY={4}>
+      <Grid onClick={handleClickonLogo} item xs={12} marginX={10} marginY={4}>
         <Logo img={logo} text="Zemoso Diagnostics" />
       </Grid>
       <Grid item xs marginX={9}>
