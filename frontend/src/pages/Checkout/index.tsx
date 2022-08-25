@@ -1,11 +1,12 @@
 import { Box, Divider, Grid, Paper, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PaymentDetails from '../../components/molecules/paymentDetails'
 import ReviewOrder from '../../components/molecules/ReviewOrder'
 import MainTemplate from '../../components/templates/Main'
-import { CARD_HOLDER_NAME, CARD_NUMER, EXPIRY_DATE, paymentOptions } from '../../components/utils/Constant'
+import { CARD_HOLDER_NAME, CARD_NUMER, EXPIRY_DATE, paymentOptions, UserContext } from '../../components/utils/Constant'
 import { getSelectedPatientDetails } from '../../services/helperFunctions'
+import { addreports } from '../../services/services'
 import { useCheckout } from './hook'
 const CheckoutPage = () => {
   const navigate = useNavigate()
@@ -13,6 +14,7 @@ const CheckoutPage = () => {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [patientDetails, setPatientDetails] = useState<any>([])
+  const [userId] = useContext(UserContext);
   useEffect(() => {
     let address = JSON.parse(localStorage.getItem('selectedAddress') as string)
     const fullAddress = `${address.houseDetails} ${address.areaDetails} ${address.city} ${address.zipcode}`
@@ -63,7 +65,8 @@ const CheckoutPage = () => {
         </Grid>
       }
       buttonLabel="Pay Now"
-      nextClick={() => {
+      nextClick={async() => {
+        await addreports(userId)
         navigate('/orderPlacedPage')
       }}
       stepperComponent={

@@ -4,7 +4,7 @@ import theme from '../../../theme'
 import { addressDetailsType } from '../../../utils/constant'
 import Button from '../../atoms/Button'
 
-export const LabFooter={
+export const LabFooter = {
   footer: {
     position: 'fixed',
     boxShadow: '0px -4px 6px 0px #0000000F',
@@ -14,7 +14,7 @@ export const LabFooter={
     height: '10%',
     bottom: 0,
     width: '100%',
-    backgroundColor:"white"
+    backgroundColor: 'white',
   },
   cancelButton: {
     color: '#FC5C5C',
@@ -53,8 +53,8 @@ const stylings = {
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: '400',
-    disableUnderline: true
-    },
+    disableUnderline: true,
+  },
   heading3: {
     fontWeight: theme.typography.caption2.fontWeight,
     color: theme.palette.gammaLow.main,
@@ -66,21 +66,17 @@ const stylings = {
   },
   margin: {
     marginTop: '0px',
-    borderBottom:"1px solid #E9E8ED"
+    borderBottom: '1px solid #E9E8ED',
   },
 }
 type addAddressProps = {
-  onSaveAddressClick?: (
-    addressDetails: addressDetailsType,
-    userId: number
-  ) => void
+  onSaveAddressClick?: (addressDetails: addressDetailsType) => void
 }
 const AddAddress = (props: addAddressProps) => {
   const [houseDetails, setHouseDetails] = useState('')
   const [areaDetails, setareaDetails] = useState('')
   const [zipcode, setZipCode] = useState('')
   const [city, setCity] = useState('')
-  let userId = 1
   const onHouseDetailsChange = (event: any) => {
     setHouseDetails(event.target.value)
   }
@@ -117,7 +113,10 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField,disableUnderline: true}}
+                  InputProps={{
+                    style: stylings.inputTextField,
+                    disableUnderline: true,
+                  }}
                   InputLabelProps={{ style: stylings.inputTextField }}
                 />
               </Box>
@@ -133,7 +132,10 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField ,disableUnderline: true}}
+                  InputProps={{
+                    style: stylings.inputTextField,
+                    disableUnderline: true,
+                  }}
                   InputLabelProps={{ style: stylings.inputTextField }}
                 />
               </Box>
@@ -150,7 +152,10 @@ const AddAddress = (props: addAddressProps) => {
                   fullWidth
                   type="number"
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField,disableUnderline: true }}
+                  InputProps={{
+                    style: stylings.inputTextField,
+                    disableUnderline: true,
+                  }}
                   InputLabelProps={{ style: stylings.inputTextField }}
                   inputProps={{ maxLength: 8 }}
                 />
@@ -167,7 +172,10 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
-                  InputProps={{ style: stylings.inputTextField,disableUnderline: true }}
+                  InputProps={{
+                    style: stylings.inputTextField,
+                    disableUnderline: true,
+                  }}
                   InputLabelProps={{ style: stylings.inputTextField }}
                 />
               </Box>
@@ -192,9 +200,9 @@ const AddAddress = (props: addAddressProps) => {
                   areaDetails: areaDetails,
                   zipcode: zipcode,
                   city: city,
-                  addressType:"OTHERS"
+                  addressType: 'OTHERS',
                 }
-                return props.onSaveAddressClick?.(addressDetails, userId)
+                return props.onSaveAddressClick?.(addressDetails)
               }}
               data-testid="saveAddressButton"
               variant="contained"

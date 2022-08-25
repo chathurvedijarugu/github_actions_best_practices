@@ -26,10 +26,10 @@ type TestReportProps = {
   onDownload?: () => void
 }
 const ReportsMainContent: React.FC = () => {
-  const { userId } = useContext(UserContext);
+  const [userId] = useContext(UserContext);
   const [upcomingReports, setUpcomingReports] = useState([])
   useEffect(() => {
-    getReports(10).then((res) => {
+    getReports(userId).then((res) => {
       setUpcomingReports(res)
       console.log(userId)
     })

@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Button from '../../components/atoms/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ProgressBar from '../../components/molecules/progressBar'
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import AddAddress from '../../components/organisms/AddAdressDetails'
 import { addAddressDetails } from '../../services/services'
 import { addressDetailsType, ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
+import { UserContext } from '../../components/utils/Constant'
 
 
 const AddAddressPage = () => {
@@ -17,10 +18,11 @@ const AddAddressPage = () => {
   const handleClickonLogo = () => {
     navigate('/homePage')
   }
+  const [userId] = useContext(UserContext);
   const handleClickonBackButton = () => {
     navigate('/appointementPage')
   }
-  const handleSaveAddress=async(details:addressDetailsType,userId:number)=>{
+  const handleSaveAddress=async(details:addressDetailsType)=>{
 await addAddressDetails(details,userId)
     navigate('/selectAddressPage')
 
@@ -56,8 +58,8 @@ await addAddressDetails(details,userId)
       </Grid>
       
       <Box display="flex" paddingTop="2rem" justifyContent="center">
-        <AddAddress onSaveAddressClick={(addressDetails:addressDetailsType,userId:number)=>{
-            handleSaveAddress(addressDetails,userId)
+        <AddAddress onSaveAddressClick={(addressDetails:addressDetailsType)=>{
+            handleSaveAddress(addressDetails)
         }}/>
       </Box>
     </Box>

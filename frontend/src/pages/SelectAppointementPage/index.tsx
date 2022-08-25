@@ -1,19 +1,17 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import Button from '../../components/atoms/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ProgressBar from '../../components/molecules/progressBar'
 import Logo from '../../components/molecules/logo'
 import logo from '../../assets/icons/logo.svg'
-import theme from '../../theme'
 import { useNavigate } from 'react-router-dom'
-import AddAddress from '../../components/organisms/AddAdressDetails'
-import SelectAppointement, { DateTimeProps, DateTimeType } from '../../components/organisms/SelectAppointment'
-import { addAddressDetails, addSlotTime } from '../../services/services'
+import SelectAppointement, { DateTimeType } from '../../components/organisms/SelectAppointment'
+import { addSlotTime } from '../../services/services'
 import {
-  addressDetailsType,
   ADDRESS_PAGE_BAR_VALUES,
 } from '../../utils/constant'
+import { UserContext } from '../../components/utils/Constant'
 
 const SelectAppointementPage = () => {
   const navigate = useNavigate()
@@ -23,9 +21,10 @@ const SelectAppointementPage = () => {
   const handleClickonBackButton = () => {
     navigate('/selectLabPage')
   }
+  const [userId] = useContext(UserContext);
+
   const handleAddAddressButton = async (
-    slotSelected: DateTimeType,
-    userId: number
+    slotSelected: DateTimeType
   ) => {
     await addSlotTime(slotSelected,userId)
     localStorage.setItem("slotTime",JSON.stringify(slotSelected))
@@ -64,7 +63,7 @@ const SelectAppointementPage = () => {
           date={1}
           day={'Monday'}
           time={'6.00am - 7.00am'}
-          getDateTime={(slotSelected:DateTimeType,userId:number)=>{handleAddAddressButton(slotSelected,userId)}}
+          getDateTime={(slotSelected:DateTimeType)=>{handleAddAddressButton(slotSelected)}}
         />
       </Box>
     </Box>

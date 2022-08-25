@@ -87,7 +87,7 @@ const stylings = {
   },
 }
 type AddPatientDetailsProps = {
-  onNextClick?: (details: patientDetailsType, userId: number) => void
+  onNextClick?: (details: patientDetailsType) => void
 }
 const AddPatient = (props: AddPatientDetailsProps) => {
   const [name, setName] = useState('')
@@ -133,7 +133,6 @@ const AddPatient = (props: AddPatientDetailsProps) => {
       setPerson(newArr[key].label)
     }
   }
-  let userId = 10
   return (
     <>
       <Box sx={stylings.box}>
@@ -240,7 +239,7 @@ const AddPatient = (props: AddPatientDetailsProps) => {
                   gender: gender,
                   selected: false,
                 }
-                return props.onNextClick?.(patientDetails, userId)
+                return props.onNextClick?.(patientDetails)
               }}
               children="Next"
               sx={LabFooter.containedButton}
