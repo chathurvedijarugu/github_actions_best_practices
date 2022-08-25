@@ -16,7 +16,7 @@ import { UserContext } from '../../components/utils/Constant'
 const AddAddressPage = () => {
   const navigate = useNavigate()
   const handleClickonLogo = () => {
-    navigate('/homePage')
+    navigate('/')
   }
   const [userId] = useContext(UserContext);
   const handleClickonBackButton = () => {

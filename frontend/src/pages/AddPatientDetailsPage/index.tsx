@@ -77,7 +77,7 @@ const AddPatientDetailsPage = () => {
     navigate('/selectLabPage')
   }
   const handleClickonLogo = () => {
-    navigate('/homePage')
+    navigate('/')
   }
   const handleClickonBackButton = () => {
     navigate('/covid-test')
