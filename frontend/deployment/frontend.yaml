@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc58-frontend
+  labels:
+    app: bc58-fr
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: bc58-fr
+    
+  template:
+    metadata:
+      name: bc58-fr
+      labels:
+        app: bc58-fr
+    spec:
+      containers:
+        - name: bc58-frontend
+          image: ghcr.io/sreenidhize/bc58frontendserver:123
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+          - name: BASE_URL
+            value: https://mock.bc58.ga/
+          - name: APP_URL
+            value: https://bc58.ga/
+          - name: DOMAIN
+            value: dev-vqrz98bh.us.auth0.com
+          - name: CLIENTID
+            value: zgyqzFsgKoIAnjXJSHpZrcGxOX0U7pbA
+      imagePullSecrets: 
+        - name: mysecret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bc58-fronted
+  labels:
+    app: bc58-fr
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    app: bc58-fr

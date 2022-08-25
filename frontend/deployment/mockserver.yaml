@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc58-json
+  labels:
+    app: bc58-js
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: bc58-js
+    
+  template:
+    metadata:
+      name: bc58-js
+      labels:
+        app: bc58-js
+    spec:
+      containers:
+        - name: bc58-json
+          image: ghcr.io/sreenidhize/bc58jsonserver:123
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3003
+      imagePullSecrets: 
+        - name: mysecret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bc58-json
+  labels:
+    app: bc58-js
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3003
+      protocol: TCP
+  selector:
+    app: bc58-js
+
