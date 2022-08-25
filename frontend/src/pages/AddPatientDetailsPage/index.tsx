@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Button from '../../components/atoms/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ProgressBar from '../../components/molecules/progressBar'
@@ -11,10 +11,11 @@ import SelectAndAddPatient from '../../components/molecules/SelectAndAddPatient'
 import {
   addPatientDetails,
   getPatientDetails,
-  updatePatientDetails,
 } from '../../services/services'
 import { useNavigate } from 'react-router-dom'
 import { patientDetailsType } from '../../utils/constant'
+import { UserContext } from '../../components/utils/Constant'
+import { AnyARecord } from 'dns'
 
 const stylings = {
   footer: {
@@ -65,8 +66,9 @@ const AddPatientDetailsPage = () => {
   const [visible, setVisible] = useState(true)
   const [patientsData, setPatientsData] = useState<any>([])
   const navigate = useNavigate()
+  const [userId] = useContext(UserContext);
   useEffect(() => {
-    getPatientDetails(10).then((res) => {
+    getPatientDetails(userId).then((res) => {
       setPatientsData(res.patientDetails)
     })
   }, [visible])
@@ -113,7 +115,7 @@ const AddPatientDetailsPage = () => {
       <Box display="flex" paddingTop="2rem" justifyContent="center">
         {visible ? (
           <AddPatient
-            onNextClick={async (details: patientDetailsType, userId: number) => {
+            onNextClick={async (details: patientDetailsType) => {
               await addPatientDetails(details, userId)
               setVisible((val) => !val)
             }}
@@ -122,7 +124,7 @@ const AddPatientDetailsPage = () => {
           <SelectAndAddPatient
             patientDetails={patientsData}
             onNewPatientClick={() => setVisible((val) => !val)}
-            onSelectLabClick={(selected: any, userId: number) =>
+            onSelectLabClick={(selected: any) =>
               handleSelectLab(selected, userId)
             }
           />

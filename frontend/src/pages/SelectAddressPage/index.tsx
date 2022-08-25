@@ -1,18 +1,17 @@
 import { Box, Grid, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Button from '../../components/atoms/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ProgressBar from '../../components/molecules/progressBar'
 import Logo from '../../components/molecules/logo'
 import logo from '../../assets/icons/logo.svg'
-import theme from '../../theme'
 import { useNavigate } from 'react-router-dom'
 import SelectAddress from '../../components/organisms/SelectAddress'
 import {  addressDetailsType, ADDRESS_PAGE_BAR_VALUES } from '../../utils/constant'
 import { getAddressDetails } from '../../services/services'
+import { UserContext } from '../../components/utils/Constant'
 
 const SelectAddressPage = () => {
-  let userId=1;
   const navigate = useNavigate()
   const handleClickonLogo = () => {
     navigate('/homePage')
@@ -27,6 +26,7 @@ const SelectAddressPage = () => {
     localStorage.setItem("selectedAddress",JSON.stringify(selectedAddress))
     navigate('/reviewOrderPage')
   }
+  const [userId] = useContext(UserContext);
   const [data,setData]=useState<any>([])
   useEffect(() => {
    getAddressDetails(userId).then((res)=>{

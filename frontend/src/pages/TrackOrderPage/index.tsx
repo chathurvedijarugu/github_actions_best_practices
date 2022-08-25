@@ -71,6 +71,7 @@ const TrackOrderPage = () => {
   }
   const [selectedAddress, setSelectedAddress] = useState('')
   const [patientDetails,setPatientDetails]=useState<any>([])
+  const [total,setTotal]=useState(0)
   useEffect(() => {
     let address = JSON.parse(localStorage.getItem('selectedAddress') as string)
     const fullAddress = `${address.houseDetails} ${address.areaDetails} ${address.city} ${address.zipcode}`
@@ -78,6 +79,7 @@ const TrackOrderPage = () => {
 
     let selectedPatients = JSON.parse(localStorage.getItem('selectedPatients') as string)
     setPatientDetails(getPatientsandTests(selectedPatients))
+    setTotal((getPatientsandTests(selectedPatients).length*2000)-200)
   }, [])
     return(
         <>
@@ -87,7 +89,7 @@ const TrackOrderPage = () => {
             </Grid>
             <Grid item sx={style.innerGrid} xs={12}>
                 <Grid item sx={style.image} xs={5} data-testid="order-info">
-                    <OrderInfo patientDetails={patientDetails} labAddress={selectedAddress} totalAmountPaid={2400}></OrderInfo>
+                    <OrderInfo patientDetails={patientDetails} labAddress={selectedAddress} totalAmountPaid={total}></OrderInfo>
                 </Grid>
                 <Divider sx={style.divider}></Divider>
                 <Grid item sx={style.innerFrame} xs={5} data-testid="tracking-stepper">

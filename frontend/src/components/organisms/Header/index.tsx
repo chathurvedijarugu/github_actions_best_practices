@@ -1,5 +1,5 @@
 import { Dialog, Grid, Typography } from '@mui/material'
-import React, {  useState } from 'react'
+import React, {  useContext, useState } from 'react'
 import { makeStyles } from '@mui/styles'
 import CompanyLogo from '../../../assets/icons/companyLogo.svg'
 import theme from '../../../theme'
@@ -76,6 +76,7 @@ const Header: React.FC = (props) => {
       returnTo: process.env.APP_URL,
       clientID: process.env.CLIENTID,
     })
+    localStorage.clear()
   }
   return (
     <>

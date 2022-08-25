@@ -8,7 +8,7 @@ import { UserContext } from '../../utils/Constant'
 type SelectAndAddPatientProps = {
   patientDetails: PatientDetails[]
   onNewPatientClick?:()=>void
-  onSelectLabClick?:(selected:any,userId:number)=>void
+  onSelectLabClick?:(selected:any)=>void
 }
 const stylings = {
   footer: {
@@ -78,7 +78,6 @@ const SelectAndAddPatient = ({
     }
   }
 
-let userId=10;
   return (
     <>
       <Box sx={stylings.selectPatient}>
@@ -154,7 +153,7 @@ let userId=10;
               <Button
               data-testid="selectLabButton"
                 variant="contained"
-                onClick={()=>onSelectLabClick?.(selected,userId)}
+                onClick={()=>onSelectLabClick?.(selected)}
                 children="Select Lab"
                 sx={LabFooter.containedButton}
               ></Button>

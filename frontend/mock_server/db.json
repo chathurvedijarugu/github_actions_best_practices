@@ -1,27 +1,27 @@
 {
   "patients": [
     {
-      "id": 10,
+      "id": "6306daeb594c21c39684bc46",
       "patientDetails": [
         {
           "relation": "Self",
-          "name": "Patrick Smith",
-          "age": 0,
+          "name": "Patrcik Smith",
+          "age": 15,
           "gender": "Male",
-          "selected": true
+          "selected": false
         }
       ]
     }
   ],
   "addresses": [
     {
-      "id": 1,
+      "id": "6306daeb594c21c39684bc46",
       "addressDetails": [
         {
-          "houseDetails": "2235 California Street",
-          "areaDetails": "Mountain View ",
-          "city": "Calfornia",
-          "zipcode": "10032",
+          "houseDetails": "2232 Mountain View",
+          "areaDetails": "Calfornia",
+          "zipcode": "1000132",
+          "city": "USA",
           "addressType": "HOME"
         }
       ]
@@ -29,26 +29,17 @@
   ],
   "slotsBooked": [
     {
-      "id": 10,
+      "id": "6306daeb594c21c39684bc46",
       "slots": [
-        {
-          "month": "January",
-          "date": 1,
-          "day": "Monday",
-          "time": "06.00am - 07.00am"
-        }
+
       ]
     }
   ],
   "reports": [
     {
-      "id": 10,
+      "id": "6306daeb594c21c39684bc46",
       "upcomingReports": [
-        {
-          "labName": "Los Altos Center Lab",
-          "testName": "COVID RT-PCR Test",
-          "isCompleted": false
-        }
+
       ]
     }
   ],

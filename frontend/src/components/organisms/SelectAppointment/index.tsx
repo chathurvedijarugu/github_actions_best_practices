@@ -112,7 +112,7 @@ export type DateTimeType = {
 
 export type DateTimeProps = {
   setDateTime?: (dateTime: DateTimeType) => void
-  getDateTime?: (slotSelected: DateTimeType, userId: number) => void
+  getDateTime?: (slotSelected: DateTimeType) => void
   month: string
   date: number
   day: string
@@ -172,7 +172,6 @@ const SelectAppointmentForm = ({
   const daysOfMonth = noOfDays[monthNo]
   const daysOfDate = daysOfDateFunc()
   const weekDays = weekDaysFunc()
-  let userId = 10
   const changeMonth = () => {
     setdayAdder(() => {
       let finalVal = 0
@@ -363,7 +362,7 @@ const SelectAppointmentForm = ({
                     day: selectedWeekDay,
                     time: selectedTime,
                   }
-                  getDateTime?.(slotSelected, userId)
+                  getDateTime?.(slotSelected)
                 }}
                 children="Add Address"
                 sx={LabFooter.containedButton}

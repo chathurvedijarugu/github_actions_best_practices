@@ -1,9 +1,10 @@
 import { DateTimeType } from '../components/organisms/SelectAppointment'
+import { webAuth } from '../components/utils/webAuth'
 import { patientDetailsType, addressDetailsType } from '../utils/constant'
 import API from './API'
 export const updatePatientDetails = async (
   selected: number[],
-  userId: number
+  userId: any
 ) => {
   const response = await API.get(`/patients/${userId}`)
 
@@ -14,7 +15,7 @@ export const updatePatientDetails = async (
 }
 export const addPatientDetails = async (
   details: patientDetailsType,
-  userId: number
+  userId: any
 ) => {
   if (
     details.age === null ||
@@ -30,14 +31,14 @@ export const addPatientDetails = async (
   }
 }
 
-export const getPatientDetails = async (userId: number) => {
+export const getPatientDetails = async (userId: any) => {
   const response = await API.get(`/patients/${userId}`)
   return response.data
 }
 
 export const addAddressDetails = async (
   details: addressDetailsType,
-  userId: number
+  userId: any
 ) => {
   if (
     details.areaDetails !== '' &&
@@ -101,7 +102,7 @@ export const getSlotByPatientID = async (patientID: number) => {
 }
 export const addSlotTime = async (
   slotSelected: DateTimeType,
-  userId: number
+  userId: any
 ) => {
   await API.get(`/slotsBooked/${userId}`)
     .then((response) => {
@@ -110,7 +111,7 @@ export const addSlotTime = async (
     })
     .catch((err) => console.log(err))
 }
-export const getAddressDetails = async (userId: number) => {
+export const getAddressDetails = async (userId: any) => {
   let addressData: any[] = []
   await API.get(`/addresses/${userId}`)
     .then((res) => {
@@ -119,7 +120,7 @@ export const getAddressDetails = async (userId: number) => {
     .catch((err) => console.log(err))
   return addressData
 }
-export const getReports = async (userId: number) => {
+export const getReports = async (userId: any) => {
   let reports: any = []
   await API.get(`/reports/${userId}`)
     .then((res) => {
@@ -130,7 +131,7 @@ export const getReports = async (userId: number) => {
     })
   return reports
 }
-export const addreports = async (userId: number) => {
+export const addreports = async (userId: any) => {
   const report = {
     labName: 'Los Altos Center Lab',
     testName: 'COVID RT-PCR Test',
