@@ -86,7 +86,7 @@ const UserProfile = (props: Props) => {
             </Grid>
           </Grid>
         </Box>
-        <Typography variant="body2" color={theme.palette.primary.main}>
+        <Typography variant="body2" fontWeight="600" color={theme.palette.primary.main}>
           Edit
         </Typography>
       </Box>

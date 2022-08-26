@@ -23,7 +23,7 @@ const IconwithText: React.FC<Props> = (props) => {
           <img src={icon} alt="Image"></img>
         </Grid>
         <Grid item alignItems="center" display="flex">
-          <Typography variant="overline" color= {theme.palette.gammaMedium.main}>{text} </Typography>
+          <Typography variant="caption2" color= {theme.palette.gammaMedium.main}>{text} </Typography>
         </Grid>
       </Grid>
     </Box>
