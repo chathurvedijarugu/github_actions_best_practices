@@ -46,19 +46,15 @@ const ApponitmentsMainContent: React.FC = () => {
       height: '100%',
     },
     label: {
-      fontSize: '20px',
-      lineHeight: '24px',
+      fontSize: '1.25rem',
+      lineHeight: '1.5rem',
     },
   }
   return (
-    <Grid container rowGap={2} sx={style.root}>
+    <Grid container rowGap={'2px'} sx={style.root}>
       <Grid item container rowGap={8}>
         <Grid item>
-          <Typography
-            data-testid="heading"
-            variant="h1"
-            color={theme.palette.gammaMedium.main}
-          >
+          <Typography variant="h1" color={theme.palette.gammaMedium.main}>
             {REPORTS_LABEL}
           </Typography>
         </Grid>
@@ -69,7 +65,6 @@ const ApponitmentsMainContent: React.FC = () => {
               variant="subtitle1"
               sx={style.label}
               color={theme.palette.gammaMedium.main}
-              data-testid="upcoming"
             >
               {UPCOMING_TESTS}
             </Typography>
