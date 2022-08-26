@@ -397,3 +397,6 @@ export const APPOINTMENT_CARD = {
   testName: 'Covid RTPCR',
 }
 export const UserContext = React.createContext<any>('')
+
+export const UPCOMING_TESTS = 'Upcoming Tests'
+export const RECENT_TESTS = 'Recent Tests'

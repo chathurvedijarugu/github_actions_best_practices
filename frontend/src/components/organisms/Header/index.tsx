@@ -1,5 +1,5 @@
 import { Dialog, Grid, Typography } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@mui/styles'
 import CompanyLogo from '../../../assets/icons/companyLogo.svg'
 import theme from '../../../theme'
@@ -13,7 +13,6 @@ import {
   MY_APPOINTMENT_LABEL,
   REPORTS_LABEL,
   NAVBAR_ADDRESS,
-  UserContext,
 } from '../../utils/Constant'
 
 import { NavLink } from 'react-router-dom'
