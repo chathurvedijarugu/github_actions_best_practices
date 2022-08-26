@@ -1,16 +1,15 @@
 import { Grid, Typography } from '@mui/material'
-import React, { useContext, useEffect, useState } from 'react'
-import { getReports } from '../../../services/services'
+import React from 'react'
 import theme from '../../../theme'
-import AppointmentCard from '../../molecules/AppointmentCard'
+import AppointmentCard, {
+  AppointmentCardProps,
+} from '../../molecules/AppointmentCard'
 import COVID from '../../../assets/icons/covid.svg'
 import BODY from '../../../assets/icons/body.svg'
-import { AppointmentCardProps } from '../../molecules/AppointmentCard'
 import {
   REPORTS_LABEL,
   UPCOMING_TESTS,
   RECENT_TESTS,
-  UserContext,
 } from '../../utils/Constant'
 export type AppointmentsPageProps = {
   upcomingItems: AppointmentCardProps[]
@@ -18,14 +17,6 @@ export type AppointmentsPageProps = {
 }
 
 const ApponitmentsMainContent: React.FC = () => {
-  const [userId] = useContext(UserContext)
-  const [upcomingAppointments, setUpcomingAppointments] = useState([])
-  useEffect(() => {
-    getReports(userId).then((res) => {
-      setUpcomingAppointments(res)
-    })
-  }, [])
-
   const testDetails: AppointmentsPageProps = {
     upcomingItems: [
       {
