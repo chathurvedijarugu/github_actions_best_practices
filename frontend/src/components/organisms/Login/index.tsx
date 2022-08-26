@@ -19,6 +19,8 @@ import Facebook from '../../../assets/icons/Facebook.svg'
 import { useLogin } from './hook'
 import { useAuth0 } from '@auth0/auth0-react'
 import { EMAIL, FIRST_NAME, LAST_NAME } from '../../utils/Constant'
+import Logo from '../../molecules/logo'
+import logo from '../../../assets/icons/logo.svg'
 export const TextField = styled(CustomTextField)({
   '& input': {
     fontSize: '14px',
@@ -51,7 +53,7 @@ interface LoginPageProps {
 const Login = ({ buttonClick }: LoginPageProps) => {
   let { enable, details, onChangeDetails } = useLogin()
   let { loginWithRedirect, user } = useAuth0()
- 
+
   console.log(user)
 
   return (
@@ -67,7 +69,7 @@ const Login = ({ buttonClick }: LoginPageProps) => {
       justifyContent="center"
     >
       <Grid item xs={12} display="flex" justifyContent="center">
-        <Image imgSrc={'https://svgshare.com/i/k5T.svg'} imgAlt="zemoso_logo" />
+        <Logo img={logo} text="Zemoso Diagnostics" />
       </Grid>
       <Grid item xs={12} justifyContent="center">
         <Typography

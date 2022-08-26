@@ -1,14 +1,13 @@
 import { Box, Button, Checkbox, Divider, Grid, Typography } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import theme from '../../../theme'
 import PatientCard, { PatientDetails } from '../PatientCard'
 import AddIcon from '@mui/icons-material/Add'
-import {LabFooter} from "../../organisms/AddAdressDetails"
-import { UserContext } from '../../utils/Constant'
+import { LabFooter } from '../../organisms/AddAdressDetails'
 type SelectAndAddPatientProps = {
   patientDetails: PatientDetails[]
-  onNewPatientClick?:()=>void
-  onSelectLabClick?:(selected:any)=>void
+  onNewPatientClick?: () => void
+  onSelectLabClick?: (selected: any) => void
 }
 const stylings = {
   footer: {
@@ -149,11 +148,13 @@ const SelectAndAddPatient = ({
           </Grid>
           <Grid item>
             <Box display="flex" flexDirection="row" alignItems="center">
-              <Typography variant="body" paddingRight="1.5rem">{selected.length} Patients Selected</Typography>
+              <Typography variant="body" paddingRight="1.5rem">
+                {selected.length} Patients Selected
+              </Typography>
               <Button
-              data-testid="selectLabButton"
+                data-testid="selectLabButton"
                 variant="contained"
-                onClick={()=>onSelectLabClick?.(selected)}
+                onClick={() => onSelectLabClick?.(selected)}
                 children="Select Lab"
                 sx={LabFooter.containedButton}
               ></Button>

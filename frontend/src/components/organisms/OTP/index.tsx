@@ -1,7 +1,8 @@
 import { Grid, Typography } from '@mui/material'
 import React from 'react'
 import theme from '../../../theme'
-import Image from '../../atoms/ImageAtom'
+import Logo from '../../molecules/logo'
+import logo from '../../../assets/icons/logo.svg'
 import { Button } from '../Login'
 import OTPField from '../../molecules/OTPField'
 import { useOTP } from './hook'
@@ -11,8 +12,8 @@ interface OTPProps {
   buttonClick: () => void
 }
 const OTP = ({ buttonClick }: OTPProps) => {
-  let {enable}=useOTP()
-  let {user}=useAuth0()
+  let { enable } = useOTP()
+  let { user } = useAuth0()
   return (
     <Grid
       container
@@ -24,7 +25,7 @@ const OTP = ({ buttonClick }: OTPProps) => {
       minHeight="80%"
     >
       <Grid item xs={12} display="flex" justifyContent="center">
-        <Image imgSrc={'https://svgshare.com/i/k5T.svg'} imgAlt="zemoso_logo" />
+        <Logo img={logo} text="Zemoso Diagnostics" />
       </Grid>
       <Grid item xs={12} height="100%">
         <Grid container flexDirection="column" justifyContent={'space-between'}>
@@ -34,7 +35,7 @@ const OTP = ({ buttonClick }: OTPProps) => {
               variant="body"
               color={theme.palette.gammaHigh.main}
             >
-             {` Hey ${user?.name??"Guest"}`}
+              {` Hey ${user?.name ?? 'Guest'}`}
             </Typography>
             <Typography
               display="block"
@@ -47,7 +48,7 @@ const OTP = ({ buttonClick }: OTPProps) => {
           <Grid item xs={12} marginTop={12}>
             <OTPField />
           </Grid>
-          <Grid item xs={12} marginY={4} paddingBottom={"30vh"}>
+          <Grid item xs={12} marginY={4} paddingBottom={'30vh'}>
             <Button
               fullWidth
               onClick={enable ? buttonClick : () => {}}
