@@ -229,7 +229,7 @@ let theme = createTheme({
       fontFamily: 'Inter',
       fontSize: '18px',
       lineHeight: '20px',
-      fontWeight: '700',
+      fontWeight: '700', 
       textTransform: 'none',
     },
     overline: {

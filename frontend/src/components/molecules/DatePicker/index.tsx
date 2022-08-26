@@ -3,6 +3,8 @@ import TextField from '@mui/material/TextField'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import datePickerIcon from '../../../assets/icons/datePickerIcon.svg'
+
 const stylings = {
   box: {
     width: '36.438rem',
@@ -26,9 +28,16 @@ const stylings = {
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: '400',
-    // width: '500px',
   },
 }
+
+
+const dateIcon = () => {
+  return (
+    <img src={datePickerIcon} alt="DateIcon"/>
+  )
+}
+
 
 export interface DatePickerProps {
   label: string
@@ -46,6 +55,9 @@ const BasicDatePicker = ({ label, intialValue, onChange }: DatePickerProps) => {
     <div data-testid="date-picker">
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
+        components={{
+          OpenPickerIcon: dateIcon
+        }}
           disableFuture
           label={label}
           value={value}
