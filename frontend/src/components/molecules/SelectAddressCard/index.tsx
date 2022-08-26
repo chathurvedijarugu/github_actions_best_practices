@@ -7,6 +7,7 @@ const stylings = {
     width: '535px',
     height: '128px',
     boxShadow: '0px 0px 26px 0px #E9E8ED80',
+    borderRadius:"8px"
   },
 }
 type SelectAddressCardProps = {

@@ -166,6 +166,7 @@ const AddPatient = (props: AddPatientDetailsProps) => {
               margin="normal"
               variant="standard"
               fullWidth
+              inputProps={{ maxLength: 35 }}
               sx={stylings.textField}
               InputProps={{ style: stylings.inputTextField }}
               InputLabelProps={{ style: stylings.inputTextField }}

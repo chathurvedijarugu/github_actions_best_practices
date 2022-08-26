@@ -109,6 +109,7 @@ const AddAddress = (props: addAddressProps) => {
                 <TextField
                   data-testid="textfield1"
                   onChange={onHouseDetailsChange}
+                  inputProps={{ maxLength: 35 }}
                   variant="standard"
                   margin="normal"
                   fullWidth
@@ -132,6 +133,7 @@ const AddAddress = (props: addAddressProps) => {
                   margin="normal"
                   fullWidth
                   sx={stylings.margin}
+                  inputProps={{ maxLength: 35 }}
                   InputProps={{
                     style: stylings.inputTextField,
                     disableUnderline: true,
@@ -157,7 +159,6 @@ const AddAddress = (props: addAddressProps) => {
                     disableUnderline: true,
                   }}
                   InputLabelProps={{ style: stylings.inputTextField }}
-                  inputProps={{ maxLength: 8 }}
                 />
               </Box>
             </Grid>
@@ -170,6 +171,7 @@ const AddAddress = (props: addAddressProps) => {
                   onChange={onCityChange}
                   variant="standard"
                   margin="normal"
+                  inputProps={{ maxLength: 35 }}
                   fullWidth
                   sx={stylings.margin}
                   InputProps={{
