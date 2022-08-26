@@ -322,9 +322,9 @@ export const testimonials = [
       'Very friendly and professional. Loved the follow-up and progress calls',
   },
 ]
-export const CARD_NUMER='1244 1234 1345 3255'
-export const CARD_HOLDER_NAME='Yessie'
-export const EXPIRY_DATE='02/25'
+export const CARD_NUMER = '1244 1234 1345 3255'
+export const CARD_HOLDER_NAME = 'Yessie'
+export const EXPIRY_DATE = '02/25'
 export const testList1 = [
   {
     logo: bodyTest,
@@ -390,4 +390,10 @@ export const testList2 = [
     clickable: false,
   },
 ]
-export const UserContext=React.createContext<any>('');
+export const APPOINTMENT_CARD = {
+  dateTime: 'Wed 23, 7.00 am to 8.00 am',
+  labName: 'Los Altos Center Lab',
+  patientName: 'Patrick Smith',
+  testName: 'Covid RTPCR',
+}
+export const UserContext = React.createContext<any>('')
