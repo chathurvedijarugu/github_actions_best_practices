@@ -18,7 +18,7 @@ const buttonText = {
   fontWeight: theme.typography.body1.fontWeight,
   fontSize: theme.typography.body1.fontSize,
   lineHeight: "18px",
-  borderRadius: "4px",
+  borderRadius: "8px",
   width: "222px",
   height: "42px",
 };
@@ -27,7 +27,7 @@ const previewButtonText = {
   fontWeight: theme.typography.body1.fontWeight,
   fontSize: theme.typography.body1.fontSize,
   lineHeight: "18px",
-  borderRadius: "4px",
+  borderRadius: "8px",
   width: "222px",
   height: "42px",
   "&:hover": {
