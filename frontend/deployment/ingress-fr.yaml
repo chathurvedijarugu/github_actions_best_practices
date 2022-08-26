@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: bc51-ingress-fr
+  name: bc58-ingress-fr
   labels:
-    name:  bc51-ingress
+    name:  bc58-ingress
   annotations:
     ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -16,6 +16,6 @@ spec:
         path: /
         backend:
           service:
-            name: bc51-fronted
+            name: bc58-fronted
             port:
               number: 80
