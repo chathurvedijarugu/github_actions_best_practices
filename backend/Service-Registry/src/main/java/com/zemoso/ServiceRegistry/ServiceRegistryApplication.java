@@ -1,3 +1,4 @@
+
 package com.zemoso.ServiceRegistry;
 
 import org.springframework.boot.SpringApplication;
