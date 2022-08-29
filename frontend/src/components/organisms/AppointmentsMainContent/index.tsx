@@ -1,16 +1,15 @@
 import { Grid, Typography } from '@mui/material'
-import React, { useContext, useEffect, useState } from 'react'
-import { getReports } from '../../../services/services'
+import React from 'react'
 import theme from '../../../theme'
-import AppointmentCard from '../../molecules/AppointmentCard'
+import AppointmentCard, {
+  AppointmentCardProps,
+} from '../../molecules/AppointmentCard'
 import COVID from '../../../assets/icons/covid.svg'
 import BODY from '../../../assets/icons/body.svg'
-import { AppointmentCardProps } from '../../molecules/AppointmentCard'
 import {
   REPORTS_LABEL,
   UPCOMING_TESTS,
   RECENT_TESTS,
-  UserContext,
 } from '../../utils/Constant'
 export type AppointmentsPageProps = {
   upcomingItems: AppointmentCardProps[]
@@ -18,14 +17,6 @@ export type AppointmentsPageProps = {
 }
 
 const ApponitmentsMainContent: React.FC = () => {
-  const [userId] = useContext(UserContext)
-  const [upcomingAppointments, setUpcomingAppointments] = useState([])
-  useEffect(() => {
-    getReports(userId).then((res) => {
-      setUpcomingAppointments(res)
-    })
-  }, [])
-
   const testDetails: AppointmentsPageProps = {
     upcomingItems: [
       {
@@ -55,19 +46,15 @@ const ApponitmentsMainContent: React.FC = () => {
       height: '100%',
     },
     label: {
-      fontSize: '20px',
-      lineHeight: '24px',
+      fontSize: '1.25rem',
+      lineHeight: '1.5rem',
     },
   }
   return (
-    <Grid container rowGap={2} sx={style.root}>
+    <Grid container rowGap={'2px'} sx={style.root}>
       <Grid item container rowGap={8}>
         <Grid item>
-          <Typography
-            data-testid="heading"
-            variant="h1"
-            color={theme.palette.gammaMedium.main}
-          >
+          <Typography variant="h1" color={theme.palette.gammaMedium.main}>
             {REPORTS_LABEL}
           </Typography>
         </Grid>
@@ -78,7 +65,6 @@ const ApponitmentsMainContent: React.FC = () => {
               variant="subtitle1"
               sx={style.label}
               color={theme.palette.gammaMedium.main}
-              data-testid="upcoming"
             >
               {UPCOMING_TESTS}
             </Typography>

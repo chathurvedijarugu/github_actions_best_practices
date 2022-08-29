@@ -25,6 +25,7 @@ const stylings = {
   text2: {
     color: theme.palette.gammaMedium.main,
     paddingTop: '0.5rem',
+    fontWeight:"400"
   },
   text3: {
     color: theme.palette.gammaLow.main,
