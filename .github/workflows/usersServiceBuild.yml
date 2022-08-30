@@ -33,14 +33,11 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-          name: Generate Jacoco report
-          run: mvn clean jacoco:prepare-agent install jacoco:report
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.USERSSERVICE_TOKEN }}
-        # run: mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Pcoverage -Dsonar.projectKey=bootcamp-be-01-user-service
-        run: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bootcamp-be-58-usersService
+        run: mvn -B -X org.jacoco:jacoco-maven-plugin:prepare-agent verify org.jacoco:jacoco-maven-plugin:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bootcamp-be-58-usersService
   OnMerge:
     if: startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == true
     runs-on: ubuntu-20.04 # change according to your directory name
@@ -64,10 +61,8 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      # - name: Generate Jacoco report
-      #   run: mvn clean jacoco:prepare-agent install jacoco:report
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.USERSSERVICE_TOKEN }}
-        run: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bootcamp-be-58-usersService
+        run: mvn -B -X org.jacoco:jacoco-maven-plugin:prepare-agent verify org.jacoco:jacoco-maven-plugin:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bootcamp-be-58-usersService -Dsonar.branch.name=master
