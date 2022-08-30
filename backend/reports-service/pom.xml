@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.zemoso</groupId>
-	<artifactId>appointments-service</artifactId>
+	<artifactId>reports-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>appointments-service</name>
 	<description>appointments Service for Zemoso Diagnostics</description>
