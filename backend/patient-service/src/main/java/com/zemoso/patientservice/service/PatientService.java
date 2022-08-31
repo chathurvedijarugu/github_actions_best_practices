@@ -7,6 +7,6 @@ import java.util.List;
 public interface PatientService {
     List<PatientDto> findAll();
     PatientDto findById(int pId);
-    void save(Patient patient);
-    PatientDto update(int id, Patient patient);
+    String save(PatientDto patient);
+    PatientDto update(int id, PatientDto patient);
 }

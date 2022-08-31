@@ -1,9 +1,13 @@
 package com.zemoso.patientservice.entity;
+import com.zemoso.patientservice.VO.User;
 import lombok.*;
 import javax.persistence.*;
 
 @Entity
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "patients", schema = "public")
 public class Patient {
     @Id
@@ -12,7 +16,7 @@ public class Patient {
     private int id;
 
     @Column(name="relation")
-    private String releation;
+    private String relation;
 
     @Column(name = "age")
     private String age;
@@ -23,66 +27,15 @@ public class Patient {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name="users_id")
-    private int userID;
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    private User userID;
 
-    public Patient() {
-    }
-
-    public Patient(int id, String releation, String age, String name, String gender, int userID) {
-        this.id = id;
-        this.releation = releation;
-        this.age = age;
-        this.name = name;
-        this.gender = gender;
-        this.userID = userID;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getReleation() {
-        return releation;
-    }
-
-    public void setReleation(String releation) {
-        this.releation = releation;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getUserID() {
+    public User getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(User userID) {
         this.userID = userID;
     }
 }

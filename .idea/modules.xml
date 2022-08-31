@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bootcamp_58_Diagnostic.iml" filepath="$PROJECT_DIR$/.idea/Bootcamp_58_Diagnostic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/Service-Registry/Service-Registry.iml" filepath="$PROJECT_DIR$/backend/Service-Registry/Service-Registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/backend/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/appointments-service/appointments-service.iml" filepath="$PROJECT_DIR$/backend/appointments-service/appointments-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/labs-service/labs-service.iml" filepath="$PROJECT_DIR$/backend/labs-service/labs-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/patient-service/patient-service.iml" filepath="$PROJECT_DIR$/backend/patient-service/patient-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/reports-service/reports-service.iml" filepath="$PROJECT_DIR$/backend/reports-service/reports-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/users-service/users-service.iml" filepath="$PROJECT_DIR$/backend/users-service/users-service.iml" />
+    </modules>
+  </component>
+</project>
