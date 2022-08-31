@@ -1,26 +1,40 @@
 package com.zemoso.patientservice.entity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import com.zemoso.patientservice.VO.User;
+import com.zemoso.patientservice.dto.PatientDto;
+import com.zemoso.patientservice.vo.User;
 import org.junit.jupiter.api.Test;
-public class PatientTest {
-    @Test
-    void patientConstructorTest(){
-        Patient patient = new Patient();
-        User user = new User("1","Sohail","sks@gmail.com");
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-        patient.setUserID(user);
-        patient.setRelation("self");
-        patient.setAge("12");
-        patient.setName("sohail");
-        patient.setId(1);
-        patient.setGender("M");
-        assertEquals(1,patient.getId());
-        assertEquals("self",patient.getRelation());
-        assertEquals("sohail",patient.getName());
-        assertEquals("12",patient.getAge());
-        assertEquals("M",patient.getGender());
-        assertNotEquals("F",patient.getGender());
+@SpringBootTest
+class PatientTest {
+    @Autowired
+    private ModelMapper modelMapper;
+    @Test
+    void testMapperToDto(){
+        User user = new User("1","Sohail","sks@gmail.com");
+        Patient patient = new Patient(1,"self","19","sks","M",user);
+        PatientDto patientDto =modelMapper.map(patient,PatientDto.class);
+        assertEquals(patient.getUserID(),patientDto.getUserID());
+        assertEquals(patient.getAge(),patientDto.getAge());
+        assertEquals(patient.getId(),patientDto.getId());
+        assertEquals(patient.getName(),patientDto.getName());
+        assertEquals(patient.getRelation(),patientDto.getRelation());
+        assertEquals(patient.getGender(),patientDto.getGender());
+    }
+    @Test
+    void testMapperToEntity(){
+        User user = new User("1","Sohail","sks@gmail.com");
+        PatientDto patientDto = new PatientDto(1,"self","19","sks","M",user);
+        Patient patient =modelMapper.map(patientDto,Patient.class);
+        assertEquals(patientDto.getUserID(),patient.getUserID());
+        assertEquals(patientDto.getAge(),patient.getAge());
+        assertEquals(patientDto.getId(),patient.getId());
+        assertEquals(patientDto.getName(),patient.getName());
+        assertEquals(patientDto.getRelation(),patient.getRelation());
+        assertEquals(patientDto.getGender(),patient.getGender());
+
     }
 }

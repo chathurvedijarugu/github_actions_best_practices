@@ -1,5 +1,5 @@
 package com.zemoso.patientservice.entity;
-import com.zemoso.patientservice.VO.User;
+import com.zemoso.patientservice.vo.User;
 import lombok.*;
 import javax.persistence.*;
 

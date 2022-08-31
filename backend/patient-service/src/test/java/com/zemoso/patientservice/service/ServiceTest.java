@@ -1,34 +1,30 @@
 package com.zemoso.patientservice.service;
 
-import com.zemoso.patientservice.VO.User;
 import com.zemoso.patientservice.dto.PatientDto;
+import com.zemoso.patientservice.vo.User;
 import com.zemoso.patientservice.entity.Patient;
 import com.zemoso.patientservice.exception.PatientNotFoundException;
-import com.zemoso.patientservice.exception.ResourceNotFound;
 import com.zemoso.patientservice.repository.PatientRepository;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class ServiceTest {
+class ServiceTest {
     @Autowired
     private PatientService patientService;
     @MockBean
     private PatientRepository patientRepository;
-
+@Autowired
     private ModelMapper modelMapper;
     @Test
     void getAllPatients(){
@@ -45,6 +41,7 @@ public class ServiceTest {
         Mockito.when(patientRepository.findAll()).thenReturn(Arrays.asList(patient));
         System.out.println(patientRepository.findAll());
         assertEquals(1,patientService.findAll().size());
+
     }
 
     @Test
@@ -52,8 +49,7 @@ public class ServiceTest {
         User user = new User("1","Sohail","sks@gmail.com");
         Patient patient1 = new Patient(1,"self","12","sohail","M",user);
         when(patientRepository.findById(1)).thenReturn(Optional.of(patient1));
-        System.out.println(patientRepository.findById(1).get().getId());
-        assertEquals(1,patientRepository.findById(1).get().getId());
+        assertEquals(1,patientService.findById(1).getId());
     }
     @Test
     void patientException(){
@@ -61,6 +57,33 @@ public class ServiceTest {
             patientService.findById(5);
         });
         String expectedMsg="No Patient Found";
+        String actualMsg = exception.getMessage();
+        assertEquals(expectedMsg,actualMsg);
+    }
+    @Test
+    void testSavePatient(){
+        User user = new User("1","Sohail","sks@gmail.com");
+        PatientDto patient =modelMapper.map( new Patient(1,"self","12","sohail","M",user),PatientDto.class);
+        Mockito.when(patientService.save(patient)).thenReturn(patient);
+        assertEquals(patient.getId(),patientService.save(patient).getId());
+    }
+    @Test
+    void testUpdatePatient(){
+        User user = new User("2","Sohail","sks@gmail.com");
+        Patient patient =new Patient(2,"self","12","sohail","M",user);
+        when(patientRepository.findById(2)).thenReturn(Optional.of(patient));
+        PatientDto patient2 =modelMapper.map( new Patient(2,"self","19","sohail","M",user),PatientDto.class);
+        when(patientService.update(2,patient2)).thenReturn(patient2);
+        assertEquals("19",patientRepository.findById(2).get().getAge());
+    }
+    @Test
+    void testNoPatientUpdate(){
+        User user = new User("5","Sohail","sks@gmail.com");
+        PatientDto patient =modelMapper.map(new Patient(9,"self","12","sohail","M",user),PatientDto.class);
+        Exception exception =assertThrows(PatientNotFoundException.class,()->{
+            patientService.update(9,patient);
+        });
+        String expectedMsg="Did not find patient id - 9";
         String actualMsg = exception.getMessage();
         assertEquals(expectedMsg,actualMsg);
     }

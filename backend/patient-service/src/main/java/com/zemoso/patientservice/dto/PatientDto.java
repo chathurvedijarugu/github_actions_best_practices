@@ -1,7 +1,6 @@
 package com.zemoso.patientservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.zemoso.patientservice.VO.User;
+import com.zemoso.patientservice.vo.User;
 import lombok.*;
 
 @Getter

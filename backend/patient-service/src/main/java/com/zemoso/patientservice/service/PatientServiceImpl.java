@@ -4,10 +4,10 @@ import com.zemoso.patientservice.dto.PatientDto;
 import com.zemoso.patientservice.entity.Patient;
 import com.zemoso.patientservice.exception.PatientNotFoundException;
 import com.zemoso.patientservice.repository.PatientRepository;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.zemoso.labs.mapper.PatientsMapper;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ import java.util.Optional;
 public class PatientServiceImpl implements PatientService {
     @Autowired
      PatientRepository patientRepository;
-
-     private ModelMapper modelMapper;
+    @Autowired
+    ModelMapper modelMapper;
 
     public PatientServiceImpl(PatientRepository patientRepository,  ModelMapper modelMapper) {
         this.patientRepository = patientRepository;
@@ -46,9 +46,9 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public String save(PatientDto patient) {
+    public PatientDto save(PatientDto patient) {
         patientRepository.save(modelMapper.map(patient,Patient.class));
-        return "patient details saved";
+        return patient;
     }
 
     @Override
