@@ -18,7 +18,7 @@ public class ReportServiceImpl implements ReportService{
     ReportModelMapper reportMapper;
     @Override
     public List<ReportDto> getAllReports(String userId) {
-        return getReportsDtoList(reportRepository.getReportsByUserId(userId));
+        return getReportsDtoList(reportRepository.findAllByUserId(userId));
     }
 
     @Override

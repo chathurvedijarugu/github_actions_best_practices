@@ -31,7 +31,7 @@ public class ReportsServiceImplTest {
     void getReportsByUserId()
     {
         Report report=new Report();
-        when(reportRepository.getReportsByUserId("temp")).thenReturn(Arrays.asList(report));
+        when(reportRepository.findAllByUserId("temp")).thenReturn(Arrays.asList(report));
         assertEquals(1,reportService.getAllReports("temp").size());
     }
 }
