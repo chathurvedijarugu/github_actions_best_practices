@@ -21,6 +21,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { EMAIL, FIRST_NAME, LAST_NAME } from '../../utils/Constant'
 import Logo from '../../molecules/logo'
 import logo from '../../../assets/icons/logo.svg'
+import CompanyLogo from '../../../assets/icons/companyLogo.svg'
+
 export const TextField = styled(CustomTextField)({
   '& input': {
     fontSize: '14px',
@@ -69,7 +71,7 @@ const Login = ({ buttonClick }: LoginPageProps) => {
       justifyContent="center"
     >
       <Grid item xs={12} display="flex" justifyContent="center">
-        <Logo img={logo} text="Zemoso Diagnostics" />
+      <img src={CompanyLogo} alt="companyLogo" />
       </Grid>
       <Grid item xs={12} justifyContent="center">
         <Typography

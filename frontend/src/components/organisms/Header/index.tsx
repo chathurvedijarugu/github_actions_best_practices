@@ -106,7 +106,7 @@ const Header: React.FC = (props) => {
                 isActive ? classes.Activelink : classes.link
               }
             >
-              <Typography variant="caption1">{HOME_LABEL}</Typography>
+              <Typography variant="caption2">{HOME_LABEL}</Typography>
             </NavLink>
           </Grid>
           <Grid item>
@@ -116,7 +116,7 @@ const Header: React.FC = (props) => {
                 isActive ? classes.Activelink : classes.link
               }
             >
-              <Typography variant="caption1">{REPORTS_LABEL}</Typography>
+              <Typography variant="caption2">{REPORTS_LABEL}</Typography>
             </NavLink>
           </Grid>
           <Grid item>
@@ -126,7 +126,7 @@ const Header: React.FC = (props) => {
                 isActive ? classes.Activelink : classes.link
               }
             >
-              <Typography variant="caption1">{MY_APPOINTMENT_LABEL}</Typography>
+              <Typography variant="caption2">{MY_APPOINTMENT_LABEL}</Typography>
             </NavLink>
           </Grid>
         </Grid>

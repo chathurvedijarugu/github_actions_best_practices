@@ -42,6 +42,7 @@ const TestReport = ({
       container
       boxShadow="0px 0px 12px 0px rgba(233, 232, 237, 0.53)"
       width="100%"
+      borderRadius="8px"
     >
       <Grid item margin={3}>
         <img src={isCompleted ? PDFActive : PDF} />
