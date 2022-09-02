@@ -20,7 +20,6 @@ const Banner = ({ onClick, buttonText, caption, headline }: BannerProps) => {
       justifyContent={'space-between'}
       bgcolor={theme.palette.primary['800']}
       borderRadius={4}
-      // display="flex"
     >
       <Grid item margin={1} padding={8}>
         <Grid
@@ -42,7 +41,11 @@ const Banner = ({ onClick, buttonText, caption, headline }: BannerProps) => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button variant="contained" onClick={onClick ?? (() => {})}>
+            <Button
+              variant="contained"
+              style={{ backgroundColor: 'white' }}
+              onClick={onClick ?? (() => {})}
+            >
               <Typography>{buttonText}</Typography>
             </Button>
           </Grid>

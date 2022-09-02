@@ -9,17 +9,15 @@ const CustomizedButton = styled(MuiButton)(() => ({
   "&:focusVisible": {
     boxShadow: "none",
   },
-  textTransform: "none",
-  "&:hover": {
-    backgroundColor: "none",
-  },
+  textTransform: "none"
 }));
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { children } = props;
   return (
     <>
-      <CustomizedButton disableRipple {...props}>
+      <CustomizedButton 
+      disableRipple {...props}>
         {children}
       </CustomizedButton>
     </>

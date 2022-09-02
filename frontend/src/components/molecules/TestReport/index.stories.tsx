@@ -7,7 +7,7 @@ export default {
   component: TestReport,
 } as ComponentMeta<typeof TestReport>
 const Template: ComponentStory<typeof TestReport> = (args) => (
-  <Box width="580px">
+  <Box width="580px" >
     <TestReport {...args} />
   </Box>
 )
