@@ -32,14 +32,12 @@ public class PatientController {
 
     @PostMapping("/")
     @ResponseBody
-
     public PatientDto savePatient(@RequestBody PatientDto patient){
          return patientService.save(patient);
     }
 
     @PutMapping("/{patientId}")
     @ResponseBody
-
     public PatientDto updatePatient(@PathVariable int patientId,@RequestBody PatientDto patient){
 
         return patientService.update(patientId,patient);
