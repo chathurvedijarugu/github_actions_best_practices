@@ -24,6 +24,13 @@
 		<sonar.coverage.jacoco.xmlReportPaths>
 			./target/site/jacoco/jacoco.xml
 		</sonar.coverage.jacoco.xmlReportPaths>
+
+		<sonar.exclusions>
+			**/com/zemoso/reportsservice/dto/**,
+			**/com/zemoso/reportsservice/entity/**,
+			**/com/zemoso/reportsservice/VO/**,
+
+		</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
