@@ -12,6 +12,8 @@ on:
 jobs:
   
  sonar-appointment-service:
+    name: appointment
+    runs-on: bc-58
     steps:
       - uses: actions/checkout@v2
         with:
