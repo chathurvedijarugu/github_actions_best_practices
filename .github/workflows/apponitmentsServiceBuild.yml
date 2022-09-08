@@ -15,8 +15,8 @@ jobs:
     name: appointment
     runs-on: bc-58
     steps:
-     - name: permision
-       run: sudo chmod 777 _work  -R
+      - name: permision
+        run: sudo chmod 777 _work  -R
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
