@@ -33,6 +33,7 @@ spec:
             value: zgyqzFsgKoIAnjXJSHpZrcGxOX0U7pbA
       imagePullSecrets: 
         - name: mysecret
+        # nkdwqf wqfkqFQEJF JFJEWKFWEJ
 
 ---
 apiVersion: v1
