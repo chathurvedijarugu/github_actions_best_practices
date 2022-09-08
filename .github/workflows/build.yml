@@ -1,33 +1,82 @@
-# name: Build
-# defaults:
-#   run:
-#     working-directory: frontend
-# on:
-#   push:
-#     branches:
-#       - testing-cicd
-#     paths:
-#       - "frontend/**"
+name: Build
+defaults:
+  run:
+    working-directory: frontend
+on:
+  push:
+    branches:
+      - testing-cicd
+    paths:
+      - "frontend/**"
 
-# jobs:
-#   sonarcloud:
-#     name: SonarCloud
-#     runs-on: bc-58
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 16
-#       - name: Install Dependencies
-#         run: npm install --legacy-peer-deps
-#       - name: Run Tests
-#         run: npm run test
-#       - name: SonarCloud Scan.
-#         with:
-#           projectBaseDir: frontend
-#         uses: SonarSource/sonarcloud-github-action@master
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: bc-58
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+      - name: Run Tests
+        run: npm run test
+      - name: SonarCloud Scan.
+        with:
+          projectBaseDir: frontend
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  frontend-dockerbuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v2
+
+      - name: building image for frontend
+        run: docker build  -t ${{ secrets.PACKAGE_URL }}/${{ secrets.REGISTRY_USERNAME }}/bc49frontendserver:${{ github.sha }} .
+      - name: login to github packages
+        run: docker login ${{ env.GITHUB_PACKAGE_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_TOKEN }}
+
+      - name: pushing image
+        run: docker push ${{ secrets.PACKAGE_URL }}/${{ secrets.REGISTRY_USERNAME }}/bc49frontendserver:${{ github.sha }}
+  
+
+  deploy:
+    name: deploy to eks
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: frontend/deployment
+    needs: 
+    - frontend-dockerbuild
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Connect to EKS cluster 
+        run: aws eks --region us-east-2 update-kubeconfig --name himank_bc49
+      - name: Deploy
+        uses: Consensys/kubernetes-action@master
+      - name: deploying to cluster
+        run: |
+          kubectl set image deployment/bc49-frontend bc49-frontend=${{ secrets.PACKAGE_URL }}/${{ secrets.REGISTRY_USERNAME }}/bc49frontendserver:${{ github.sha }}
+
+
