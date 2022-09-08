@@ -14,7 +14,7 @@ jobs:
 
   sonar-appointment-service:
     name: appointment
-    runs-on: ubuntu-latest
+    runs-on: bc-58
     timeout-minutes: 2
     steps:
       - name: permision
@@ -44,7 +44,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
   
   docker-appointment-service:
-    runs-on: ubuntu-latest
+    runs-on: bc-58
     timeout-minutes: 30
     steps:
       - name: checkout the repo
