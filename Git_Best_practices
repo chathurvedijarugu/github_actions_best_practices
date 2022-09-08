@@ -1,0 +1,33 @@
+# Github_Actions_Best_Practices
+
+For Devs and DevOps: 
+Test the code in the local proper and push to github, so that the number of actions can be reduced.  (to test ci/cd in local we can use act function. 
+Installation steps for act in ubuntu 
+           https://lindevs.com/install-act-on-ubuntu 
+           https://github.com/nektos/act 
+ $ act -n  command to test the CICD in local
+
+
+Include timeout-minutes: 30 (based on requirement we can mention the time) in workflow to terminate the job if it is  failing and and taking more time to terminate 
+
+In workflow file   runs-on :ubuntu need to be replaced by runs-ons: self-hosted or label of the runner
+
+In workflow section have different .yaml files for each service and use paths in the workflow so that only appropriate job gets  triggered ( this avoids unnecessarily building other jobs in which code has not been changed)
+
+eg:
+There are two services: frontend and backend. Whenever the code is changed in frontend only that job gets triggered and whenever the code is changed in the backend for a specific service eg .the appointment service only appointment job gets triggered. 
+
+
+DevOps and Devs can use the same workflow in one file as different jobs for testing, build and deployment for each service.(should not create separate files)
+   
+
+
+
+Steps to create and setup runner 
+
+In Github, creating runner option will be available-under settings- actions- Runner need to be setup 
+In the  runner machine we need to give sudo permissions to the _work directory.
+To create a label to runner  in github under-actions-runners-select the runner-settings and add the label
+To select  specific runners in the workflow use labels in runs-on: line eg runs-on: bc-58
+In the runner machine  we have to configure  the dependencies if the commands are not working in the workflow.
+
