@@ -1,15 +1,11 @@
 name: Build
-defaults:
-  run:
-    working-directory: frontend
 on:
   push:
-    paths:
-      - "frontend/**"
     branches:
       - testing-cicd
-  paths:
-  - "frontend/**"
+    paths:
+      - "frontend/**"
+
 jobs:
   sonarcloud:
     name: SonarCloud

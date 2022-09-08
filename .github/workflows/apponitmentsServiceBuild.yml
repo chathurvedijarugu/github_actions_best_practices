@@ -4,10 +4,12 @@ defaults:
     working-directory: ./backend/appointments-service
 on:
   push:
-    paths:
-     - "backend/appointments-service/**"
+  
     branches:
       - testing-cicd
+    paths:
+     - "backend/appointments-service/**"
+
 
 
 
