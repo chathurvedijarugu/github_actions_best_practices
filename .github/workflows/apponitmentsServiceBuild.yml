@@ -4,10 +4,11 @@ defaults:
     working-directory: ./backend/appointments-service
 on:
   push:
+    paths:
+     - "backend/appointments-service/**"
     branches:
       - testing-cicd
-paths:
-  - "backend/appointments-service/**"
+
 
 
 jobs:
@@ -15,7 +16,7 @@ jobs:
  sonar-appointment-service:
     if: startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false
     name: appointment
-    runs-on: self-hosted
+    runs-on: bc-58
     defaults:
       run:
         working-directory: "./backend/appointments-service"

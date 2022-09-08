@@ -4,14 +4,16 @@ defaults:
     working-directory: frontend
 on:
   push:
+    paths:
+      - "frontend/**"
     branches:
       - testing-cicd
-paths:
+  paths:
   - "frontend/**"
 jobs:
   sonarcloud:
     name: SonarCloud
-    runs-on: self-hosted
+    runs-on: bc-58
     steps:
       - uses: actions/checkout@v2
         with:
