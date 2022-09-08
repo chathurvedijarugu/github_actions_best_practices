@@ -4,15 +4,11 @@ defaults:
     working-directory: ./backend/appointments-service
 on:
   push:
-  
+
     branches:
       - testing-cicd
     paths:
      - "backend/appointments-service/**"
-
-
-
-
 jobs:
   
  sonar-appointment-service:
