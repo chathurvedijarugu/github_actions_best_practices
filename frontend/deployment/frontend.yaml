@@ -34,7 +34,7 @@ spec:
       imagePullSecrets: 
         - name: mysecret
         # nkdwqf wqfkqFQEJF JFJEWKFWEJ
-
+#jfhrjg hjwekhfwef
 ---
 apiVersion: v1
 kind: Service
