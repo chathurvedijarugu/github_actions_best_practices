@@ -1,7 +1,7 @@
 name: SonarCloud Backend
 defaults:
   run:
-    working-directory: ./backend/appointments-service
+    working-directory: backend/appointments-service
 on:
   push:
 
@@ -12,12 +12,6 @@ on:
 jobs:
   
  sonar-appointment-service:
-    if: startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false
-    name: appointment
-    runs-on: bc-58
-    defaults:
-      run:
-        working-directory: "./backend/appointments-service"
     steps:
       - uses: actions/checkout@v2
         with:
